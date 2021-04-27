@@ -1,0 +1,56 @@
+{
+  "$schema": "https://qooxdoo.org/schema/Manifest-1-0-0.json",
+  "info": {
+    "name": "ville.Fluent",
+    "summary": "a theme for Qooxdoo desktop applications inspired by Microsofts Fluent UI",
+    "description": "A theme inspired by Microsofts Fluent UI",
+    "homepage": "http://github.com/sqville/ville.Fluent",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Chris Eskew",
+        "email": "chris.eskew@sqville.com"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  "provides": {
+    "namespace": "ville.theme.Fluent",
+    "encoding": "utf-8",
+    "class": "source/class",
+    "resource": "source/resource",
+    "translation": "source/translation",
+    "application": {
+      "class": "widgetbrowser.Application",
+      "theme": "ville.theme.Fluent",
+      "name": "widgetbrowser",
+      "title": "WidgetBrowser",
+      "include": [
+        "qx.theme.Simple",
+        "qx.theme.Classic",
+        "widgetbrowser.pages.Tree",
+        "widgetbrowser.pages.List",
+        "widgetbrowser.pages.Table",
+        "widgetbrowser.pages.Form",
+        "widgetbrowser.pages.ToolBar",
+        "widgetbrowser.pages.Window",
+        "widgetbrowser.pages.Tab",
+        "widgetbrowser.pages.Control",
+        "widgetbrowser.pages.Embed",
+        "widgetbrowser.pages.EmbedFrame",
+        "widgetbrowser.pages.Basic",
+        "widgetbrowser.pages.Misc",
+        "widgetbrowser.pages.Extras"
+      ],
+      "exclude": [
+        "qx.theme.Modern"
+      ]
+    }
+  },
+  "requires": {
+    "@qooxdoo/compiler": "^1.0.0",
+    "@qooxdoo/framework": "^6.0.0",
+    "qooxdoo/qxl.formdemo": "^1.0.2",
+    "qooxdoo/qxl.versionlabel": "^1.0.3"
+  }
+}
