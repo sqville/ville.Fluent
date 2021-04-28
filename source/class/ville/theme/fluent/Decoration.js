@@ -354,6 +354,22 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       }
     },
 
+     /*
+    ---------------------------------------------------------------------------
+      PRIMARY BUTTON
+    ---------------------------------------------------------------------------
+    */
+    "primary-button" :
+    {
+      include : "button-box",
+      
+      style :
+      {
+        color : "themePrimary",
+        backgroundColor : "themePrimary"
+      }
+    },
+
 
     /*
     ---------------------------------------------------------------------------

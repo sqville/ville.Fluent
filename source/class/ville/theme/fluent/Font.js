@@ -29,13 +29,14 @@ qx.Theme.define("ville.theme.fluent.Font",
       family: ["Segoe UI", "Segoe UI Web (West European)", "Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", "sans-serif"],
       color : "text",
       weight : "400",
+      lineHeight : 1,
       size : 14
     },
 
     "bold" :
     {
       include : "default",
-      weight : "700"
+      weight : "600"
     },
 
     "datechooser" :
