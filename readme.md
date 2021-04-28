@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/sqville/ville.Fluent">
-    <img src="ville_Fluent.png" alt="Logo" width="277" height="138">
+    <img src="ville_Fluent.png" alt="Logo" width="289" height="119">
   </a>
 
   <h3 align="center"></h3>
