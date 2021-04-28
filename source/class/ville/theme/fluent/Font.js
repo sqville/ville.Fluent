@@ -28,7 +28,7 @@ qx.Theme.define("ville.theme.fluent.Font",
     {
       family: ["Segoe UI", "Segoe UI Web (West European)", "Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", "sans-serif"],
       color : "text",
-      weight : "600",
+      weight : "400",
       size : 14
     },
 

@@ -1901,9 +1901,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         return {
           decorator : decorator,
-          padding : [3, 8],
+          padding : [0, 16],
           cursor: states.disabled ? undefined : "pointer",
-          minWidth: 5,
+          minWidth: 80,
           minHeight: 5,
           textColor : textcolor,
           font : "button"
@@ -1918,7 +1918,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          textColor : states.disabled ? "text-disabled" :  "button-text"
+          textColor : states.disabled ? "text-disabled" :  "button-text",
+          font : "button"
         };
       }
     },
@@ -1932,8 +1933,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           center : true,
-          padding : [10, 18],
-          gap : 8
+          padding : [0, 16],
+          gap : 8,
+          height : 32
         };
       }
     },

@@ -307,10 +307,10 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        radius : 3,
-        width : 0,
+        radius : 2,
+        width : 1,
         color : "button-border",
-        backgroundColor : "button-box-bright"
+        backgroundColor : "white"
       }
     },
 
