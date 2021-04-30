@@ -361,12 +361,10 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     */
     "primary-button" :
     {
-      include : "button-box",
-      
       style :
       {
-        color : "themePrimary",
-        backgroundColor : "themePrimary"
+        radius : 2,
+        width : 0
       }
     },
 
@@ -524,9 +522,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
       style :
       {
-        radius : [0, 3, 3, 0],
-        width: 1,
-        color : [ "border-light-shadow", "border-light", "border-light", "border-light" ]
+        radius : [0, 2, 2, 0],
+        width : 0
       }
     },
 
@@ -536,8 +533,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
       style :
       {
-        radius : [0, 3, 3, 0],
-        width: 1
+        radius : [0, 2, 2, 0],
+        width: 0
       }
     },
 
@@ -547,8 +544,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
       style :
       {
-        radius : [0, 3, 3, 0],
-        width: 1
+        radius : [0, 2, 2, 0],
+        width: 0
       }
     },
 
@@ -558,9 +555,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
       style :
       {
-        radius : [0, 3, 3, 0],
-        width: 1,
-        color: "textfield-selected"
+        radius : [0, 2, 2, 0],
+        width: 0
       }
     },
 
@@ -1298,8 +1294,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         width : 1,
-        color : "border-light",
-        radius : 3
+        color : "neutralPrimary",
+        radius : 2
       }
     },
 
@@ -1319,7 +1315,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       include : "inset",
       style :
       {
-        color : "textfield-selected"
+        color : "themePrimary",
+        width : 2
       }
     },
 
@@ -1347,7 +1344,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       include : "inset",
       style :
       {
-        color : "#dbb1b1"
+        width : 0
       }
     },
 
@@ -1367,7 +1364,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         width : [1,0,1,1],
-        radius : [3,0,0,3]
+        radius : [2,0,0,2]
       }
     },
 

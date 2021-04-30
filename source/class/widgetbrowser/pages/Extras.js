@@ -66,40 +66,6 @@ qx.Class.define("widgetbrowser.pages.Extras",
       widgets.push(terbutton);
       this.__hbox.add(terbutton);
 
-      //Tabs
-      var tabTop = this.__getTabView();
-      tabTop.setBarPosition("top");
-      this.__grid.add(tabTop, {row:0, column:0});
-      widgets.push(tabTop);
-
-      var tabBottom = this.__getTabView();
-      tabBottom.setBarPosition("bottom");
-      this.__grid.add(tabBottom, {row:0, column:1});
-      widgets.push(tabBottom);
-
-      var tabLeft = this.__getTabView();
-      tabLeft.setBarPosition("left");
-      this.__grid.add(tabLeft, {row:1, column:0});
-      widgets.push(tabLeft);
-
-      var tabRight = this.__getTabView();
-      tabRight.setBarPosition("right");
-      this.__grid.add(tabRight, {row:1, column:1});
-      widgets.push(tabRight);
-
-      //Groupbox
-      var gb1 = new qx.ui.groupbox.GroupBox("Blue GroupBox").set({appearance:"groupbox-blue-top"});
-      this.__grid.add(gb1, {row:2, column:0});
-      widgets.push(gb1);
-
-      var gb2 = new qx.ui.groupbox.GroupBox("Orange GroupBox").set({appearance:"groupbox-orange-top"});
-      this.__grid.add(gb2, {row:2, column:1});
-      widgets.push(gb2);
-
-      var gb3 = new qx.ui.groupbox.GroupBox("Green GroupBox").set({appearance:"groupbox-green-top"});
-      this.__grid.add(gb3, {row:3, column:0});
-      widgets.push(gb3);
-
     },
 
     toggleOverflow : function(tabView, enable) {
@@ -112,35 +78,6 @@ qx.Class.define("widgetbrowser.pages.Extras",
         this.addTabPages(tabView);
       }
       this.addTabPages(tabView);
-    },
-
-
-    __getTabView: function() {
-      var tabView = new qx.ui.tabview.TabView().set({appearance: "tabviewspacebar"});
-      tabView.toggleOverflow = qx.lang.Function.bind(this.toggleOverflow, this);
-      tabView.setWidth(400);
-      tabView.setHeight(200);
-      this.addTabPages(tabView);
-
-      return tabView;
-    },
-
-
-    addTabPages : function(tabView) {
-      var page1 = new qx.ui.tabview.Page("Layout", "icon/16/apps/utilities-terminal.png").set({showCloseButton: true, appearance: "tabviewspacebar-page"});
-      page1.setLayout(new qx.ui.layout.VBox());
-      page1.add(new qx.ui.basic.Label("Layout-Settings…"));
-      tabView.add(page1);
-
-      var page2 = new qx.ui.tabview.Page("Notes", "icon/16/apps/utilities-notes.png").set({appearance: "tabviewspacebar-page"});
-      page2.setLayout(new qx.ui.layout.VBox());
-      page2.add(new qx.ui.basic.Label("Notes…"));
-      tabView.add(page2);
-
-      var page3 = new qx.ui.tabview.Page("Calculator", "icon/16/apps/utilities-calculator.png").set({appearance: "tabviewspacebar-page"});
-      page3.setLayout(new qx.ui.layout.VBox());
-      page3.add(new qx.ui.basic.Label("Calculator…"));
-      tabView.add(page3);
     }
   }
 });

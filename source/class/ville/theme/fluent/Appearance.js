@@ -41,7 +41,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           padding : [2, 0],
-          textColor : states.disabled ? "text-disabled" : undefined
+          textColor : states.disabled ? "text-disabled" : "neutralPrimary",
+          font : "bold"
         };
       }
     },
@@ -1239,12 +1240,14 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         if (states.disabled) {
           textColor = "text-disabled";
         } else if (states.showingPlaceholder) {
-          textColor = "text-placeholder";
+          textColor = "neutralSecondary";
         } else {
-          textColor = undefined;
+          //textColor = undefined;
+          textColor = "neutralPrimary";
         }
 
         var decorator;
+        var padding = [0, 8];
         var backgroundcolor = "background";
         if (states.disabled) {
           decorator = "inset";
@@ -1254,31 +1257,30 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           backgroundcolor = "background-invalid";
         } else if (states.focused) {
           decorator = "focused-inset";
+          padding = [0, 7]
         } else {
           decorator = "inset";
         }
 
         return {
           decorator : decorator,
-          padding   : [9, 14],
+          padding   : padding,
+          height : 32,
           font : "default",
           textColor : textColor,
           backgroundColor : backgroundcolor
         };
       }
     },
-
-    "textarea" : "textfield",
     
-    "textfield-form" :
+    "textarea" :
     {
     	include : "textfield",
     	 
     	style : function(states)
 	    {
 	      return {
-	        decorator : states.focused ? "form-focused-inset" : "inset",
-	        padding   : states.focused ? [9, 14, 9, 13] : [9, 14, 9, 14]
+	        height : undefined
 	      };
 	    }
     },
@@ -1556,7 +1558,27 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     ---------------------------------------------------------------------------
     */
 
-   "combobox" : {},
+   "combobox" : {
+      style : function(states)
+      {
+        var decorator;
+        if (states.disabled) {
+          decorator = "inset";
+        } else if (states.invalid) {
+          decorator = "border-invalid";
+        } else if (states.focused) {
+          decorator = "focused-inset";
+        } else {
+          decorator = "inset";
+        }
+
+        return {
+          decorator : decorator,
+          padding   : 0,
+          height : 32
+        };
+      }
+   },
 
     "combobox/button" :
     {
@@ -1566,18 +1588,19 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         var decorator = "button-box-right-borderless";
+        var bgcolor = "white";
 
         if (states.hovered && !states.pressed && !states.checked) {
-          decorator = "button-box-hovered-right-borderless";
+          bgcolor = "neutralLighter";
         } else if (states.hovered && (states.pressed || states.checked)) {
-          decorator = "button-box-pressed-right-borderless";
-        } else if (states.pressed || states.checked) {
-          decorator = "button-box-pressed-right-borderless";
+          bgcolor = "neutralQuaternaryAlt";
+        } else if (!states.hovered && (states.pressed || states.checked)) {
+          bgcolor = "neutralLight";
         }
 
         return {
           icon : "",
-          backgroundColor : "background",
+          backgroundColor : bgcolor,
           decorator : decorator,
           padding : [0,5,0,6],
           width: 24
@@ -1611,17 +1634,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     	include : "textfield",
     	
     	style : function(states)
-    	{
-        var decorator = "combobox-inset";
-
-        if (states.focused) {
-          decorator = "combobox-focused-inset";
-        } else if (states.invalid) {
-          decorator = "combobox-border-invalid";
-        }
-        
+    	{        
         return {
-    			decorator : decorator
+    			decorator : undefined,
+          height : undefined
     		};
     	}
     },
@@ -1880,15 +1896,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         var decorator = "button-box";
-        var textcolor = "button-text";
         var bgcolor = "white";
 
         if (!states.disabled) {
           if (states.hovered && !states.pressed && !states.checked) {
-            textcolor = "button-text-hovered";
             bgcolor = "button-box-bright-hovered";
           } else if (states.hovered && (states.pressed || states.checked)) {
-            textcolor = "button-text-hovered";
             bgcolor = "button-box-bright-pressed";
           } else if (states.pressed || states.checked) {
             bgcolor = "button-box-bright-pressed";
@@ -1906,7 +1919,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           padding : [0, 16],
           cursor: states.disabled ? undefined : "pointer",
           minHeight: 5,
-          textColor : textcolor,
+          textColor : "neutralPrimary",
           backgroundColor : bgcolor,
           font : "button"
         };
@@ -1920,7 +1933,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          textColor : states.disabled ? "text-disabled" :  "button-text",
+          textColor : states.disabled ? "text-disabled" :  "neutralPrimary",
           padding : [2, 0],
           margin : [0, 4],
           font : "button"
@@ -1998,6 +2011,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         }
 
         return {
+          decorator : "primary-button",
           backgroundColor : bgcolor
         };
       }
@@ -2014,8 +2028,21 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           center : true,
           padding : [0, 16],
           gap : 8,
-          height : 32,
-          textColor : "white"
+          height : 32
+        };
+      }
+    },
+
+    "primary-button-frame/label" : {
+      alias : "atom/label",
+
+      style : function(states)
+      {
+        return {
+          textColor : states.disabled ? "text-disabled" :  "white",
+          padding : [2, 0],
+          margin : [0, 4],
+          font : "button"
         };
       }
     },
@@ -3658,12 +3685,23 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       }
     },
 
+    "app-header-title" :
+    {
+      style : function(states)
+      {
+        return {
+          padding : [4,8]
+        };
+      }
+    },
+
     "app-header-label" :
     {
       style : function(states)
       {
         return {
-          paddingTop : 5
+          paddingTop : 5,
+          paddingBottom : 2
         };
       }
     },
