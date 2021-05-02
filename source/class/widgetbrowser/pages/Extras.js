@@ -62,9 +62,28 @@ qx.Class.define("widgetbrowser.pages.Extras",
       this.__hbox.add(secbutton);
 
       // Tertiary Button
-      var terbutton = new qx.ui.form.Button("Tertiary Button").set({appearance: "tertiary-button"});
+      var terbutton = new qx.ui.form.Button("Make Primary Green").set({appearance: "tertiary-button"});
       widgets.push(terbutton);
       this.__hbox.add(terbutton);
+
+
+      var currentcolor = qx.theme.manager.Color.getInstance().getTheme();
+      currentcolor.colors.themePrimary = "#00ffd4"; // Or a value from the ColorPicker widget
+
+      qx.Theme.define("NewColor",
+      {        
+        colors : currentcolor.colors
+      });
+
+      // Add an event listener
+      terbutton.addListener("execute", function(e) {
+        qx.theme.manager.Color.getInstance().setTheme(qx.Theme.getByName("NewColor"));
+      });
+
+
+      //textfield
+      var txtfield1 = new qx.ui.form.TextField();
+      this.__grid.add(txtfield1, {row:0, column:0});
 
     },
 
