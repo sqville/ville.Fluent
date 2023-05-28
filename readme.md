@@ -15,7 +15,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-**ville.Fluent** is a [Qooxdoo](https://qooxdoo.org/) theme inspired by [Microsofts Fluent UI](https://fluent2.microsoft.design/). Fluent UI Qooxdoo
+**ville.Fluent** is a [Qooxdoo](https://qooxdoo.org/) theme inspired by [Microsofts Fluent UI](https://fluent2.microsoft.design/).
 
 **Benefits**
 * Adheres to Fluent UI design principles
