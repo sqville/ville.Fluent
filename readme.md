@@ -15,15 +15,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-**ville.Fluent** is a [Qooxdoo](https://qooxdoo.org/) theme inspired by [Microsofts Fluent UI](https://developer.microsoft.com/en-us/fluentui#/). Fluent UI Qooxdoo
+**ville.Fluent** is a [Qooxdoo](https://qooxdoo.org/) theme inspired by [Microsofts Fluent UI](https://fluent2.microsoft.design/). Fluent UI Qooxdoo
 
-**Additional Benefits**
+**Benefits**
 * Adheres to Fluent UI design principles
-* Uses color schemes and theme designer
-* Web font and SVG based icons
+* Uses [design tokens](https://fluent2.microsoft.design/design-tokens) and [theme designer](https://react.fluentui.dev/?path=/docs/theme-theme-designer--page)
+* SVG based, [fluentui system icons](https://github.com/microsoft/fluentui-system-icons)
 
 **Form Controls**
-<img src="ville_Fluent_Form.PNG" alt="Screen shot example">
 
 
 <!-- GETTING STARTED -->
@@ -47,7 +46,8 @@ now you just have to modify your compile.json to enable the theme:
 
 <!-- DEMOS -->
 ## Demo
-Using Qooxdoos [WidgetBrowser](http://qooxdoo.org/qxl.packagebrowser/qxl.packagebrowser/demos/sqville/ville.Fluent/widgetbrowser/)
+
+WidgetBrowser - Coming soon
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -65,4 +65,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Chris Eskew - [@SQville](https://twitter.com/SQville) - email: chris.eskew@sqville.com
+Chris Eskew - email: sqville@gmail.com
