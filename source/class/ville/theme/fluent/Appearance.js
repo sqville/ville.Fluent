@@ -40,9 +40,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          padding : [2, 0],
-          textColor : states.disabled ? "text-disabled" : "neutralPrimary",
-          font : "bold"
+          font : "default",
+          textColor : states.disabled ? "NeutralForegroundDisabled" : "NeutralForeground1"
         };
       }
     },
@@ -79,7 +78,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           decorator : "popup",
-          backgroundColor : "background-pane"
+          backgroundColor : ville.global.color.White
         };
       }
     },
@@ -1236,30 +1235,33 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     {
       style : function(states)
       {
+  
         var textColor;
         if (states.disabled) {
-          textColor = "text-disabled";
+          textColor = "NeutralForegroundDisabled";
         } else if (states.showingPlaceholder) {
-          textColor = "neutralSecondary";
+          textColor = "NeutralForeground2";
         } else {
-          //textColor = undefined;
-          textColor = "neutralPrimary";
+          textColor = "NeutralForeground1";
         }
 
         var decorator;
-        var padding = [0, 8];
-        var backgroundcolor = "background";
+        var cursor = "text";
+        var padding = [0, ville.global.spacing.MNudge];
+        var backgroundcolor = "NeutralBackground1";
         if (states.disabled) {
-          decorator = "inset";
-          backgroundcolor = "background-disabled";
+          decorator = "textfield-disabled";
+          backgroundcolor = "TransparentBackground";
+          cursor = "not-allowed";
         } else if (states.invalid) {
-          decorator = "border-invalid";
-          backgroundcolor = "background-invalid";
-        } else if (states.focused) {
-          decorator = "focused-inset";
-          padding = [0, 7]
-        } else {
-          decorator = "inset";
+          decorator = "textfield-invalid";
+        } 
+        else if (states.focused) {
+          decorator = "textfield-focused";
+          //padding = [0, 7]
+        } 
+        else {
+          decorator = "textfield";
         }
 
         return {
@@ -1268,7 +1270,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           height : 32,
           font : "default",
           textColor : textColor,
-          backgroundColor : backgroundcolor
+          backgroundColor : backgroundcolor,
+          cursor : cursor
         };
       }
     },
@@ -1515,38 +1518,35 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     ---------------------------------------------------------------------------
     */
 
-    "selectbox" : "textfield",
-
-    "selectbox/atom" : "atom",
-
-    "selectbox/popup" : {
-      
-      include : "popup",
-    	
-    	style : function(states)
-    	{
-    		return {
-          decorator : "selectbox-popup"
-    		};
-    	}
-    },
-
-    "selectbox/list" :     
-    {
-      alias : "list"
-    },
-
-    "selectbox/arrow" :
-    {
-      include : "image",
-
-      style : function(states)
-      {
+    "selectbox" : {
+      include : "combobox",
+      style () {
         return {
-          source : "",
-          decorator : "ville-icon-arrow-down",
-          width : 0,
-          height : 0
+          cursor : "pointer"
+        }
+      }
+    },
+
+    "selectbox/atom" : {
+      style () {
+        return {
+          padding: [0, ville.global.spacing.MNudge]
+        }
+      }
+    },
+
+    "selectbox/popup" : "combobox/popup",
+
+    "selectbox/list" : "combobox/list",
+
+    "selectbox/arrow" : {
+      style () {
+        return {
+          //source : ville.theme.fluent.Image.URLS["arrow-down-thin"],
+          decorator : "selectbox-arrow",
+          width: 22,
+          height : 22,
+          marginRight: ville.global.spacing.S
         };
       }
     },
@@ -1558,52 +1558,118 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     ---------------------------------------------------------------------------
     */
 
-   "combobox" : {
-      style : function(states)
+   /*"combobox" : {
+      include : "textfield",  
+      style : function()
       {
-        var decorator;
-        if (states.disabled) {
-          decorator = "inset";
-        } else if (states.invalid) {
-          decorator = "border-invalid";
-        } else if (states.focused) {
-          decorator = "focused-inset";
-        } else {
-          decorator = "inset";
-        }
-
-        return {
-          decorator : decorator,
-          padding   : 0,
-          height : 32
-        };
+        return { padding : 0 };
       }
+   },*/
+
+   "combobox" : {
+    style : function(states)
+    {
+      var decorator = "comboboxfield";
+      var sheet = qx.ui.style.Stylesheet.getInstance();
+      var prefix = qx.theme.manager.Decoration.CSS_CLASSNAME_PREFIX;
+      var prefixdecbase = "." + prefix + decorator; 
+      if (!sheet.hasRule(prefixdecbase + "-focused:focus-within::after"))
+      {
+        //var keyframe1 = "@keyframes textfieldout";
+        var rule1 = prefixdecbase + "-focused::after";
+        var css1 = [
+          "position: absolute;",
+          "content: '';",
+          "border-bottom-width: 2px;",
+          "border-bottom-style: solid;",
+          "border-bottom-color: " + ville.global.color.Brand[80] + ";",
+          "border-bottom-left-radius: 4px;",
+          "border-bottom-right-radius: 4px;",
+          "left: -1px; bottom: -1px; right: -1px;",
+          "clip-path: inset(calc(100% -2px) 0px 0px);",
+          "height: max(2px, 4px);",
+          "box-sizing: border-box;",
+          "border-radius: inherit;",
+          "transform: scaleX(0);",
+          "transition-property: transform;",
+          "transition-duration: " + ville.global.duration.Normal + ";",
+          "transition-delay: " + ville.global.curve.DecelerateMid + ";"
+        ];
+
+        /*var css0 = [
+          "animation-name: textfieldout;",
+          "animation-duration: 400ms;",
+          "animation-timing-function: cubic-bezier(0.1,0.9,0.2,1)"
+        ];
+
+        var frames1 = [
+          "0% {transform: scaleX(0);}",
+          "98% {transform: scaleX(1);}",
+          "100% {transform: scaleX(0);}"
+        ];*/
+
+        var rule2 = prefixdecbase + "-focused:focus-within::after";
+        var css2 = [
+          "transform: scaleX(1);",
+          "transition-property: transform;",
+          "transition-duration: " + ville.global.duration.UltraFast + ";",
+          "transition-delay: " + ville.global.curve.AccelerateMid + ";"
+        ];
+        //sheet.addRule(keyframe1, frames1.join(' '));
+        var rule0 = prefixdecbase + "::after";
+        sheet.addRule(rule0, css1.join(' '));
+        sheet.addRule(rule1, css1.join(' '));
+        sheet.addRule(rule2, css2.join(' '));
+      }
+      
+      var textColor;
+      if (states.disabled) {
+        textColor = "NeutralForegroundDisabled";
+      } else if (states.showingPlaceholder) {
+        textColor = "NeutralForeground2";
+      } else {
+        textColor = "NeutralForeground1";
+      }
+
+      var cursor = "text";
+      var padding = [0, 8];
+      var backgroundcolor = "NeutralBackground1";
+      if (states.disabled) {
+        decorator = "textfield-disabled";
+        backgroundcolor = "TransparentBackground";
+        cursor = "not-allowed";
+      } else if (states.invalid) {
+        decorator = "textfield-invalid";
+      } 
+      else if (states.focused) {
+        decorator += "-focused";
+        //padding = [0, 7]
+      }
+
+      return {
+        decorator : decorator,
+        padding   : 0,
+        height : 32,
+        font : "default",
+        textColor : textColor,
+        backgroundColor : backgroundcolor,
+        cursor : cursor
+      };
+    }
    },
 
     "combobox/button" :
     {
-      alias : "button-frame",
-      include : "button-frame",
-
+  
       style : function(states)
       {
-        var decorator = "button-box-right-borderless";
-        var bgcolor = "white";
-
-        if (states.hovered && !states.pressed && !states.checked) {
-          bgcolor = "neutralLighter";
-        } else if (states.hovered && (states.pressed || states.checked)) {
-          bgcolor = "neutralQuaternaryAlt";
-        } else if (!states.hovered && (states.pressed || states.checked)) {
-          bgcolor = "neutralLight";
-        }
-
         return {
-          icon : "",
-          backgroundColor : bgcolor,
-          decorator : decorator,
-          padding : [0,5,0,6],
-          width: 24
+          icon : ville.theme.fluent.Image.URLS["arrow-down-thin"],
+          backgroundColor : "TransparentBackground",
+          decorator : "button-box-right-borderless",
+          padding : [2,8,0,6],
+          width: 24,
+          cursor : "pointer"
         };
       }
     },
@@ -1615,18 +1681,33 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     	style : function()
     	{
     		return {
-    			decorator : "ville-icon-arrow-down",
-    			width : 0,
-          height : 0
+          width : 22,
+          height : 22
     		};
     	}
     },
 
-    "combobox/popup" : "popup",
+    "combobox/popup" : 
+    {
+      include : "popup",
+    	
+    	style : function(states)
+    	{        
+        return {
+    			padding : ville.global.spacing.SNudge
+    		};
+    	}
+    },
     
     "combobox/list" :     
     {
-      alias : "list"
+      alias : "list",
+      style : function()
+    	{        
+        return {
+    			spacing: 2
+    		};
+    	}
     },
 
     "combobox/textfield" : 
@@ -1719,35 +1800,26 @@ qx.Theme.define("ville.theme.fluent.Appearance",
    		
    	  style : function(states)
       {
-        var textColor;
+        var decorator = "textfield";
+        var padding = ville.global.spacing.S;
+        var backgroundcolor = "NeutralBackground1";
         if (states.disabled) {
-          textColor = "text-disabled";
-        } else if (states.showingPlaceholder) {
-          textColor = "text-placeholder";
-        } else {
-          textColor = undefined;
-        }
-
-        var decorator;
-        var padding = [2, 0];
-        var backgroundcolor = "background";
-        if (states.disabled) {
-          decorator = "inset";
-          backgroundcolor = "background-disabled";
+          //decorator = "inset";
+          backgroundcolor = "NeutralBackgroundDisabled";
         } else if (states.invalid) {
-          decorator = "border-invalid";
+          //decorator = "border-invalid";
           backgroundcolor = "background-invalid";
         } else if (states.focused) {
-          decorator = "focused-inset";
+          decorator += "-focused";
         } else {
-          decorator = "inset";
+          decorator = "textfield";
         }
 
         return {
           decorator : decorator,
           padding   : padding,
-          textColor : textColor,
-          backgroundColor : backgroundcolor
+          backgroundColor : backgroundcolor,
+          spacing : 2
         };
       }
    },
@@ -1758,7 +1830,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
       style : function(states)
       {
-        var padding = [10, 10, 10, 14];
+        var padding = ville.global.spacing.S;
         if (states.lead) {
           padding = [9, 9, 9, 13];
         }
@@ -1766,18 +1838,15 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           padding[2] -= 2;
         }
 
-        var backgroundColor;
+        var backgroundColor = "NeutralBackground1";
         if (states.selected) {
-          backgroundColor = "combobox-item-selected";
-          if (states.disabled) {
-            backgroundColor = "background-selected-disabled";
-          }
+          backgroundColor = "NeutralBackground1Selected";
         }
         return {
           gap : 4,
           padding : padding,
           backgroundColor : backgroundColor,
-          textColor : states.selected ? "text-selected" : "text",
+          textColor : states.disabled ? "NeutralForegroundDisabled" : "NeutralForeground1",
           decorator : states.lead ? "lead-item" : states.dragover ? "dragover" : undefined,
           opacity : states.drag ? 0.5 : undefined
         };
@@ -1790,7 +1859,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
       style : function(states)
       {
-        var padding = [10, 10, 10, 14];
+        var padding = ville.global.spacing.S;
         if (states.lead) {
           padding = [9, 9, 9, 13];
         }
@@ -1798,30 +1867,55 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           padding[2] -= 2;
         }
 
+        var icon;
         var backgroundColor;
-        var textcolor = "text";
+
         if (states.selected) {
-          backgroundColor = "combobox-item-selected";
-          textcolor = "text-selected";
+          backgroundColor = "transparent";
+          icon = ville.theme.fluent.Image.URLS["checkbox-checked"];
           if (states.disabled) {
             backgroundColor = "background-selected-disabled";
           }
         }
-        if (states.hovered) {
-          backgroundColor = "combobox-hovered";
-          textcolor = "text-selected";
+        if (states.selected && states.hovered) {
+          backgroundColor = "NeutralBackground1Hover";
+          icon = ville.theme.fluent.Image.URLS["checkbox-checked"];
           if (states.disabled) {
             backgroundColor = "background-selected-disabled";
           }
+        }
+        if (states.hovered && !states.selected) {
+          backgroundColor = "NeutralBackground1Hover";
+          icon = ville.theme.fluent.Image.URLS["blank"];
+          if (states.disabled) {
+            backgroundColor = "background-selected-disabled";
+          }
+        }
+        if (!states.hovered && !states.selected) {
+          backgroundColor = "transparent";
+          icon = ville.theme.fluent.Image.URLS["blank"];
         }
         
         return {
+          icon: icon,
           gap : 4,
           padding : padding,
           backgroundColor : backgroundColor,
-          textColor : textcolor, 
+          textColor : states.disabled ? "NeutralForegroundDisabled" : "NeutralForeground1",
           decorator : states.lead ? "lead-item" : states.dragover ? "dragover" : "combobox-listitem",
           opacity : states.drag ? 0.5 : undefined
+        };
+      }
+    },
+
+    "combobox-listitem/icon" :
+    {
+      include : "image",
+      style : function(states)
+      {
+        return {
+          width : 22,
+          height : 22
         };
       }
     },
@@ -1896,15 +1990,16 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         var decorator = "button-box";
-        var bgcolor = "white";
+        var bgcolor = "Background1";
 
         if (!states.disabled) {
           if (states.hovered && !states.pressed && !states.checked) {
-            bgcolor = "button-box-bright-hovered";
+            bgcolor = "Background1Hover";
+            decorator = "button-box-hovered";
           } else if (states.hovered && (states.pressed || states.checked)) {
-            bgcolor = "button-box-bright-pressed";
+            bgcolor = "Background1Pressed";
           } else if (states.pressed || states.checked) {
-            bgcolor = "button-box-bright-pressed";
+            bgcolor = "Background1Pressed";
           }
         }
 
@@ -1916,16 +2011,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         return {
           decorator : decorator,
-          padding : [0, 16],
           cursor: states.disabled ? undefined : "pointer",
-          minHeight: 5,
-          textColor : "neutralPrimary",
           backgroundColor : bgcolor,
           font : "button"
         };
       }
     },
-    
     
     "button-frame/label" : {
       alias : "atom/label",
@@ -1933,9 +2024,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          textColor : states.disabled ? "text-disabled" :  "neutralPrimary",
-          padding : [2, 0],
-          margin : [0, 4],
+          textColor : states.disabled ? "text-disabled" : "NeutralForeground1",
           font : "button"
         };
       }
@@ -1946,13 +2035,13 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       alias : "button-frame",
       include : "button-frame",
 
-      style : function(states)
+      style : function(states, styles)
       {
         return {
+          backgroundColor : "Neutral" + styles.backgroundColor,
           center : true,
-          padding : [0, 16],
-          gap : 8,
-          height : 32
+          padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
+          gap : 8
         };
       }
     },
@@ -1991,6 +2080,33 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       PRIMARY BUTTON
     ---------------------------------------------------------------------------
     */
+
+    "primary-button" :
+    {
+      include : "button-frame",
+
+      style : function(states, styles)
+      {
+        return {
+          //decorator : "primary-" + styles.decorator,
+          backgroundColor : "Brand" + styles.backgroundColor,
+          center : true,
+          padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
+          gap : 8
+        };
+      }
+    },
+
+    "primary-button/label" : {
+      alias : "button/label",
+
+      style : function(states)
+      {
+        return {
+          textColor : states.disabled ? "text-disabled" :  "NeutralForegroundOnBrand"
+        };
+      }
+    },
    
     "primary-button-frame" :
     {
@@ -2016,22 +2132,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         };
       }
     },
-    
-    "primary-button" :
-    {
-      alias : "primary-button-frame",
-      include : "primary-button-frame",
-
-      style : function(states)
-      {
-        return {
-          center : true,
-          padding : [0, 16],
-          gap : 8,
-          height : 32
-        };
-      }
-    },
 
     "primary-button-frame/label" : {
       alias : "atom/label",
@@ -2040,8 +2140,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           textColor : states.disabled ? "text-disabled" :  "white",
-          padding : [2, 0],
-          margin : [0, 4],
           font : "button"
         };
       }

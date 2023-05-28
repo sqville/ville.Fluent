@@ -68,6 +68,7 @@ qx.Class.define("ville.theme.fluent.Image",
       "arrow-left" : "decoration/arrows/left.gif", //Replaced with -- pure Qx -- Decoration entry:: sqv-css-icon-arrow-left
       "arrow-up" : "decoration/arrows/up.gif",
       "arrow-down" : "decoration/arrows/down.gif",
+      "arrow-down-thin" : "decoration/arrows/down.svg",
       //"arrow-forward" : "decoration/arrows/forward.gif", //Replaced by Qx code
       //"arrow-rewind" : "decoration/arrows/rewind.gif", //Replaced by Qx code
       "arrow-down-small" : "decoration/arrows/down-small.gif", //Embed option - Decoration entry:: sqv-css-icon-arrow-down-small

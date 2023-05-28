@@ -15,6 +15,8 @@
 
 /**
  * The simple qooxdoo decoration theme.
+ * 
+ * @use(demo.ButtonStyle)
  */
 qx.Theme.define("ville.theme.fluent.Decoration",
 {
@@ -63,13 +65,12 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
     "popup" :
     {
+      include : "shadow8",
       style :
       {
-        width: 1,
-        color : "border-light",
-        shadowLength : 1,
-        shadowBlurRadius : 5,
-        shadowColor : "shadow-light"
+        radius : ville.global.border.radius.Medium,
+        width : ville.global.stroke.widths.Thin,
+        color : "NeutralStroke1"
       }
     },
     
@@ -296,22 +297,122 @@ qx.Theme.define("ville.theme.fluent.Decoration",
         innerWidth: 3
       }
     },
-  
+
+    /*
+    ---------------------------------------------------------------------------
+    Fluent
+
+    SHADOWs
+    ---------------------------------------------------------------------------
+    */
+
+    "shadowbase" :
+    {
+      style: {
+        shadowHorizontalLength: [0, 0],
+        shadowColor: ['rgba(0, 0, 0, 0.12)', 'rgba(0, 0, 0, 0.14)']
+      }
+    },
+
+    "shadowbrandbase" :
+    {
+      style: {
+        shadowHorizontalLength: [0, 0],
+        shadowColor: ['rgba(0, 0, 0, 0.30)', 'rgba(0, 0, 0, 0.25)']
+      }
+    },
+    
+    "shadow2" :
+    {
+      include : "shadowbase",
+      style : {
+        shadowVerticalLength: [0, 1],
+        shadowBlurRadius: [2, 2]
+      }
+      
+    },
+
+    "shadow4" :
+    {
+      include : "shadowbase",
+      style : {
+        shadowVerticalLength: [0, 2],
+        shadowBlurRadius: [2, 4]
+      }
+    },
+
+    "shadow8" :
+    {
+      include : "shadowbase",
+      style : {
+        shadowVerticalLength: [0, 4],
+        shadowBlurRadius: [2, 8]
+      }
+    }, 
+
+    "shadow16" :
+    {
+      include : "shadowbase",
+      style : {
+        shadowVerticalLength: [0, 8],
+        shadowBlurRadius: [2, 16]
+      }
+    },
+
+    "shadow28" :
+    {
+      include : "shadowbase",
+      style : {
+        shadowVerticalLength: [0, 14],
+        shadowBlurRadius: [2, 28]
+      }
+    },
+
+    "shadow64" :
+    {
+      include : "shadowbase",
+      style : {
+        shadowVerticalLength: [0, 32],
+        shadowBlurRadius: [2, 64]
+      }
+    },
 
     /*
     ---------------------------------------------------------------------------
       BUTTON
     ---------------------------------------------------------------------------
     */
+
+    "button-box-common" :
+    {
+      style : {
+        radius : ville.global.border.radius.Medium,
+        width : ville.global.stroke.widths.Thin
+      }
+    },
+    
     "button-box" :
     {
+      include : "button-box-common",
       style :
       {
-        radius : 2,
-        width : 1,
-        color : "button-border",
-        backgroundColor : "white"
+        color : "NeutralStroke1",
+        transitionProperty: ['background','border','color'],
+        transitionDuration: ville.global.duration.Faster,
+        transitionTimingFunction : ville.global.curve.EasyEase
       }
+    },
+
+    "button-box-hovered" :
+    {
+      include : "button-box-common",
+      style : { color : "NeutralStroke1Hover" }
+    },
+
+    "button-box-pressed" :
+    {
+      include : "button-box-common",
+      style : { color : "NeutralStroke1Pressed" }
     },
 
     "button-box-blank" :
@@ -324,33 +425,13 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       }
     },
 
-    "button-box-pressed" :
-    {
-      include : "button-box",
-
-      style :
-      {
-        backgroundColor : "button-box-bright-pressed"
-      }
-    },
-
     "button-box-pressed-hovered" :
     {
-      include : "button-box-pressed",
+      include : ["button-box-blank", "button-box-pressed"],
 
       style :
       {
         color : "button-border-hovered"
-      }
-    },
-
-    "button-box-hovered" :
-    {
-      include : "button-box",
-
-      style :
-      {
-        backgroundColor : "button-box-bright-hovered"
       }
     },
 
@@ -359,13 +440,28 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       PRIMARY BUTTON
     ---------------------------------------------------------------------------
     */
-    "primary-button" :
+    "primary-button-box" :
     {
+      include : "button-box-common",
       style :
       {
-        radius : 2,
-        width : 0
+        color : "NeutralStroke1",
+        transitionProperty: ['background','border','color'],
+        transitionDuration: ville.global.duration.Faster,
+        transitionTimingFunction : ville.global.curve.EasyEase
       }
+    },
+
+    "primary-button-box-hovered" :
+    {
+      include : "button-box-common",
+      style : { color : "NeutralStroke1Hover" }
+    },
+
+    "primary-button-box-pressed" :
+    {
+      include : "button-box-common",
+      style : { color : "NeutralStroke1Pressed" }
     },
 
 
@@ -1289,6 +1385,70 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     ---------------------------------------------------------------------------
     */
 
+    "textfield-common" :
+    {
+      style :
+      {
+        radius : ville.global.border.radius.Medium,
+        width : ville.global.stroke.widths.Thin,
+        color : "NeutralStroke1"
+      }
+    },
+
+    "textfield-span" :
+    {
+      include : "textfield-common",
+      style :
+      {
+        width : 0,
+        color : "TransparentStroke"
+      }
+    },
+
+    "textfield" :
+    {
+      include : "textfield-common",
+      style :
+      {
+        color : ["NeutralStroke1", "NeutralStroke1", "NeutralStrokeAccessible", "NeutralStroke1"],
+        transitionProperty: ['border', 'box-shadow'],
+        transitionDuration: ville.global.duration.Normal,
+        transitionTimingFunction : ville.global.curve.DecelerateMid
+      }
+    },
+
+    "textfield-focused" :
+    {
+      include : "textfield-common",
+      style :
+      {
+        color : ["NeutralStroke1Pressed", "NeutralStroke1Pressed", "CompoundBrandStroke", "NeutralStroke1Pressed"],
+        innerWidthBottom : 1,
+        innerColorBottom : "CompoundBrandStroke",
+        transitionProperty: ['border','box-shadow'],
+        transitionDuration: ville.global.duration.UltraFast,
+        transitionTimingFunction : ville.global.curve.AccelerateMid
+      }
+    },
+
+    "textfield-disabled" :
+    {
+      include : "textfield-common",
+      style :
+      {
+        color : "NeutralStrokeDisabled"
+      }
+    },
+
+    "textfield-invalid" :
+    {
+      include : "textfield-common",
+      style :
+      {
+        color : "NeutralStrokeDisabled"
+      }
+    },
+
     "inset" :
     {
       style :
@@ -1356,6 +1516,30 @@ qx.Theme.define("ville.theme.fluent.Decoration",
         backgroundImage: "ville/theme/fluent/decoration/slider/line-invalid.png"
       }
     },
+
+    "comboboxfield" :
+    {
+      include : "textfield-common",
+      style :
+      {
+        color : ["NeutralStroke1", "NeutralStroke1", "NeutralStrokeAccessible", "NeutralStroke1"],
+        transitionProperty: ['border'],
+        transitionDuration: ville.global.duration.Normal,
+        transitionTimingFunction : ville.global.curve.DecelerateMid
+      }
+    },
+
+    "comboboxfield-focused" :
+    {
+      include : "textfield-common",
+      style :
+      {
+        color : ["NeutralStroke1Pressed", "NeutralStroke1Pressed", "CompoundBrandStroke", "NeutralStroke1Pressed"],
+        transitionProperty: ['border'],
+        transitionDuration: ville.global.duration.UltraFast,
+        transitionTimingFunction : ville.global.curve.AccelerateMid
+      }
+    },
     
     "combobox-inset" :
     {
@@ -1396,6 +1580,17 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     	style :
     	{
         color : "textfield-selected"
+    	}
+    },
+
+    "selectbox-arrow" :
+    {    	
+    	style :
+    	{
+        backgroundImage: ville.theme.fluent.Image.URLS["arrow-down-thin"],
+        backgroundRepeat: "no-repeat",
+        backgroundPositionX: 1,
+        backgroundPositionY: 1
     	}
     },
     

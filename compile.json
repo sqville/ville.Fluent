@@ -8,26 +8,25 @@
    },
    "applications": [
       {
-         "class": "widgetbrowser.Application",
+         "class": "qxl.widgetbrowser.Application",
          "theme": "ville.theme.Fluent",
          "name": "widgetbrowser",
          "title": "WidgetBrowser",
          "include": [
             "qx.theme.Simple",
             "qx.theme.Classic",
-            "widgetbrowser.pages.Tree",
-            "widgetbrowser.pages.List",
-            "widgetbrowser.pages.Table",
-            "widgetbrowser.pages.Form",
-            "widgetbrowser.pages.ToolBar",
-            "widgetbrowser.pages.Window",
-            "widgetbrowser.pages.Tab",
-            "widgetbrowser.pages.Control",
-            "widgetbrowser.pages.Embed",
-            "widgetbrowser.pages.EmbedFrame",
-            "widgetbrowser.pages.Basic",
-            "widgetbrowser.pages.Misc",
-            "widgetbrowser.pages.Extras"
+            "qxl.widgetbrowser.pages.Tree",
+            "qxl.widgetbrowser.pages.List",
+            "qxl.widgetbrowser.pages.Table",
+            "qxl.widgetbrowser.pages.Form",
+            "qxl.widgetbrowser.pages.ToolBar",
+            "qxl.widgetbrowser.pages.Window",
+            "qxl.widgetbrowser.pages.Tab",
+            "qxl.widgetbrowser.pages.Control",
+            "qxl.widgetbrowser.pages.Embed",
+            "qxl.widgetbrowser.pages.EmbedFrame",
+            "qxl.widgetbrowser.pages.Basic",
+            "qxl.widgetbrowser.pages.Misc"
          ],
          "exclude": [
             "qx.theme.Modern"

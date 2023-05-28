@@ -1,0 +1,30 @@
+{
+  "$schema": "https://qooxdoo.org/schema/compile-1-0-0.json",
+  "targets": [
+    {
+      "type": "source",
+      "outputPath": "compiled/source",
+      "bundle": {
+        "include": "qx.*"
+      }
+    },
+    {
+      "type": "build",
+      "outputPath": "compiled/build"
+    }
+  ],
+  "defaultTarget": "source",
+  "locales": ["en"],
+  "environment": {
+      "qx.icontheme": "Tango"
+  },
+  "applications": [
+    {
+      "class": "demo.Application",
+      "theme": "ville.theme.Fluent",
+      "name": "SimpleDemo",
+      "title": "Simple Demo",
+      "bootPath": "source/boot"
+    }
+  ]
+}

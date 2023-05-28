@@ -26,9 +26,36 @@ qx.Theme.define("ville.theme.fluent.Font",
   {
     "default" :
     {
-      family: ["Segoe UI", "Segoe UI Web (West European)", "Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", "sans-serif"],
-      weight : "400",
-      size : 14
+      family: ville.global.font.family.Base,
+      weight: ville.global.font.weight.Regular,
+      size: ville.global.font.size.Base300,
+      color: "NeutralForeground1",
+      lineHeight: 1.426
+    },
+
+    "monospace" :
+    {
+      family : ville.global.font.family.Monospace,
+      weight: ville.global.font.weight.Regular,
+      size: ville.global.font.size.Base200,
+      color: "NeutralForeground1",
+      lineHeight: 1.16666
+    },
+
+    "numeric" :
+    {
+      family : ville.global.font.family.Numeric,
+      weight: ville.global.font.weight.Regular,
+      size: ville.global.font.size.Base300,
+      color: "NeutralForeground1",
+      lineHeight: 1.426
+    },
+
+    "button" : 
+    {
+      include : "default",
+      weight: ville.global.font.weight.Semibold,
+      lineHeight: 1.43
     },
 
     "bold" :
@@ -47,12 +74,6 @@ qx.Theme.define("ville.theme.fluent.Font",
     {
       include : "bold",
       size : 13
-    },
-
-    "button" : 
-    {
-      include : "bold",
-      size : 14
     },
 
     "groupbox-legend" :
@@ -91,11 +112,6 @@ qx.Theme.define("ville.theme.fluent.Font",
       size : 11
     },
 
-    "monospace" :
-    {
-      size : 11,
-      family : [ "DejaVu Sans Mono", "Courier New", "monospace" ]
-    },
         
     // Theme Browser Content Formatting
     "control-header" :
@@ -116,6 +132,96 @@ qx.Theme.define("ville.theme.fluent.Font",
     {
       include : "default",
     	size : 8
-    }
+    },
+
+    // Fluent UI Typography Styles
+    "body1": 
+    {
+      family: ville.global.font.family.Base,
+      size: ville.global.font.size.Base300,
+      weight: ville.global.font.weight.Regular
+    },
+    
+    body1Strong: 
+    {
+      family: ville.global.font.family.Base,
+      size: ville.global.font.size.Base300,
+      weight: ville.global.font.weight.Semibold
+    },
+    body1Stronger: {
+      family: ville.global.font.family.Base,
+      size: ville.global.font.size.Base300,
+      weight: ville.global.font.weight.Bold
+    },
+    body2: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base400,
+      weight: ville.global.font.weight.Regular
+    },
+    caption1: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base200,
+      weight: ville.global.font.weight.Regular
+    },
+    caption1Strong: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base200,
+      weight: ville.global.font.weight.Semibold
+    },
+    caption1Stronger: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base200,
+      weight: ville.global.font.weight.Bold
+    },
+    caption2: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base100,
+      weight: ville.global.font.weight.Regular
+    },
+    caption2Strong: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base100,
+      weight: ville.global.font.weight.Semibold
+    },
+    subtitle1: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base500,
+      weight: ville.global.font.weight.Semibold
+    },
+    subtitle2: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base400,
+      weight: ville.global.font.weight.Semibold
+    },
+    subtitle2Stronger: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base400,
+      weight: ville.global.font.weight.Bold
+    },
+    title1: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Hero800,
+      weight: ville.global.font.weight.Semibold
+    },
+    title2: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Hero700,
+      weight: ville.global.font.weight.Semibold
+    },
+    title3: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Base600,
+      weight: ville.global.font.weight.Semibold
+    },
+    largeTitle: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Hero900,
+      weight: ville.global.font.weight.Semibold
+    },
+    display: {
+      family: ville.global.font.family.Base,
+      fsize: ville.global.font.size.Hero1000,
+      weight: ville.global.font.weight.Semibold
+    },
   }
 });
