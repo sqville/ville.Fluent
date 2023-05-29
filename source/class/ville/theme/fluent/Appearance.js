@@ -1311,21 +1311,22 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         var decorator = "radiobutton";
 
-        decorator += states.invalid && !states.disabled ? "-invalid" : "";
+        //decorator += states.invalid && !states.disabled ? "-invalid" : "";
 
-        var backgroundColor;
+        var backgroundColor = "TransparentBackground";
         if (states.disabled && states.checked) {
-          backgroundColor = "background-disabled-checked";
+          //backgroundColor = "background-disabled-checked";
         } else if (states.disabled) {
-          backgroundColor = "background-disabled";
+          //backgroundColor = "background-disabled";
         } else if (states.checked) {
-          backgroundColor = "text";
+          backgroundColor = "CompoundBrandForeground1";
+          decorator += "-checked";
         }
 
         return {
           decorator : decorator,
-          width: 14,
-          height: 14,
+          width: 16,
+          height: 16,
           backgroundColor : backgroundColor
         };
       }
@@ -1542,7 +1543,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     "selectbox/arrow" : {
       style () {
         return {
-          //source : ville.theme.fluent.Image.URLS["arrow-down-thin"],
           decorator : "selectbox-arrow",
           width: 22,
           height : 22,
@@ -1664,7 +1664,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          icon : ville.theme.fluent.Image.URLS["arrow-down-thin"],
+          icon : ville.theme.fluent.Image.URLS["chevron-down"],
           backgroundColor : "TransparentBackground",
           decorator : "button-box-right-borderless",
           padding : [2,8,0,6],
@@ -2577,8 +2577,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       include : "list",
       alias : "list",
 
-      style : function(states)
+      style : function(states, styles)
       {
+        //TEMP delete. remove later
+        delete styles.spacing;
         return {
           contentPadding : states.invalid && !states.disabled? [3, 0] : [4, 1],
           padding : states.focused ? 0 : 0

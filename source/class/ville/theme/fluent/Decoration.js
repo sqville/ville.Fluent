@@ -1587,7 +1587,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {    	
     	style :
     	{
-        backgroundImage: ville.theme.fluent.Image.URLS["arrow-down-thin"],
+        backgroundImage: ville.theme.fluent.Image.URLS["chevron-down"],
         backgroundRepeat: "no-repeat",
         backgroundPositionX: 1,
         backgroundPositionY: 1
@@ -2146,30 +2146,35 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        radius : 10,
-        width : 1,
-        color : "border-light-darker",
-        innerColor: "white",
-        innerWidth: 3
+        radius : ville.global.border.radius.Circular,
+        width : ville.global.stroke.widths.Thin,
+        color : "NeutralStrokeAccessible"
       }
     },
 
     // Not used any more
-    /*"radiobutton-focused" :
+    "radiobutton-checked" :
     {
-      include : "radiobutton",
+      include: "radiobutton",
       style :
       {
-        //color : "textfield-selected"
+        color : "CompoundBrandStroke",
+        innerWidth: ville.global.stroke.widths.Thick,
+        innerColor: "NeutralBackground2"
+        /*inset : true,
+        shadowColor : "CompoundBrandForeground1",
+        shadowVerticalLength : 14,
+        shadowBlurRadius : 0,
+        shadowSpreadRadius : 2*/
       }
-    },*/
+    },
 
     "radiobutton-invalid" :
     {
       include : "radiobutton",
       style :
       {
-        color : "invalid"
+        color : "PaletteRedBorder2"
       }
     },
 
@@ -2186,7 +2191,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       
       style :
       {
-        radius : 3,
+        radius : ville.global.border.radius.Small,
         innerWidth: 0
       }
     },
