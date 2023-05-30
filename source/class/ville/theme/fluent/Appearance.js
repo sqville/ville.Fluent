@@ -1301,8 +1301,27 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           icon : "",
-          gap : 10
+          gap : 10,
+          cursor: "pointer "
         };
+      }
+    },
+
+    "radiobutton/label" : {
+      style (states)
+      {
+        var textcolor = "NeutralStrokeAccessible";
+
+        if (states.checked){
+          textcolor = "NeutralForeground1"
+        }
+        if (!states.checked && states.hovered){
+          textcolor = "NeutralForeground2"
+        }
+
+        return {
+          textColor : textcolor
+        }
       }
     },
 
