@@ -22,6 +22,15 @@ qx.Theme.define("ville.wax.theme.Decoration",
   decorations :
   {
 
+    "heading2" :
+    {
+      style :
+      {
+        width: [1,0,0,0],
+        color: "NeutralBackground5"
+      }
+    },
+    
     "scaledback-box" :
     {
       style :

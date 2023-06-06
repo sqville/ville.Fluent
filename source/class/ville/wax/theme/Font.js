@@ -17,9 +17,27 @@ qx.Theme.define("ville.wax.theme.Font",
 
   fonts :
   {
+    "ville-logo-font" : {
+      size: 84,
+      letterSpacing: 2,
+      family: ["Providence","sans-serif"],
+      sources: [
+        {
+          family: "Providence",
+          source: ["ville/wax/Providence.ttf"]
+        }
+      ]
+    },
+
     "subtitle0": {
       include : "default",
       size: ville.global.font.size.Base500
+    },
+
+    "heading2": {
+      include : "default",
+      size: ville.global.font.size.Hero800,
+      weight: ville.global.font.weight.Semibold,
     },
     
     "default-bold" :
@@ -109,18 +127,7 @@ qx.Theme.define("ville.wax.theme.Font",
       family : ["-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "arial", "Helvetica", "sans-serif"],
       size : 14,
       bold : true
-    },
-
-    "ville-logo-font" : {
-      size: 32,
-      family: ["sans-serif"],
-      sources: [
-        {
-          family: "Providence",
-          source: ["ville/wax/Providence.ttf"]
-        }
-      ]
-    },
+    }
 
   }
 });
