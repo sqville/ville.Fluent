@@ -286,9 +286,38 @@ qx.Class.define("ville.wax.demo.Application",
 
 
       // Title Intro
-      firststackpage.add(new qx.ui.basic.Image("ville/wax/ville_fluent_logo.png"));
+
+      //firststackpage.add(new qx.ui.basic.Image("ville/wax/ville_fluent_logo.png"));
+      firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({font: "ville-logo-font"}));
       //firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({font: "display", margin: 0, padding: [4, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("A theme for the Qooxdoo Javascript Framework. Inspired by Microsoft's Fluent Design System.").set({margin: 0, padding: 0, font: "subtitle0", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("A theme for the Qooxdoo Javascript Framework. Inspired by Microsoft's Fluent Design System.").set({margin: 0, paddingBottom: 20, font: "subtitle0", rich: true, wrap: true}));
+
+      // Line
+      // About This Demo - What is different about this vs WidgetBrowser - link to WB
+      firststackpage.add(new qx.ui.basic.Label("About This Demo").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
+      
+      // Line
+      // Controls in alpha order
+      firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
+
+      // BUTTON
+
+      // CheckBox
+
+      // ComboBox
+
+      // List
+
+      // RadioButton
+
+      // SelectBox
+
+      // TextField
+
+      // TextArea
+
+      // ToggleButton
+
 
 
       // SWITCH
