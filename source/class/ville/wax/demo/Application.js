@@ -34,6 +34,8 @@
  * @asset(ville/wax/KeyItem.svg)
  * @asset(ville/wax/Yellow_Car_g7.jpg)
  * @asset(ville/wax/ville_logo.svg)
+ * @asset(ville/wax/ville_fluent_logo.svg)
+ * @asset(ville/wax/ville_fluent_logo.png)
  */
 qx.Class.define("ville.wax.demo.Application",
 {
@@ -284,7 +286,8 @@ qx.Class.define("ville.wax.demo.Application",
 
 
       // Title Intro
-      firststackpage.add(new qx.ui.basic.Label("ville.Fluent theme").set({font: "display", margin: 0, padding: [4, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Image("ville/wax/ville_fluent_logo.png"));
+      //firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({font: "display", margin: 0, padding: [4, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("A theme for the Qooxdoo Javascript Framework. Inspired by Microsoft's Fluent Design System.").set({margin: 0, padding: 0, font: "subtitle0", rich: true, wrap: true}));
 
 

@@ -7,6 +7,9 @@
    Authors: Chris Eskew (sqville) chris.eskew@sqville.com
 
 ************************************************************************ */
+/*
+* @asset(ville/wax/Providence.ttf)
+*/
 
 qx.Theme.define("ville.wax.theme.Font",
 {
@@ -106,6 +109,18 @@ qx.Theme.define("ville.wax.theme.Font",
       family : ["-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "arial", "Helvetica", "sans-serif"],
       size : 14,
       bold : true
-    }
+    },
+
+    "ville-logo-font" : {
+      size: 32,
+      family: ["sans-serif"],
+      sources: [
+        {
+          family: "Providence",
+          source: ["ville/wax/Providence.ttf"]
+        }
+      ]
+    },
+
   }
 });
