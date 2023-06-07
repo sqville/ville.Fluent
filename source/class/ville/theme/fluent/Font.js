@@ -137,6 +137,7 @@ qx.Theme.define("ville.theme.fluent.Font",
     // Fluent UI Typography Styles
     "body1": 
     {
+      include : "default",
       family: ville.global.font.family.Base,
       size: ville.global.font.size.Base300,
       weight: ville.global.font.weight.Regular
@@ -153,7 +154,8 @@ qx.Theme.define("ville.theme.fluent.Font",
       size: ville.global.font.size.Base300,
       weight: ville.global.font.weight.Bold
     },
-    body2: {
+    "body2" : {
+      include : "default",
       family: ville.global.font.family.Base,
       size: ville.global.font.size.Base400,
       weight: ville.global.font.weight.Regular
@@ -208,7 +210,9 @@ qx.Theme.define("ville.theme.fluent.Font",
       size: ville.global.font.size.Hero700,
       weight: ville.global.font.weight.Semibold
     },
-    title3: {
+    
+    "title3": {
+      include : "default",
       family: ville.global.font.family.Base,
       size: ville.global.font.size.Base600,
       weight: ville.global.font.weight.Semibold

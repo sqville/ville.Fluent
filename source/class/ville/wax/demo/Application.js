@@ -190,6 +190,11 @@ qx.Class.define("ville.wax.demo.Application",
 
       var waxcolorswitch = new qx.ui.form.CheckBox("Theme").set({appearance: "wax-switch-larger"});
 
+      var chckboxshowwidgets = new qx.ui.toolbar.CheckBox(
+        "Widgets",
+        "ville/wax/round-menu-24px.svg"
+      ).set({show: "icon"});
+
       profilepart.add(waxcolorswitch);
       
       northtoolbar.add(mainmenupart);
@@ -197,6 +202,8 @@ qx.Class.define("ville.wax.demo.Application",
       //northtoolbar.add(atmlogocurrentpage);
       //northtoolbar.addSpacer();
       northtoolbar.add(profilepart);
+      northtoolbar.add(new qx.ui.toolbar.Separator());
+      northtoolbar.add(chckboxshowwidgets);
 
       northhbox.add(northtoolbar, {left: 0, right: 0});
 
@@ -237,7 +244,7 @@ qx.Class.define("ville.wax.demo.Application",
       // common stack page styling
       var stackpagepadding = [20, 30];
       var stackpageheaderfont = "control-header";
-      var stackpagevboxspacing = 20;
+      var stackpagevboxspacing = 10;
 
       var firstpagehbox = new qx.ui.container.Composite(new qx.ui.layout.HBox(0));
       firstpagehbox.add(new qx.ui.core.Spacer(), {flex: 1});
@@ -288,19 +295,23 @@ qx.Class.define("ville.wax.demo.Application",
       // Title Intro
 
       //firststackpage.add(new qx.ui.basic.Image("ville/wax/ville_fluent_logo.png"));
-      firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({font: "ville-logo-font"}));
+      firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({paddingTop: 20, font: "ville-logo-font"}));
       //firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({font: "display", margin: 0, padding: [4, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("A theme for the Qooxdoo Javascript Framework. Inspired by Microsoft's Fluent Design System.").set({margin: 0, paddingBottom: 20, font: "subtitle0", rich: true, wrap: true}));
 
       // Line
       // About This Demo - What is different about this vs WidgetBrowser - link to WB
       firststackpage.add(new qx.ui.basic.Label("About This Demo").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      
+      firststackpage.add(new qx.ui.basic.Label("About this demo.").set({font: "body2", rich: true, wrap: true}));
+
       // Line
       // Controls in alpha order
       firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Here are the widgets.").set({font: "body2", rich: true, wrap: true}));
 
       // BUTTON
+      firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Here is the button").set({font: "body1", rich: true, wrap: true}));
 
       // CheckBox
 
