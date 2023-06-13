@@ -143,6 +143,26 @@ qx.Theme.define("ville.wax.theme.Decoration",
       }
     },
 
+    "topheader-wax" :
+    {
+      style :
+      {
+        width : [0,0,1,0],
+        color : ville.global.color.White,
+        style : "solid"
+      }
+    },
+
+    "topheader-wax-scrolldown" :
+    {
+      include: "topheader-wax",
+
+      style :
+      {
+        color : "NeutralStroke1"
+      }
+    },
+
     "topheader" :
     {
       style :

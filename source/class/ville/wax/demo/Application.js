@@ -108,7 +108,7 @@ qx.Class.define("ville.wax.demo.Application",
       var appcompdock = new qx.ui.container.Composite(new qx.ui.layout.Dock(0, 0)).set({backgroundColor: "white"});
       
       // Dock's North section (Canvas)
-      var northhbox = this._northBox = new qx.ui.container.Composite(new qx.ui.layout.Canvas());
+      var northhbox = this._northBox = new qx.ui.container.Composite(new qx.ui.layout.Canvas()).set({decorator: "topheader-wax"});
 
       // Dock's West section (VBox)
       var westbox = this._westBox = new qx.ui.container.Composite(new qx.ui.layout.VBox(0)).set({backgroundColor: "white", padding: [10,0,10,10], decorator : "leftside"});
@@ -202,8 +202,8 @@ qx.Class.define("ville.wax.demo.Application",
       //northtoolbar.add(atmlogocurrentpage);
       //northtoolbar.addSpacer();
       northtoolbar.add(profilepart);
-      northtoolbar.add(new qx.ui.toolbar.Separator());
-      northtoolbar.add(chckboxshowwidgets);
+      //northtoolbar.add(new qx.ui.toolbar.Separator());
+      //northtoolbar.add(chckboxshowwidgets);
 
       northhbox.add(northtoolbar, {left: 0, right: 0});
 
@@ -295,19 +295,19 @@ qx.Class.define("ville.wax.demo.Application",
       // Title Intro
 
       //firststackpage.add(new qx.ui.basic.Image("ville/wax/ville_fluent_logo.png"));
-      firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({paddingTop: 20, font: "ville-logo-font"}));
+      firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({paddingTop: 30, font: "ville-logo-font"}));
       //firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({font: "display", margin: 0, padding: [4, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("A theme for the Qooxdoo Javascript Framework. Inspired by Microsoft's Fluent Design System.").set({margin: 0, paddingBottom: 20, font: "subtitle0", rich: true, wrap: true}));
 
       // Line
       // About This Demo - What is different about this vs WidgetBrowser - link to WB
       firststackpage.add(new qx.ui.basic.Label("About This Demo").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("About this demo.").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("The purpose of this demo is to show what changes an application would need to make in order to best follow Fluent's design principles. Light and Dark color themes are supported.").set({font: "body2", rich: true, wrap: true}));
 
       // Line
       // Controls in alpha order
       firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Here are the widgets.").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, RadioButton, SelectBox, TabView, TextField, TextArea").set({font: "body2", rich: true, wrap: true}));
 
       // BUTTON
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
@@ -316,16 +316,28 @@ qx.Class.define("ville.wax.demo.Application",
       // CheckBox
 
       // ComboBox
+      firststackpage.add(new qx.ui.basic.Label("ComboBox").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Here is the combobox").set({font: "body1", rich: true, wrap: true}));
 
       // List
+      firststackpage.add(new qx.ui.basic.Label("List").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Here is the list").set({font: "body1", rich: true, wrap: true}));
 
       // RadioButton
+      firststackpage.add(new qx.ui.basic.Label("RadioButton").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Here is the radio button").set({font: "body1", rich: true, wrap: true}));
 
       // SelectBox
+      firststackpage.add(new qx.ui.basic.Label("SelectBox").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Here is the select box").set({font: "body1", rich: true, wrap: true}));
 
       // TextField
+      firststackpage.add(new qx.ui.basic.Label("TextField").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Here is the textfield").set({font: "body1", rich: true, wrap: true}));
 
       // TextArea
+      firststackpage.add(new qx.ui.basic.Label("TextArea").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Here is the textarea").set({font: "body1", rich: true, wrap: true}));
 
       // ToggleButton
 
@@ -335,9 +347,9 @@ qx.Class.define("ville.wax.demo.Application",
       firststackpage.add(new qx.ui.basic.Label("Switch").set({font: stackpageheaderfont, padding: [60, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Just a simple qx.ui.form.CheckBox made to look like a switch control via appearance and decorator changes (with help of an SVG file for the white knob).").set({rich: true, wrap: true}));
       var waxswitch = new qx.ui.form.CheckBox("Default switch").set({appearance: "wax-switch"});
-      firststackpage.add(waxswitch);
+      //firststackpage.add(waxswitch);
       var waxswitch2 = new qx.ui.form.CheckBox("Larger switch").set({appearance: "wax-switch-larger"});
-      firststackpage.add(waxswitch2);
+      //firststackpage.add(waxswitch2);
 
       // Switch - toggle switch animation
       // TODOs: Need to grab colors from Color Theme
@@ -376,6 +388,40 @@ qx.Class.define("ville.wax.demo.Application",
           100: {opacity: 1, left: "0px"}
         }
       };
+
+      // Scroll feature
+      var firstscrollcontentEl = firstscrollstackpage.getChildControl("pane").getContentElement();
+      firstscrollcontentEl.addListener("scroll", function(e) {
+        //var lblloctop = firstscrollstackpage.getItemTop(lblwaxdemo);
+        //var lbllocbtm = firstscrollstackpage.getItemBottom(lblwaxdemo);
+        var scrollval = firstscrollcontentEl.getScrollY();
+        //var scrollrange = lbllocbtm - lblloctop - 15;
+        //var opacityincrement = 1/scrollrange;
+        //var atmopac = atmlogocurrentpage.getOpacity();
+        //var lblwdopac = lblwaxdemo.getOpacity();
+        //var firstscrollheight = firstscrollstackpage.getItemBottom(lbltheend);
+        
+        // top bar
+        // if (scrollval >= lbllocbtm-6)
+        if (scrollval >= 60) {
+          northhbox.set({decorator: "topheader-wax-scrolldown"});
+        } else {
+          northhbox.set({decorator: "topheader-wax"});
+        }
+
+        /*
+        //bottom bar
+        var menuscrolldom = menuscrollcontentEl.getDomElement();
+
+        //console.log("offsetheight: " + menuscrolldom.offsetHeight + " scrollTop: " + menuscrolldom.scrollTop + " scrollheight: " + menuscrolldom.scrollHeight);
+
+        if (menuscrolldom.offsetHeight + menuscrolldom.scrollTop >= menuscrolldom.scrollHeight - 1) {
+          southbox.set({backgroundColor: bckgcolormain, decorator: "bottombar-blended"});
+        } else {
+          southbox.set({backgroundColor: bckgcolortopbtm, decorator: "bottombar"});
+        }*/
+
+      });
 
       // Second Page 
       var secondstackpage = new qx.ui.container.Composite(new qx.ui.layout.VBox(stackpagevboxspacing)).set({padding: stackpagepadding});
@@ -848,7 +894,8 @@ qx.Class.define("ville.wax.demo.Application",
       mobilemodalwindow.setLayout(new qx.ui.layout.VBox(4));
       mobilemodalwindow.add(new qx.ui.basic.Label("I am a modal window"));
 
-      northhbox.setBackgroundColor(bckgcolormain);
+      // northhbox.setBackgroundColor(bckgcolormain);
+      northhbox.setBackgroundColor(ville.global.color.White);
       northtoolbar.setBackgroundColor("transparent");
       //decorator : "topheader"
       atmlogocurrentpage.set({visibility: "visible", label:"Menu", opacity: 0 });
