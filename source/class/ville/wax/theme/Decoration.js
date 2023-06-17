@@ -471,11 +471,14 @@ qx.Theme.define("ville.wax.theme.Decoration",
       style :
       {
         radius: 70,
-        width : [1,2],
-        color: "#e3e2e2",
-        backgroundImage: "ville/wax/wax-switch-knob26.svg",
+        width : [1,1],
+        color: "NeutralStroke1",
+        backgroundImage: "ville/wax/sunny.svg",
         backgroundPositionX: "left",
-        backgroundPositionY: "center"
+        backgroundPositionY: "center",
+        transitionProperty: ['background-color', 'border-color', 'background-position-x'],
+        transitionDuration: ville.global.duration.Normal,
+        transitionTimingFunction : "ease"
       }
     },
 
@@ -484,11 +487,14 @@ qx.Theme.define("ville.wax.theme.Decoration",
       style :
       {
         radius: 70,
-        width : [1,2],
-        color: "blue",
-        backgroundImage: "ville/wax/wax-switch-knob26.svg",
+        width : [1,1],
+        color: "BrandBackground1",
+        backgroundImage: "ville/wax/dark.svg",
         backgroundPositionX: "right",
-        backgroundPositionY: "center"
+        backgroundPositionY: "center",
+        transitionProperty: ['background-color', 'border-color', 'background-position-x'],
+        transitionDuration: ville.global.duration.Normal,
+        transitionTimingFunction : "ease"
       }
     }
     

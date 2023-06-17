@@ -36,6 +36,8 @@
  * @asset(ville/wax/ville_logo.svg)
  * @asset(ville/wax/ville_fluent_logo.svg)
  * @asset(ville/wax/ville_fluent_logo.png)
+ * @asset(ville/wax/sunny.svg)
+ * @asset(ville/wax/dark.svg)
  */
 qx.Class.define("ville.wax.demo.Application",
 {
@@ -302,50 +304,213 @@ qx.Class.define("ville.wax.demo.Application",
       // Line
       // About This Demo - What is different about this vs WidgetBrowser - link to WB
       firststackpage.add(new qx.ui.basic.Label("About This Demo").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("The purpose of this demo is to show what changes an application would need to make in order to best follow Fluent's design principles. Light and Dark color themes are supported.").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("The purpose of this demo is to show what changes a qooxdoo application would need to incorporate in order to more closely follow Fluent's design principles. Light and Dark color themes are supported.").set({font: "body2", rich: true, wrap: true}));
 
       // Line
       // Controls in alpha order
       firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, RadioButton, SelectBox, TabView, TextField, TextArea").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, RadioButton, SelectBox, TextField, TextArea").set({font: "body2", rich: true, wrap: true}));
 
       // BUTTON
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Here is the button").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Default Button").set({font: "body1", rich: true, wrap: true}));
+      var defaultbutton = new qx.ui.form.Button("Default").set({minWidth: 96, allowStretchX: false, allowStretchY: false});
+      firststackpage.add(defaultbutton);
+      firststackpage.add(new qx.ui.basic.Label("Default Button rounded - appearance = default-rounded-button").set({marginTop: 40, font: "body1", rich: true, wrap: true}));
+      var defaultroundedbutton = new qx.ui.form.Button("Rounded").set({minWidth: 96, appearance: "default-rounded-button", allowStretchX: false, allowStretchY: false});
+      firststackpage.add(defaultroundedbutton);
+      firststackpage.add(new qx.ui.basic.Label("Primary Button - appearance = primary-button").set({marginTop: 40, font: "body1", rich: true, wrap: true}));
+      var primarybutton = new qx.ui.form.Button("Primary").set({minWidth: 96, appearance: "primary-button", allowStretchX: false, allowStretchY: false});
+      firststackpage.add(primarybutton);
+      firststackpage.add(new qx.ui.basic.Label("Primary Button rounded - appearance = primary-rounded-button").set({marginTop: 40, font: "body1", rich: true, wrap: true}));
+      var primaryroundedbutton = new qx.ui.form.Button("Rounded").set({minWidth: 96, appearance: "primary-rounded-button", allowStretchX: false, allowStretchY: false});
+      firststackpage.add(primaryroundedbutton);
 
       // CheckBox
 
       // ComboBox
       firststackpage.add(new qx.ui.basic.Label("ComboBox").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Here is the combobox").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Default ComboBox with the following modifications - quickSelection = false, and each ListItem's appearance = combobox-listitem").set({font: "body1", rich: true, wrap: true}));
+      var comboBox1 = new qx.ui.form.ComboBox().set({width: 250, allowStretchX: false, allowStretchY: false});
+      comboBox1.getChildrenContainer().set({quickSelection: false, maxHeight: 250});
+      // fill the combo box with some stuff
+      for (var i = 1; i < 6; i++) {
+        var tempItem = new qx.ui.form.ListItem(
+          "2^ " + i + " = " + Math.pow(2, i)
+        ).set({appearance: "combobox-listitem"});
+        comboBox1.add(tempItem);
+      }
+      firststackpage.add(comboBox1);
 
       // List
       firststackpage.add(new qx.ui.basic.Label("List").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Here is the list").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Default List widget with default ListItems").set({font: "body1", rich: true, wrap: true}));
+      var list1 = new qx.ui.form.List().set({width: 150, height: 210, allowStretchX: false, allowStretchY: false});
+      for (var i = 1; i < 6; i++) {
+        var tempItem = new qx.ui.form.ListItem("2^ " + i + " = " + Math.pow(2, i));
+        list1.add(tempItem);
+      }
+      firststackpage.add(list1);
 
       // RadioButton
       firststackpage.add(new qx.ui.basic.Label("RadioButton").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Here is the radio button").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Default RadioButtons in a RadioButtonGroup").set({font: "body1", rich: true, wrap: true}));
+      var radioButtonGroupVBox = new qx.ui.form.RadioButtonGroup();
+      radioButtonGroupVBox.setLayout(new qx.ui.layout.VBox(2));
+      radioButtonGroupVBox.add(new qx.ui.form.RadioButton("Red"));
+      radioButtonGroupVBox.add(new qx.ui.form.RadioButton("Green"));
+      radioButtonGroupVBox.add(new qx.ui.form.RadioButton("Blue"));
+      firststackpage.add(radioButtonGroupVBox);
 
       // SelectBox
       firststackpage.add(new qx.ui.basic.Label("SelectBox").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Here is the select box").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Default SelectBox with default ListItems").set({font: "body1", rich: true, wrap: true}));
+      var select1 = new qx.ui.form.SelectBox().set({width: 250, allowStretchX: false, allowStretchY: false});
+      for (var i = 1; i < 6; i++) {
+        var tempItem = new qx.ui.form.ListItem("2^ " + i + " = " + Math.pow(2, i));
+        select1.add(tempItem);
+      }
+      firststackpage.add(select1);
 
+      // TabView
+      // firststackpage.add(new qx.ui.basic.Label("TabView").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      // firststackpage.add(new qx.ui.basic.Label("Here is the tabview").set({font: "body1", rich: true, wrap: true}));
+
+      // Wax TabView with a line
+      var wtabView2 = new qx.ui.tabview.TabView();
+
+      var page1tbv2 = new qx.ui.tabview.Page("Home").set({appearance: "wax-tabview-page-line"});
+      page1tbv2.setLayout(new qx.ui.layout.VBox());
+      page1tbv2.add(new qx.ui.basic.Label("Home Page"));
+      wtabView2.add(page1tbv2);
+
+      var page2tbv2 = new qx.ui.tabview.Page("Next Long").set({appearance: "wax-tabview-page-line"});
+      page2tbv2.setLayout(new qx.ui.layout.VBox());
+      page2tbv2.add(new qx.ui.basic.Label("Next Long Page"));
+      wtabView2.add(page2tbv2);
+
+      var page3tbv2 = new qx.ui.tabview.Page("Last Very Long").set({appearance: "wax-tabview-page-line"});
+      page3tbv2.setLayout(new qx.ui.layout.VBox());
+      page3tbv2.add(new qx.ui.basic.Label("Last Very Long Page"));
+      wtabView2.add(page3tbv2);
+
+      // firststackpage.add(wtabView2);
+
+      wtabView2.setSelection([page2tbv2]);
+
+      var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "blue", zIndex: 5, decorator : "wax-tabview-line"});
+      wtabView2.getChildControl("bar").add(tabviewbarline); 
+
+      wtabView2.addListener("changeSelection", function(e) {
+        var oldbounds = e.getOldData()[0].getChildControl("button").getBounds();
+        var newbounds = e.getData()[0].getChildControl("button").getBounds();
+        var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
+        var oldtop = oldbounds.height - tabviewbarline.getHeight();
+        var newtop = newbounds.height - tabviewbarline.getHeight();
+        var tabviewbarlinemove = {
+          duration: 300, 
+          timing: "ease", 
+          keyFrames : {
+            0: {"left": oldbounds.left + "px", "top": oldtop + "px", "width": oldbounds.width + "px"},
+            100: {"left": newbounds.left + 8 + "px", "top": newtop + "px", "width": newbounds.width - 16 + "px"}
+          },
+          keep : 100
+        };
+        qx.bom.element.AnimationCss.animate(tbvmarkdom, tabviewbarlinemove);
+
+        //remove old mouseover and mouseout listeners
+        e.getOldData()[0].getChildControl("button").removeListenerById(tabviewbarline.getUserData("mouseoverid"));
+        e.getOldData()[0].getChildControl("button").removeListenerById(tabviewbarline.getUserData("mouseoutid"));
+
+        var tabvbutton = e.getData()[0].getChildControl("button");
+
+        var mouseoverid = tabvbutton.addListener("mouseover", function() {
+          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
+          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
+            duration: 150, 
+            timing: "ease-in", 
+            keyFrames : {
+              0: {"width": newbounds.width + "px"},
+              100: {"width": newbounds.width -16 + "px", "left": newbounds.left +8 + "px"}
+            },
+            keep : 100
+          });
+        });
+        var mouseoutid = tabvbutton.addListener("mouseout", function() {
+          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
+          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
+            duration: 150, 
+            timing: "ease-in", 
+            keyFrames : {
+              0: {"width": newbounds.width -16 + "px", "left": newbounds.left +8 + "px"},
+              100: {"width": newbounds.width + "px", "left": newbounds.left + "px"}
+            },
+            keep : 100
+          });
+        });
+        tabviewbarline.setUserData("mouseoverid", mouseoverid);
+        tabviewbarline.setUserData("mouseoutid", mouseoutid);
+
+      }, this); 
+    
+      wtabView2.addListenerOnce("appear", function() {
+        var movetobounds = this.getSelection()[0].getChildControl("button").getBounds();
+        tabviewbarline.getContentElement().setStyles({
+          "left": movetobounds.left + "px", 
+          "top": movetobounds.height - tabviewbarline.getHeight() + "px", 
+          "width": movetobounds.width + "px", 
+          "height": tabviewbarline.getHeight() + "px"
+        });
+
+        var tabvbutton = this.getSelection()[0].getChildControl("button");
+
+        var mouseoverid = tabvbutton.addListener("mouseover", function() {
+          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
+          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
+            duration: 150, 
+            timing: "ease-in", 
+            keyFrames : {
+              0: {"width": this.getBounds().width + "px"},
+              100: {"width": this.getBounds().width -16 + "px", "left": this.getBounds().left +8 + "px"}
+            },
+            keep : 100
+          });
+        });
+        var mouseoutid = tabvbutton.addListener("mouseout", function() {
+          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
+          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
+            duration: 150, 
+            timing: "ease-in", 
+            keyFrames : {
+              0: {"width": this.getBounds().width -16 + "px", "left": this.getBounds().left +8 + "px"},
+              100: {"width": this.getBounds().width + "px", "left": this.getBounds().left + "px"}
+            },
+            keep : 100
+          });
+        });
+        tabviewbarline.setUserData("mouseoverid", mouseoverid);
+        tabviewbarline.setUserData("mouseoutid", mouseoutid);
+      });
+      
       // TextField
       firststackpage.add(new qx.ui.basic.Label("TextField").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Here is the textfield").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Default TextField").set({font: "body1", rich: true, wrap: true}));
+      var textfield1 = new qx.ui.form.TextField().set({width: 250, placeholder: "Example", allowStretchX: false, allowStretchY: false});
+      firststackpage.add(textfield1);
 
       // TextArea
       firststackpage.add(new qx.ui.basic.Label("TextArea").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Here is the textarea").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Default TextArea").set({font: "body1", rich: true, wrap: true}));
+      var textarea1 = new qx.ui.form.TextArea().set({placeholder: "Example", allowStretchX: false, allowStretchY: false});
+      firststackpage.add(textarea1);
 
       // ToggleButton
 
 
 
       // SWITCH
-      firststackpage.add(new qx.ui.basic.Label("Switch").set({font: stackpageheaderfont, padding: [60, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Just a simple qx.ui.form.CheckBox made to look like a switch control via appearance and decorator changes (with help of an SVG file for the white knob).").set({rich: true, wrap: true}));
+      //firststackpage.add(new qx.ui.basic.Label("Switch").set({font: stackpageheaderfont, padding: [60, 0, 0, 0]}));
+      //firststackpage.add(new qx.ui.basic.Label("Just a simple qx.ui.form.CheckBox made to look like a switch control via appearance and decorator changes (with help of an SVG file for the white knob).").set({rich: true, wrap: true}));
       var waxswitch = new qx.ui.form.CheckBox("Default switch").set({appearance: "wax-switch"});
       //firststackpage.add(waxswitch);
       var waxswitch2 = new qx.ui.form.CheckBox("Larger switch").set({appearance: "wax-switch-larger"});
@@ -357,11 +522,20 @@ qx.Class.define("ville.wax.demo.Application",
         duration: 300, 
         timing: "ease", 
         keyFrames : {
-          0: {"backgroundColor": "#e3e2e2", "background-position-x": "0%", "border-color": "#e3e2e2"},
+          0: {"backgroundColor": "white", "background-position-x": "0%", "border-color": "black"},
           100: {"backgroundColor": "blue", "background-position-x": "100%", "border-color": "blue"}
         },
         keep : 100
       };
+
+      // Wax Switch - animate on change of value
+      /*waxcolorswitch.addListener("changeValue", function(e) {
+        var cbimage = this.getChildControl("icon").getContentElement().getDomElement();
+        if (e.getData())
+          qx.bom.element.AnimationCss.animate(cbimage, slideright);
+        else
+          qx.bom.element.AnimationCss.animateReverse(cbimage, slideright);
+      }); */
 
       // Wax Switch - animate on change of value
       waxswitch.addListener("changeValue", function(e) {
@@ -466,8 +640,8 @@ qx.Class.define("ville.wax.demo.Application",
       wtabView1.add(page3);
 
       // secondstackpage.add(wtabView1);
-      firststackpage.add(new qx.ui.basic.Label("TabView").set({font: stackpageheaderfont, padding: [80, 0, 0, 0]}));
-      firststackpage.add(wtabView1);
+      //firststackpage.add(new qx.ui.basic.Label("TabView").set({font: stackpageheaderfont, padding: [80, 0, 0, 0]}));
+      //firststackpage.add(wtabView1);
 
       wtabView1.setSelection([page2]);
 
@@ -509,123 +683,10 @@ qx.Class.define("ville.wax.demo.Application",
         });
       })
 
-      // Wax TabView with a line
-      var wtabView2 = new qx.ui.tabview.TabView();
-
-      var page1tbv2 = new qx.ui.tabview.Page("Home").set({appearance: "wax-tabview-page-line"});
-      page1tbv2.setLayout(new qx.ui.layout.VBox());
-      page1tbv2.add(new qx.ui.basic.Label("Home Page"));
-      wtabView2.add(page1tbv2);
-
-      var page2tbv2 = new qx.ui.tabview.Page("Next Long").set({appearance: "wax-tabview-page-line"});
-      page2tbv2.setLayout(new qx.ui.layout.VBox());
-      page2tbv2.add(new qx.ui.basic.Label("Next Long Page"));
-      wtabView2.add(page2tbv2);
-
-      var page3tbv2 = new qx.ui.tabview.Page("Last Very Long").set({appearance: "wax-tabview-page-line"});
-      page3tbv2.setLayout(new qx.ui.layout.VBox());
-      page3tbv2.add(new qx.ui.basic.Label("Last Very Long Page"));
-      wtabView2.add(page3tbv2);
+      
 
       // secondstackpage.add(wtabView2);
-      firststackpage.add(wtabView2);
-
-      wtabView2.setSelection([page2tbv2]);
-
-      var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "blue", zIndex: 5, decorator : "wax-tabview-line"});
-      wtabView2.getChildControl("bar").add(tabviewbarline); 
-
-      wtabView2.addListener("changeSelection", function(e) {
-        var oldbounds = e.getOldData()[0].getChildControl("button").getBounds();
-        var newbounds = e.getData()[0].getChildControl("button").getBounds();
-        var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-        var oldtop = oldbounds.height - tabviewbarline.getHeight();
-        var newtop = newbounds.height - tabviewbarline.getHeight();
-        var tabviewbarlinemove = {
-          duration: 300, 
-          timing: "ease", 
-          keyFrames : {
-            0: {"left": oldbounds.left + "px", "top": oldtop + "px", "width": oldbounds.width + "px"},
-            100: {"left": newbounds.left + 8 + "px", "top": newtop + "px", "width": newbounds.width - 16 + "px"}
-          },
-          keep : 100
-        };
-        qx.bom.element.AnimationCss.animate(tbvmarkdom, tabviewbarlinemove);
-
-        //remove old mouseover and mouseout listeners
-        e.getOldData()[0].getChildControl("button").removeListenerById(tabviewbarline.getUserData("mouseoverid"));
-        e.getOldData()[0].getChildControl("button").removeListenerById(tabviewbarline.getUserData("mouseoutid"));
-
-        var tabvbutton = e.getData()[0].getChildControl("button");
-
-        var mouseoverid = tabvbutton.addListener("mouseover", function() {
-          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
-            duration: 150, 
-            timing: "ease-in", 
-            keyFrames : {
-              0: {"width": newbounds.width + "px"},
-              100: {"width": newbounds.width -16 + "px", "left": newbounds.left +8 + "px"}
-            },
-            keep : 100
-          });
-        });
-        var mouseoutid = tabvbutton.addListener("mouseout", function() {
-          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
-            duration: 150, 
-            timing: "ease-in", 
-            keyFrames : {
-              0: {"width": newbounds.width -16 + "px", "left": newbounds.left +8 + "px"},
-              100: {"width": newbounds.width + "px", "left": newbounds.left + "px"}
-            },
-            keep : 100
-          });
-        });
-        tabviewbarline.setUserData("mouseoverid", mouseoverid);
-        tabviewbarline.setUserData("mouseoutid", mouseoutid);
-
-      }, this); 
-    
-      wtabView2.addListenerOnce("appear", function() {
-        var movetobounds = this.getSelection()[0].getChildControl("button").getBounds();
-        tabviewbarline.getContentElement().setStyles({
-          "left": movetobounds.left + "px", 
-          "top": movetobounds.height - tabviewbarline.getHeight() + "px", 
-          "width": movetobounds.width + "px", 
-          "height": tabviewbarline.getHeight() + "px"
-        });
-
-        var tabvbutton = this.getSelection()[0].getChildControl("button");
-
-        var mouseoverid = tabvbutton.addListener("mouseover", function() {
-          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
-            duration: 150, 
-            timing: "ease-in", 
-            keyFrames : {
-              0: {"width": this.getBounds().width + "px"},
-              100: {"width": this.getBounds().width -16 + "px", "left": this.getBounds().left +8 + "px"}
-            },
-            keep : 100
-          });
-        });
-        var mouseoutid = tabvbutton.addListener("mouseout", function() {
-          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
-            duration: 150, 
-            timing: "ease-in", 
-            keyFrames : {
-              0: {"width": this.getBounds().width -16 + "px", "left": this.getBounds().left +8 + "px"},
-              100: {"width": this.getBounds().width + "px", "left": this.getBounds().left + "px"}
-            },
-            keep : 100
-          });
-        });
-        tabviewbarline.setUserData("mouseoverid", mouseoverid);
-        tabviewbarline.setUserData("mouseoutid", mouseoutid);
-
-      });
+      
 
       // Wax TabView - gray bar with white block
       var wtabView3 = new qx.ui.tabview.TabView().set({appearance: "wax-tabview-block"});
@@ -691,7 +752,7 @@ qx.Class.define("ville.wax.demo.Application",
       });
 
       // secondstackpage.add(wtabView3);
-      firststackpage.add(wtabView3);
+     // firststackpage.add(wtabView3);
 
       wtabView3.setSelection([page2tbv3]);
 
@@ -724,10 +785,10 @@ qx.Class.define("ville.wax.demo.Application",
         });
       });
 
-      firststackpage.add(new qx.ui.basic.Label("Drawer").set({font: stackpageheaderfont, padding: [80, 0, 0, 0]}));
+      //firststackpage.add(new qx.ui.basic.Label("Drawer").set({font: stackpageheaderfont, padding: [80, 0, 0, 0]}));
 
       var mainmenudrawerbutton = new qx.ui.form.Button("Left side, main menu style", menuimage).set({allowStretchX: false, allowStretchY: false});
-      firststackpage.add(mainmenudrawerbutton);
+      //firststackpage.add(mainmenudrawerbutton);
 
       // Add Main Menu Popup Listeners
       mainmenudrawerbutton.addListener("execute", function(e)
@@ -774,7 +835,7 @@ qx.Class.define("ville.wax.demo.Application",
         qx.bom.element.Animation.animate(domtable, fadeinleft);
       });
 
-      firststackpage.add(btnOpenwin);
+      //firststackpage.add(btnOpenwin);
 
       btnOpenwin.addListener("execute", function() {
         winDrawer.center();
@@ -797,10 +858,10 @@ qx.Class.define("ville.wax.demo.Application",
       });
 
       // --Mobile--
-      firststackpage.add(new qx.ui.basic.Label("Mobile").set({font: stackpageheaderfont, padding: [80, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Controls and features that you would expect from a mobile app, such as TabBar, modal and non-modal drawers/popups, page transitions and unimpeded scrolling").set({rich: true, wrap: true}));
+      //firststackpage.add(new qx.ui.basic.Label("Mobile").set({font: stackpageheaderfont, padding: [80, 0, 0, 0]}));
+     // firststackpage.add(new qx.ui.basic.Label("Controls and features that you would expect from a mobile app, such as TabBar, modal and non-modal drawers/popups, page transitions and unimpeded scrolling").set({rich: true, wrap: true}));
       var btnSwitchtoMobileView = new qx.ui.form.Button("Switch to Mobile View").set({allowGrowX: false});
-      firststackpage.add(btnSwitchtoMobileView);
+      //firststackpage.add(btnSwitchtoMobileView);
 
       btnSwitchtoMobileView.addListener("execute", function(e){
         this.setDemoMode("mobile");

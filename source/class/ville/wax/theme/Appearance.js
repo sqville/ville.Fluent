@@ -414,12 +414,12 @@ qx.Theme.define("ville.wax.theme.Appearance",
       {
         var decorator = "wax-switch-lgr";
         //TODOs - grab color from color theme
-        var bgcolor = "#e3e2e2";
+        var bgcolor = "NeutralBackground1";
 
         // Checked
         if (states.checked) {
           //TODOs - grab color from color theme
-          bgcolor = "blue";
+          bgcolor = "BrandBackground1Selected";
           decorator = "wax-switch-lgr-checked"
         } 
 

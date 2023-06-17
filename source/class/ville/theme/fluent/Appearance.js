@@ -2093,6 +2093,29 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     },
     
     "menubutton/icon" : "combobox/button/icon",
+
+     /*
+    ---------------------------------------------------------------------------     
+      DEFAULT ROUNDED BUTTON
+    ---------------------------------------------------------------------------
+    */
+
+    "default-rounded-button" :
+    {
+      include : "button-frame",
+      alias :"button-frame",
+
+      style : function(states, styles)
+      {
+        return {
+          decorator : "rounded-" + styles.decorator,
+          backgroundColor : "Neutral" + styles.backgroundColor,
+          center : true,
+          padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
+          gap : 8
+        };
+      }
+    },
     
     /*
     ---------------------------------------------------------------------------     
@@ -2107,7 +2130,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states, styles)
       {
         return {
-          //decorator : "primary-" + styles.decorator,
+          decorator : styles.decorator,
           backgroundColor : "Brand" + styles.backgroundColor,
           center : true,
           padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
@@ -2126,44 +2149,20 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         };
       }
     },
-   
-    "primary-button-frame" :
+
+    "primary-rounded-button" :
     {
-	    include :"button-frame",
+      include : "primary-button",
+      alias : "primary-button",
 
-      style : function(states)
+      style : function(states, styles)
       {
-        var bgcolor = "themePrimary";
-
-        if (!states.disabled) {
-          if (states.hovered && !states.pressed && !states.checked) {
-            bgcolor = "themeDarkAlt";
-          } else if (states.hovered && (states.pressed || states.checked)) {
-            bgcolor = "themeDark";
-          } else if (states.pressed || states.checked) {
-            bgcolor = "themeDark";
-          }
-        }
-
         return {
-          decorator : "primary-button",
-          backgroundColor : bgcolor
+          decorator : "rounded-" + styles.decorator
         };
       }
     },
-
-    "primary-button-frame/label" : {
-      alias : "atom/label",
-
-      style : function(states)
-      {
-        return {
-          textColor : states.disabled ? "text-disabled" :  "white",
-          font : "button"
-        };
-      }
-    },
-
+   
     
     /*
     ---------------------------------------------------------------------------

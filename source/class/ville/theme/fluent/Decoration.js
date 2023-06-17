@@ -427,7 +427,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
     "button-box-pressed-hovered" :
     {
-      include : ["button-box-blank", "button-box-pressed"],
+      include : "button-box-pressed",
 
       style :
       {
@@ -435,7 +435,28 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       }
     },
 
-     /*
+    "rounded-button-box" :
+    {
+      include : "button-box",
+
+      style : { radius : ville.global.border.radius.Circular }
+    },
+
+    "rounded-button-box-hovered" :
+    {
+      include : "button-box-hovered",
+      style : { radius : ville.global.border.radius.Circular }
+    },
+
+    "rounded-button-box-pressed" :
+    {
+      include : "button-box-pressed",
+      style : { radius : ville.global.border.radius.Circular }
+    },
+
+
+
+    /*
     ---------------------------------------------------------------------------
       PRIMARY BUTTON
     ---------------------------------------------------------------------------
