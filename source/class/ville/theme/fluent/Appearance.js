@@ -3033,7 +3033,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "background",
+          backgroundColor : "NeutralBackground1",
           padding : 0
         };
       }

@@ -30,14 +30,15 @@
  * @asset(ville/wax/Gray_House.svg)
  * @asset(ville/wax/wax_menu_gray.svg)
  * @asset(ville/wax/wax_menu_blue.svg)
- * @asset(ville/wax/arrow-down-outline.svg)
  * @asset(ville/wax/KeyItem.svg)
  * @asset(ville/wax/Yellow_Car_g7.jpg)
  * @asset(ville/wax/ville_logo.svg)
  * @asset(ville/wax/ville_fluent_logo.svg)
  * @asset(ville/wax/ville_fluent_logo.png)
- * @asset(ville/wax/sunny.svg)
- * @asset(ville/wax/dark.svg)
+ * FLUENT SVG ICONS:
+ * @asset(ville/wax/arrow-down-outline.svg)
+ * @asset(ville/wax/Brightness.svg)
+ * @asset(ville/wax/ClearNight.svg)
  */
 qx.Class.define("ville.wax.demo.Application",
 {
@@ -107,17 +108,17 @@ qx.Class.define("ville.wax.demo.Application",
       this._blocker = new qx.ui.core.Blocker(approot).set({color: "black", opacity: .08});
       
       // App's main Container (Composite) with Dock Layout 
-      var appcompdock = new qx.ui.container.Composite(new qx.ui.layout.Dock(0, 0)).set({backgroundColor: "white"});
+      var appcompdock = new qx.ui.container.Composite(new qx.ui.layout.Dock(0, 0)).set({backgroundColor: "NeutralBackground1"});
       
       // Dock's North section (Canvas)
-      var northhbox = this._northBox = new qx.ui.container.Composite(new qx.ui.layout.Canvas()).set({decorator: "topheader-wax"});
+      var northhbox = this._northBox = new qx.ui.container.Composite(new qx.ui.layout.Canvas()).set({backgroundColor: "NeutralBackground1", decorator: "topheader-wax"});
 
       // Dock's West section (VBox)
-      var westbox = this._westBox = new qx.ui.container.Composite(new qx.ui.layout.VBox(0)).set({backgroundColor: "white", padding: [10,0,10,10], decorator : "leftside"});
+      var westbox = this._westBox = new qx.ui.container.Composite(new qx.ui.layout.VBox(0)).set({backgroundColor: "NeutralBackground1", padding: [10,0,10,10], decorator : "leftside"});
       westbox.setVisibility("excluded");
 
       // Dock's Center section (Stack) === THE STACK ===
-      var centerbox = new qx.ui.container.Stack().set({backgroundColor: "white", padding: 0});
+      var centerbox = new qx.ui.container.Stack().set({backgroundColor: "NeutralBackground1", padding: 0});
 
       var southbox = new qx.ui.container.Composite(new qx.ui.layout.HBox(4)).set({alignY: "middle", padding: [8,4,34,4], decorator: "bottombar"});
 
@@ -528,14 +529,17 @@ qx.Class.define("ville.wax.demo.Application",
         keep : 100
       };
 
-      // Wax Switch - animate on change of value
-      /*waxcolorswitch.addListener("changeValue", function(e) {
-        var cbimage = this.getChildControl("icon").getContentElement().getDomElement();
-        if (e.getData())
-          qx.bom.element.AnimationCss.animate(cbimage, slideright);
-        else
-          qx.bom.element.AnimationCss.animateReverse(cbimage, slideright);
-      }); */
+      // Wax Theme switcher - light dark
+      waxcolorswitch.addListener("changeValue", function(e) {
+        if (e.getData()) {
+          qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.ColorDark);
+          localStorage.thememode = "dark";
+        }
+        else {
+          qx.theme.manager.Color.getInstance().setTheme(ville.wax.theme.Color);
+          localStorage.thememode = "light";
+        }
+      });
 
       // Wax Switch - animate on change of value
       waxswitch.addListener("changeValue", function(e) {
@@ -956,7 +960,7 @@ qx.Class.define("ville.wax.demo.Application",
       mobilemodalwindow.add(new qx.ui.basic.Label("I am a modal window"));
 
       // northhbox.setBackgroundColor(bckgcolormain);
-      northhbox.setBackgroundColor(ville.global.color.White);
+      //northhbox.setBackgroundColor(ville.global.color.White);
       northtoolbar.setBackgroundColor("transparent");
       //decorator : "topheader"
       atmlogocurrentpage.set({visibility: "visible", label:"Menu", opacity: 0 });
@@ -977,10 +981,10 @@ qx.Class.define("ville.wax.demo.Application",
         // top bar
         if (scrollval >= menulbllocbtm-6) {
           atmlogocurrentpage.set({ opacity: 1 });
-          northhbox.set({backgroundColor: bckgcolortopbtm, decorator: "topheader"});
+          northhbox.set({decorator: "topheader"});
         } else {
           atmlogocurrentpage.set({ opacity: 0 });
-          northhbox.set({backgroundColor: bckgcolormain, decorator: "topheader-blended"});
+          northhbox.set({decorator: "topheader-blended"});
         }
 
         

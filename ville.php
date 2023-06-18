@@ -26,12 +26,12 @@ function extractDataFromJson($data, $result, $keysToExtract)
                 
                 $cleanstring = str_replace("{","",str_replace("}","",$value),$cleanhit);
                 if ($cleanhit > 0) {
-                    $cleanupgray = str_replace("Global.Color.Grey.","ville.theme.fluent.global.color.Grey[",$cleanstring,$grayhit);   
-                    $cleanupbrand = str_replace("Global.Color.Brand.","ville.theme.fluent.global.color.Brand[",$cleanupgray,$brandhit);
-                    $cleanupwhitealpha = str_replace("Global.Color.WhiteAlpha.","ville.theme.fluent.global.color.WhiteAlpha[",$cleanupbrand,$whitealphahit);
-                    $cleanupblackalpha = str_replace("Global.Color.BlackAlpha.","ville.theme.fluent.global.color.BlackAlpha[",$cleanupwhitealpha,$blackalphahit);
-                    $cleanupwhite = str_replace("Global.Color.White","ville.theme.fluent.global.Color.White",$cleanupblackalpha,$whitehit);
-                    $cleanupblack = str_replace("Global.Color.Black","ville.theme.fluent.global.Color.Black",$cleanupwhite,$blackhit);
+                    $cleanupgray = str_replace("Global.Color.Grey.","ville.global.color.Grey[",$cleanstring,$grayhit);   
+                    $cleanupbrand = str_replace("Global.Color.Brand.","ville.global.color.Brand[",$cleanupgray,$brandhit);
+                    $cleanupwhitealpha = str_replace("Global.Color.WhiteAlpha.","ville.global.color.WhiteAlpha[",$cleanupbrand,$whitealphahit);
+                    $cleanupblackalpha = str_replace("Global.Color.BlackAlpha.","ville.global.color.BlackAlpha[",$cleanupwhitealpha,$blackalphahit);
+                    $cleanupwhite = str_replace("Global.Color.White","ville.global.Color.White",$cleanupblackalpha,$whitehit);
+                    $cleanupblack = str_replace("Global.Color.Black","ville.global.Color.Black",$cleanupwhite,$blackhit);
                     
                     if ($grayhit + $whitealphahit + $blackalphahit + $brandhit > 0) {
                         $cleanupblack = $cleanupblack . "]";
@@ -61,7 +61,8 @@ function writeToOutputFile($result, $outputFile)
 }
 
 // Set the path to your JSON input file
-$jsonFile = 'fluentlight.json';
+//$jsonFile = 'fluentlight.json';
+$jsonFile = 'fluentdark.json';
 
 // Set the keys you want to extract from the JSON file
 $keysToExtract = ['$value'];
