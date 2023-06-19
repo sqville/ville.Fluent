@@ -188,8 +188,10 @@ qx.Class.define("ville.wax.demo.Application",
       //mainmenupart.add(mainmenubtnbutton);
       //profilepart.add(profilemenubutton);
 
-      var atmvillelogo = new qx.ui.basic.Atom("ville", "ville/wax/ville_logo.svg").set({show: "icon"});
-      mainmenupart.add(atmvillelogo);
+      //var atmvillelogo = new qx.ui.basic.Atom("ville", "ville/wax/ville_logo.svg").set({font: "ville-logo-header"});
+      var lblvillelogoheader = new qx.ui.basic.Label("ville").set({font: "ville-logo-header", padding: 12});
+      //mainmenupart.add(atmvillelogo);
+      mainmenupart.add(lblvillelogoheader);
 
       var waxcolorswitch = new qx.ui.form.CheckBox("Theme").set({appearance: "wax-switch-larger"});
 
@@ -298,7 +300,7 @@ qx.Class.define("ville.wax.demo.Application",
       // Title Intro
 
       //firststackpage.add(new qx.ui.basic.Image("ville/wax/ville_fluent_logo.png"));
-      firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({paddingTop: 30, font: "ville-logo-font"}));
+      firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({paddingTop: 30, font: "ville-fluent-logo-display"}));
       //firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({font: "display", margin: 0, padding: [4, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("A theme for the Qooxdoo Javascript Framework. Inspired by Microsoft's Fluent Design System.").set({margin: 0, paddingBottom: 20, font: "subtitle0", rich: true, wrap: true}));
 
@@ -889,7 +891,7 @@ qx.Class.define("ville.wax.demo.Application",
         westboxbuttongroup.setSelection([tbtnfirststackpage]);
       });
 
-      firststackpage.add(new qx.ui.basic.Label("The End").set({backgroundColor: "#f3f3f3", font: stackpageheaderfont, textColor: "red", textAlign: "center", allowGrowX: true, padding: [20,0,20,0], margin: [80,0,20,0]}));
+      firststackpage.add(new qx.ui.basic.Label("ville.Fluent<br>A theme for the Qooxdoo Javascript Framework").set({rich: true, backgroundColor: "NeutralBackground1", font: "ville-fluent-logo-footer", decorator: "heading2", textAlign: "center", allowGrowX: true,marginTop: 40, paddingTop: 40}));
 
 
 

@@ -17,8 +17,31 @@ qx.Theme.define("ville.wax.theme.Font",
 
   fonts :
   {
-    "ville-logo-font" : {
+    "ville-logo-header" : {
+      size: 28,
+      family: ["Providence","sans-serif"],
+      sources: [
+        {
+          family: "Providence",
+          source: ["ville/wax/Providence.ttf"]
+        }
+      ]
+    },
+    
+    "ville-fluent-logo-display" : {
       size: 84,
+      letterSpacing: 2,
+      family: ["Providence","sans-serif"],
+      sources: [
+        {
+          family: "Providence",
+          source: ["ville/wax/Providence.ttf"]
+        }
+      ]
+    },
+
+    "ville-fluent-logo-footer" : {
+      size: 20,
       letterSpacing: 2,
       family: ["Providence","sans-serif"],
       sources: [
