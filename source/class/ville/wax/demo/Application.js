@@ -535,10 +535,12 @@ qx.Class.define("ville.wax.demo.Application",
       waxcolorswitch.addListener("changeValue", function(e) {
         if (e.getData()) {
           qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.ColorDark);
+          firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "dark");
           localStorage.thememode = "dark";
         }
         else {
           qx.theme.manager.Color.getInstance().setTheme(ville.wax.theme.Color);
+          firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "normal");
           localStorage.thememode = "light";
         }
       });
@@ -891,7 +893,8 @@ qx.Class.define("ville.wax.demo.Application",
         westboxbuttongroup.setSelection([tbtnfirststackpage]);
       });
 
-      firststackpage.add(new qx.ui.basic.Label("ville.Fluent<br>A theme for the Qooxdoo Javascript Framework").set({rich: true, backgroundColor: "NeutralBackground1", font: "ville-fluent-logo-footer", decorator: "heading2", textAlign: "center", allowGrowX: true,marginTop: 40, paddingTop: 40}));
+      firststackpage.add(new qx.ui.basic.Label("ville.Fluent").set({rich: true, backgroundColor: "NeutralBackground1", font: "ville-fluent-logo-footer", decorator: "heading2", textAlign: "center", allowGrowX: true, marginTop: 60, paddingTop: 40}));
+      firststackpage.add(new qx.ui.basic.Label("Created by Chris Eskew - sqville").set({rich: true, backgroundColor: "NeutralBackground1", font: "default", textAlign: "center", allowGrowX: true, paddingBottom: 40}));
 
 
 

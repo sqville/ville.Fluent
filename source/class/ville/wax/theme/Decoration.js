@@ -476,9 +476,9 @@ qx.Theme.define("ville.wax.theme.Decoration",
         backgroundImage: "ville/wax/Brightness.svg",
         backgroundPositionX: "left",
         backgroundPositionY: "center",
-        transitionProperty: ['background-color', 'border-color', 'background-position-x'],
-        transitionDuration: ville.global.duration.Normal,
-        transitionTimingFunction : "ease"
+        transitionProperty: "all",
+        transitionDuration: ville.global.duration.Slow,
+        transitionTimingFunction : ville.global.curve.EasyEase
       }
     },
 
@@ -492,9 +492,9 @@ qx.Theme.define("ville.wax.theme.Decoration",
         backgroundImage: "ville/wax/ClearNight.svg",
         backgroundPositionX: "right",
         backgroundPositionY: "center",
-        transitionProperty: ['background-color', 'border-color', 'background-position-x'],
-        transitionDuration: ville.global.duration.Normal,
-        transitionTimingFunction : "ease"
+        transitionProperty: "all",
+        transitionDuration: ville.global.duration.Slow,
+        transitionTimingFunction : ville.global.curve.EasyEase
       }
     }
     

@@ -41,7 +41,7 @@ qx.Theme.define("ville.wax.theme.Font",
     },
 
     "ville-fluent-logo-footer" : {
-      size: 20,
+      size: 28,
       letterSpacing: 2,
       family: ["Providence","sans-serif"],
       sources: [
