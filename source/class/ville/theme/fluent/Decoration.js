@@ -1593,6 +1593,17 @@ qx.Theme.define("ville.theme.fluent.Decoration",
         color : "#dbb1b1"
       }
     },
+
+    "combobox-popup" : 
+    {
+      include : "shadow16",
+      style :
+      {
+        radius : ville.global.border.radius.Medium,
+        width : ville.global.stroke.widths.Thin,
+        color : "NeutralStroke1"
+      }
+    },
     
     "selectbox-popup" :
     {

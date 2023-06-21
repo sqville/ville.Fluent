@@ -78,7 +78,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           decorator : "popup",
-          backgroundColor : ville.global.color.White
+          backgroundColor : "NeutralBackground1"
         };
       }
     },
@@ -1491,7 +1491,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     {
     	include : "image",
     	
-    	style : function()
+    	style : function(states)
     	{
     		return {
     			decorator : "ville-icon-arrow-up-small",
@@ -1521,7 +1521,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     {
     	include : "image",
     	
-    	style : function()
+    	style : function(states)
     	{
     		return {
     			decorator : "ville-icon-arrow-down-small",
@@ -1540,7 +1540,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "selectbox" : {
       include : "combobox",
-      style () {
+      style (states) {
         return {
           cursor : "pointer"
         }
@@ -1548,7 +1548,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     },
 
     "selectbox/atom" : {
-      style () {
+      style (states) {
         return {
           padding: [0, ville.global.spacing.MNudge]
         }
@@ -1560,9 +1560,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     "selectbox/list" : "combobox/list",
 
     "selectbox/arrow" : {
-      style () {
+      style (states) {
         return {
-          decorator : "selectbox-arrow",
+          textColor : "blue",
+          source : ville.theme.fluent.Image.URLS["chevron-down"],
           width: 22,
           height : 22,
           marginRight: ville.global.spacing.S
@@ -1697,7 +1698,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     {
     	include : "image",
     	
-    	style : function()
+    	style : function(states)
     	{
     		return {
           width : 22,
@@ -1711,9 +1712,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       include : "popup",
     	
     	style : function(states)
-    	{        
+    	{                
         return {
-    			padding : ville.global.spacing.SNudge
+    			padding : ville.global.spacing.SNudge,
+          decorator : "combobox-popup"
     		};
     	}
     },
@@ -1721,7 +1723,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     "combobox/list" :     
     {
       alias : "list",
-      style : function()
+      style : function(states)
     	{        
         return {
     			spacing: 2

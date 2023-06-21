@@ -99,6 +99,7 @@ qx.Class.define("ville.wax.demo.Application",
 
       // Change Widget to enable touch action for native scrolling
       qx.Class.include(qx.ui.core.Widget, ville.wax.MWidget); 
+      qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage); 
 
       // App's Root
       var approot = this.getRoot();
@@ -521,24 +522,36 @@ qx.Class.define("ville.wax.demo.Application",
 
       // Switch - toggle switch animation
       // TODOs: Need to grab colors from Color Theme
+      
       var slideright = {
-        duration: 300, 
-        timing: "ease", 
+        duration: ville.global.duration.Slow, 
+        timing: ville.global.curve.EasyEase, 
         keyFrames : {
-          0: {"backgroundColor": "white", "background-position-x": "0%", "border-color": "black"},
-          100: {"backgroundColor": "blue", "background-position-x": "100%", "border-color": "blue"}
+          0: {
+            "backgroundColor": qx.theme.manager.Color.getInstance().resolve("NeutralBackground1"), 
+            "background-position-x": "0%", 
+            "border-color": qx.theme.manager.Color.getInstance().resolve("NeutralStroke1")
+          },
+          100: {
+            "backgroundColor": qx.theme.manager.Color.getInstance().resolve("BrandBackground1Selected"), 
+            "background-position-x": "100%", 
+            "border-color": qx.theme.manager.Color.getInstance().resolve("BrandBackground1Selected")
+          }
         },
         keep : 100
       };
 
       // Wax Theme switcher - light dark
       waxcolorswitch.addListener("changeValue", function(e) {
+        //var cbimage = waxcolorswitch.getChildControl("icon").getContentElement().getDomElement();
         if (e.getData()) {
+          //qx.bom.element.AnimationCss.animate(cbimage, slideright);
           qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.ColorDark);
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "dark");
           localStorage.thememode = "dark";
         }
         else {
+          //qx.bom.element.AnimationCss.animateReverse(cbimage, slideright);
           qx.theme.manager.Color.getInstance().setTheme(ville.wax.theme.Color);
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "normal");
           localStorage.thememode = "light";
