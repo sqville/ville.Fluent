@@ -428,17 +428,12 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     "button-box-pressed-hovered" :
     {
       include : "button-box-pressed",
-
-      style :
-      {
-        color : "button-border-hovered"
-      }
+      style : { color : "button-border-hovered" }
     },
 
     "rounded-button-box" :
     {
       include : "button-box",
-
       style : { radius : ville.global.border.radius.Circular }
     },
 
@@ -466,23 +461,41 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       include : "button-box-common",
       style :
       {
-        color : "NeutralStroke1",
-        transitionProperty: ['background','border','color'],
-        transitionDuration: ville.global.duration.Faster,
-        transitionTimingFunction : ville.global.curve.EasyEase
+        color : "BrandBackground1"
+        //transitionProperty: ['background','border','color'],
+        //transitionDuration: ville.global.duration.Faster,
+        //transitionTimingFunction : ville.global.curve.EasyEase
       }
     },
 
     "primary-button-box-hovered" :
     {
       include : "button-box-common",
-      style : { color : "NeutralStroke1Hover" }
+      style : { color : "BrandBackground1Hover" }
     },
 
     "primary-button-box-pressed" :
     {
       include : "button-box-common",
-      style : { color : "NeutralStroke1Pressed" }
+      style : { color : "BrandBackground1Pressed" }
+    },
+
+    "primary-rounded-button-box" :
+    {
+      include : "rounded-button-box",
+      style : { color : "BrandBackground1" }
+    },
+
+    "primary-rounded-button-box-hovered" :
+    {
+      include : "rounded-button-box-hovered",
+      style : { color : "BrandBackground1Hover" }
+    },
+
+    "primary-rounded-button-box-pressed" :
+    {
+      include : "rounded-button-box-pressed",
+      style : { color : "BrandBackground1Pressed" }
     },
 
 

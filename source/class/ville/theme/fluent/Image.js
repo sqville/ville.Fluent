@@ -69,6 +69,7 @@ qx.Class.define("ville.theme.fluent.Image",
       "arrow-up" : "decoration/arrows/up.gif",
       "arrow-down" : "decoration/arrows/down.gif",
       "chevron-down" : "decoration/arrows/chevrondown.svg",
+      //"chevron-down" : "data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='" + qx.theme.manager.Color.getInstance().resolve("NeutralStrokeAccessible") + "' d='M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z'%3E%3C/path%3E%3C/svg%3E",
       //"arrow-forward" : "decoration/arrows/forward.gif", //Replaced by Qx code
       //"arrow-rewind" : "decoration/arrows/rewind.gif", //Replaced by Qx code
       "arrow-down-small" : "decoration/arrows/down-small.gif", //Embed option - Decoration entry:: sqv-css-icon-arrow-down-small

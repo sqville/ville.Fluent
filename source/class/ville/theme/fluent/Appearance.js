@@ -1683,6 +1683,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
   
       style : function(states)
       {
+        //var imgcolor = qx.theme.manager.Color.getInstance().resolve("NeutralStrokeAccessible");
         return {
           icon : ville.theme.fluent.Image.URLS["chevron-down"],
           backgroundColor : "TransparentBackground",
@@ -1701,6 +1702,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     	style : function(states)
     	{
     		return {
+          scale: true,
           width : 22,
           height : 22
     		};
@@ -2019,6 +2021,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
             decorator = "button-box-hovered";
           } else if (states.hovered && (states.pressed || states.checked)) {
             bgcolor = "Background1Pressed";
+            decorator = "button-box-pressed";
           } else if (states.pressed || states.checked) {
             bgcolor = "Background1Pressed";
           }
@@ -2132,7 +2135,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states, styles)
       {
         return {
-          decorator : styles.decorator,
+          decorator : "primary-" + styles.decorator,
           backgroundColor : "Brand" + styles.backgroundColor,
           center : true,
           padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
@@ -2154,13 +2157,27 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "primary-rounded-button" :
     {
-      include : "primary-button",
-      alias : "primary-button",
+      include : "button-frame",
 
       style : function(states, styles)
       {
         return {
-          decorator : "rounded-" + styles.decorator
+          decorator : "primary-rounded-" + styles.decorator,
+          backgroundColor : "Brand" + styles.backgroundColor,
+          center : true,
+          padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
+          gap : 8
+        };
+      }
+    },
+
+    "primary-rounded-button/label" : {
+      alias : "button/label",
+
+      style : function(states)
+      {
+        return {
+          textColor : states.disabled ? "text-disabled" :  "NeutralForegroundOnBrand"
         };
       }
     },

@@ -541,6 +541,8 @@ qx.Class.define("ville.wax.demo.Application",
         keep : 100
       };
 
+      //console.log(qx.theme.manager.Color.getInstance().resolve("NeutralStrokeAccessible"));
+
       // Wax Theme switcher - light dark
       waxcolorswitch.addListener("changeValue", function(e) {
         //var cbimage = waxcolorswitch.getChildControl("icon").getContentElement().getDomElement();
