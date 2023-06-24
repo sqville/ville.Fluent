@@ -2248,7 +2248,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     	style :
     	{
     		innerWidth : 0,
-        color : "CompoundBrandStroke"
+        color : "CompoundBrandBackground"
     	}
     },
 

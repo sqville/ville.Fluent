@@ -1417,8 +1417,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         if (states.checked) {
           padding = [0,0,0,0];
           decorator = "checkbox-checked";
-          bckgrdcolr = "CompoundBrandForeground1";
+          bckgrdcolr = "CompoundBrandBackground";
           //decorator = "ville-icon-arrow-right";
+          if (states.hovered) {
+            bckgrdcolr = "CompoundBrandBackgroundHover";
+          }
           if (states.focused) {
             decorator = "checkbox-checked"; 
           }
