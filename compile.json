@@ -12,7 +12,7 @@
       "outputPath": "compiled/build"
     }
   ],
-  "defaultTarget": "source",
+  "defaultTarget": "build",
   "locales": ["en"],
 
   "applications": [
