@@ -47,6 +47,8 @@ now you just have to modify your compile.json to enable the theme:
 <!-- DEMOS -->
 ## Demo
 
+[Demo](https://sqville.github.io/ville.Fluent/published/)
+
 WidgetBrowser - Coming soon
 
 <!-- ROADMAP -->
