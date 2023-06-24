@@ -331,6 +331,30 @@ qx.Class.define("ville.wax.demo.Application",
       firststackpage.add(primaryroundedbutton);
 
       // CheckBox
+      firststackpage.add(new qx.ui.basic.Label("CheckBox").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default CheckBox").set({font: "body1", rich: true, wrap: true}));
+      var defaultcheckbox = new qx.ui.form.CheckBox("Default").set({allowStretchX: false, allowStretchY: false});
+
+      var testsvg = '<svg fill="red" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">';
+      testsvg += '<path d="M0 0h24v24H0z" fill="none"/>';
+      testsvg += '<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>';
+
+      var svghtml = '<path d="M0 0h24v24H0z" fill="none"></path>';
+      svghtml += '<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path>';
+
+      var svgatts = {
+        fill: "red",
+        xmlns: "http://www.w3.org/2000/svg",
+        html: svghtml
+      }; 
+
+      var testsvgele = new qx.html.Element("svg", null, svgatts);
+
+      //defaultcheckbox.getChildControl("icon").getContentElement().add(testsvgele);
+
+      firststackpage.add(defaultcheckbox);
+
+      //firststackpage.add(new qx.ui.embed.Html(testsvg));
 
       // ComboBox
       firststackpage.add(new qx.ui.basic.Label("ComboBox").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));

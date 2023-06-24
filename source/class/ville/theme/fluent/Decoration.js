@@ -204,7 +204,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    	  style :
       {
         color : ["transparent",null,"transparent","ville-arrow-gray"],
-        style : ["solid",null,"solid","solid"],
+        style : ["solid",null,"solid","dotted"],
         width : [4.5,0,4.5,4]
       }
    },
@@ -2247,7 +2247,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     	
     	style :
     	{
-    		innerWidth : 0
+    		innerWidth : 0,
+        color : "CompoundBrandStroke"
     	}
     },
 

@@ -48,6 +48,7 @@ qx.Class.define("ville.theme.fluent.Image",
 
       // checkbox
       "checkbox-checked" : "decoration/checkbox/checkbox-check.svg",
+      "checkbox-brand-checked" : "decoration/checkbox/checkbox-brand-check.svg",
       "checkbox-undetermined" : "decoration/checkbox/undetermined.png",  //Replaced with -- pure Qx -- Decoration entry:: checkbox-undetermined
       "checkbox-checked-disabled" : "decoration/checkbox/checkbox-check-disabled.svg",
 

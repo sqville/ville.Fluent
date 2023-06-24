@@ -1380,7 +1380,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         // Checked
         if (states.checked && !states.disabled) {
-          icon = ville.theme.fluent.Image.URLS["checkbox-checked"];
+          icon = ville.theme.fluent.Image.URLS["checkbox-brand-checked"];
         // Undetermined
         } else if (states.checked && states.disabled) {
           icon = ville.theme.fluent.Image.URLS["checkbox-checked-disabled"];
@@ -1405,27 +1405,29 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         
         var decorator = "checkbox";
 
-        if (states.focused && !states.invalid) {
+        /*if (states.focused && !states.invalid) {
           decorator = "checkbox-focused";
-        }
+        }*/
 
         decorator += states.invalid && !states.disabled ? "-invalid" : "";
 
         var padding;
-        var bckgrdcolr = "text";
+        var bckgrdcolr = "TransparentBackground";
         // Checked
         if (states.checked) {
           padding = [0,0,0,0];
           decorator = "checkbox-checked";
+          bckgrdcolr = "CompoundBrandForeground1";
+          //decorator = "ville-icon-arrow-right";
           if (states.focused) {
-            decorator = "checkbox-checked-focused"; 
+            decorator = "checkbox-checked"; 
           }
           if (states.invalid) {
             decorator = "checkbox-checked-invalid"; 
           } 
           if (states.disabled) {
             decorator = "checkbox-checked-disabled";   
-          }   
+          }
           // Undetermined
         } else if (states.undetermined) {
           padding = [0,0,0,0];
@@ -1447,7 +1449,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           width: 17,
           height: 17,
           padding: padding,
-          backgroundColor : states.undetermined ? bckgrdcolr : "background"
+          backgroundColor : bckgrdcolr
         };
       }
     },
