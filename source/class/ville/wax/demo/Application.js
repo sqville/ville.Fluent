@@ -400,6 +400,59 @@ qx.Class.define("ville.wax.demo.Application",
       }
       firststackpage.add(select1);
 
+      // Table
+      firststackpage.add(new qx.ui.basic.Label("Table").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default Table").set({font: "body1", rich: true, wrap: true}));
+
+      //Get the raw data
+      var rowData = [];
+      
+      rowData.push([ "Meeting Notes", "First Last Name", "7h ago", "You edited this" ]);
+      rowData.push([ "Meeting Notes", "First Last Name", "7h ago", "You edited this" ]);
+      rowData.push([ "Meeting Notes", "First Last Name", "7h ago", "You edited this" ]);
+      rowData.push([ "Meeting Notes", "First Last Name", "7h ago", "You edited this" ]);
+
+      //Create the data (table) model
+      var tableModel = new qx.ui.table.model.Simple();
+      tableModel.setColumns([ "File", "Author", "Last updated", "Last update" ]);
+      tableModel.setData(rowData);
+
+      tableModel.setColumnEditable(0, false);
+      tableModel.setColumnEditable(1, false);
+      tableModel.setColumnEditable(2, false);
+      tableModel.setColumnEditable(3, false);
+      tableModel.setColumnSortable(0, false);
+      tableModel.setColumnSortable(1, false);
+      tableModel.setColumnSortable(2, false);
+      tableModel.setColumnSortable(3, false);
+
+      //Create a table view for the model
+      var table1 = new qx.ui.table.Table(tableModel);
+      table1.set({
+        height: 200,
+        allowStretchX: true,
+        showCellFocusIndicator: false,
+        focusCellOnPointerMove: false
+      });
+
+      /*var imgrenderer = new qx.ui.table.cellrenderer.Image(24,24);
+      table.getTableColumnModel().setDataCellRenderer(0, imgrenderer);
+
+      var htmlrenderer = new qx.ui.table.cellrenderer.Html();
+      table.getTableColumnModel().setDataCellRenderer(3, htmlrenderer);*/
+
+      //table.getSelectionModel().setSelectionMode(qx.ui.table.selection.Model.MULTIPLE_INTERVAL_SELECTION);
+
+      /*var tcm = table.getTableColumnModel();
+      tcm.setColumnWidth(0,40);
+      tcm.setColumnWidth(1,95);
+      tcm.setColumnWidth(2,100);
+      tcm.setColumnWidth(3,215);
+      tcm.setColumnWidth(4,130);*/
+
+      firststackpage.add(table1);
+
+
       // TabView
       // firststackpage.add(new qx.ui.basic.Label("TabView").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       // firststackpage.add(new qx.ui.basic.Label("Here is the tabview").set({font: "body1", rich: true, wrap: true}));

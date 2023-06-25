@@ -33,7 +33,15 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     ---------------------------------------------------------------------------
     */
 
-    "widget" : {},
+    "widget" : 
+    {
+      style : function(states)
+      {
+        return {
+          backgroundColor : "NeutralBackground1"
+        };
+      }
+    },
 
     "label" :
     {
@@ -65,8 +73,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "background",
-          textColor : "text",
+          backgroundColor : "NeutralBackground1",
           font : "default"
         };
       }
@@ -235,8 +242,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     ---------------------------------------------------------------------------
     */
 
-    "table" : 
-    {
+    "table" : "widget",
+    /*{
       include : "widget",
     	
       style : function(states)
@@ -245,7 +252,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator : "table-standard"
         };
       }
-    },
+    },*/
 
     "table/statusbar" :
     {
@@ -254,7 +261,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           decorator : "statusbar",
           padding : [14, 10],
-          backgroundColor : "table-header"
+          backgroundColor : "NeutralBackground1",
+          textColor: "NeutralForeground1"
         };
       }
     },
@@ -267,8 +275,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           decorator : "table-header-column-button",
-          padding : [14, 12],
-          backgroundColor : "table-header",
+          padding : 6,
+          backgroundColor : "NeutralBackground1",
           icon : ""
         };
       }
@@ -311,7 +319,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function() {
         return {
           decorator : "table-header",
-          backgroundColor : "table-header"
+          backgroundColor : "NeutralBackground1"
         };
       }
     },
@@ -321,7 +329,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         style : function(states)
         {
           return {
-            decorator : "table-pane"
+            decorator : "table-pane",
+            backgroundColor : "NeutralBackground1"
           };
         }
       },
@@ -341,8 +350,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor: "button-border",
-          width: 3
+          backgroundColor: "NeutralStroke1",
+          width: 2
         };
       }
     },
@@ -356,9 +365,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           decorator : states.first ? "table-header-cell-first" : "table-header-cell",
           minWidth: 13,
-          font : "groupbox-legend",
           alignY : "middle",
-          padding : [14, 10],
+          padding : 6,
           cursor : states.disabled ? undefined : "pointer",
           sortIcon : states.sorted ?
               (ville.theme.fluent.Image.URLS["" +
@@ -1093,11 +1101,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
+          //backgroundColor: states.selected ? "table-row-background-selected" : "table-row-background-even",
           backgroundColor: states.selected ?
-            "table-row-background-selected" :
-            "table-row-background-even",
-          textColor: states.selected ? "text-selected" : "text",
-          padding: [3, 6]
+            "BrandBackground2" :
+            "NeutralBackground1",
+          //textColor: states.selected ? "text-selected" : "text",
+          padding: [6, 6]
         };
      }   
     },

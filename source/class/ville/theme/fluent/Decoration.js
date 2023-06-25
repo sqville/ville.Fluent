@@ -1993,26 +1993,25 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         radius : 3,
-        width : 10,
-        color : "green",
+        width : 1,
+        color : "NeutralBackground1",
         style : "solid"
       }
     },
 
     "table-pane" :
     {
-      width : [0,1,0,1],
-      color : "table-border"
+      width : [0,1,0,0],
+      color : "NeutralStroke2"
     },
 
     "statusbar" :
     {
       style :
       {
-        width : 1,
-        color : "table-border",
-        style : "solid",
-        radius : [0,0,3,3]
+        width : [1,0,0,0],
+        color : "NeutralStroke2",
+        style : "solid" 
       }
     },
 
@@ -2030,22 +2029,21 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        radius : [3,0,0,0],
-        width : [1,1,1,1],
-        color : "table-border"
+        //radius : [3,0,0,0],
+        widthBottom : 1,
+        color : "NeutralStroke2"
         
       }
     },
 
-    "table-header-column-button" :
-    {
+    "table-header-column-button" : "table-header",
+    /*{
       include : "table-header",
       style : {
-        radius : [0,3,0,0],
-        width : [1,1,1,0],
-        color : "table-border"
+        width : 0,
+        color : "NeutralStroke2"
       }
-    },
+    },*/
 
     "select-column-order-vert" :
     {
@@ -2123,7 +2121,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       {
         widthRight : 1,
         widthBottom : 0,
-        color : "table-border"
+        color : "NeutralStroke2"
       }
     },
 

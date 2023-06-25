@@ -343,16 +343,16 @@ qx.Theme.define("ville.theme.fluent.ColorDark",
     "table-focus-indicator" : [ 179, 217, 255 ],
 
     // used in table code
-    "table-header-cell" : [ 235, 234, 219 ],
-    "table-row-background-focused-selected" : [ 90, 138, 211 ],
-    "table-row-background-focused" : [ 221, 238, 255 ],
-    "table-row-background-selected" : [ 51, 94, 168 ],
-    "table-row-background-even" : "#ffffff",
-    "table-row-background-odd" : "#ffffff",
-    "table-row-selected" : [ 255, 255, 255 ],
-    "table-row" : [ 0, 0, 0],
-    "table-row-line" : "#EEE",
-    "table-column-line" : "#EEE",
+    "table-header-cell" : "red",
+    "table-row-background-focused-selected" : ville.global.color.Brand[40], //BrandBackground2
+    "table-row-background-focused" : ville.global.color.Brand[40], //BrandBackground2
+    "table-row-background-selected" : ville.global.color.Brand[40], //BrandBackground2
+    "table-row-background-even" : "transparent",
+    "table-row-background-odd" : "transparent",
+    "table-row-selected" : ville.global.color.White, //NeutralForeground1
+    "table-row" : ville.global.color.White, //NeutralForeground1
+    "table-row-line" : ville.global.color.Grey[32], //NeutralStroke2
+    "table-column-line" : ville.global.color.Grey[32], //NeutralStroke2
 
     // used in progressive code
     "progressive-table-header" : "#AAAAAA",
