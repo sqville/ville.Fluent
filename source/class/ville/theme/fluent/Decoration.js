@@ -2119,7 +2119,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        widthRight : 1,
+        widthRight : 0,
         widthBottom : 0,
         color : "NeutralStroke2"
       }

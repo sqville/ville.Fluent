@@ -429,10 +429,12 @@ qx.Class.define("ville.wax.demo.Application",
       //Create a table view for the model
       var table1 = new qx.ui.table.Table(tableModel);
       table1.set({
-        height: 200,
+        height: 280,
+        rowHeight: 44,
         allowStretchX: true,
         showCellFocusIndicator: false,
-        focusCellOnPointerMove: false
+        focusCellOnPointerMove: false,
+        forceLineHeight: false
       });
 
       /*var imgrenderer = new qx.ui.table.cellrenderer.Image(24,24);
@@ -443,12 +445,27 @@ qx.Class.define("ville.wax.demo.Application",
 
       //table.getSelectionModel().setSelectionMode(qx.ui.table.selection.Model.MULTIPLE_INTERVAL_SELECTION);
 
-      /*var tcm = table.getTableColumnModel();
-      tcm.setColumnWidth(0,40);
-      tcm.setColumnWidth(1,95);
-      tcm.setColumnWidth(2,100);
-      tcm.setColumnWidth(3,215);
-      tcm.setColumnWidth(4,130);*/
+      var tcm = table1.getTableColumnModel();
+      tcm.setColumnWidth(0,180);
+      tcm.setColumnWidth(1,180);
+      tcm.setColumnWidth(2,120);
+      tcm.setColumnWidth(3,180);
+
+      /* cellinfo map
+      value (var): the cell's value.
+      rowData (var): contains the row data for the row, the cell belongs to. The kind of this object depends on the table model, see qx.ui.table.ITableModel#getRowData
+      row (int): the model index of the row the cell belongs to.
+      col (int): the model index of the column the cell belongs to.
+      table (qx.ui.table.Table): the table the cell belongs to.
+      xPos (int): the x position of the cell in the table pane.
+      selected (boolean): whether the cell is selected.
+      focusedRow (boolean): whether the cell is in the same row as the focused cell.
+      editable (boolean): whether the cell is editable.
+      style (string): The CSS styles that should be applied to the outer HTML element.
+      styleLeft (string): The left position of the cell.
+      styleWidth (string): The cell's width (pixel).
+      styleHeight (string): The cell's height (pixel).
+      */
 
       firststackpage.add(table1);
 

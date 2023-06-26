@@ -350,7 +350,7 @@ qx.Theme.define("ville.theme.fluent.Color",
     "table-row-selected" : ville.global.color.Grey[14], //NeutralForeground1
     "table-row" : ville.global.color.Grey[14], //NeutralForeground1
     "table-row-line" : ville.global.color.Grey[88], //NeutralStorke2
-    "table-column-line" : ville.global.color.Grey[88], //NeutralStorke2
+    "table-column-line" : "transparent", //ville.global.color.Grey[88], //NeutralStorke2
 
     // used in progressive code
     "progressive-table-header" : "#AAAAAA",
