@@ -443,6 +443,9 @@ qx.Class.define("ville.wax.demo.Application",
       var htmlrenderer = new qx.ui.table.cellrenderer.Html();
       table.getTableColumnModel().setDataCellRenderer(3, htmlrenderer);*/
 
+      //var filerenderer = new qx.ui.table.cellrenderer.Default();
+      //table1.getTableColumnModel().setDataCellRenderer(0, filerenderer);
+
       //table.getSelectionModel().setSelectionMode(qx.ui.table.selection.Model.MULTIPLE_INTERVAL_SELECTION);
 
       var tcm = table1.getTableColumnModel();
