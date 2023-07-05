@@ -277,7 +277,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator : "table-header-column-button",
           padding : 6,
           backgroundColor : "NeutralBackground1",
-          icon : ""
+          icon : ville.theme.fluent.Image.URLS["table-column-settings"]
         };
       }
     },
@@ -289,10 +289,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          width: 12,
-          height : 14,
-          backgroundColor : states.hovered ? "black" : "gray",
-          decorator : states.hovered ? "select-column-order-hovered-vert" : "select-column-order-vert"
+          width: 14,
+          height : 14
+          //backgroundColor : states.hovered ? "black" : "gray",
+          //decorator : states.hovered ? "select-column-order-hovered-vert" : "select-column-order-vert"
         };
       }
     },
@@ -305,7 +305,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function()
       {
         return {
-          icon : "icon/16/actions/view-refresh.png"
+          icon : ville.theme.fluent.Image.URLS["arrow-reset"]
         };
       }
     },
