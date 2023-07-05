@@ -433,7 +433,7 @@ qx.Class.define("ville.wax.demo.Application",
         rowHeight: 44,
         allowStretchX: true,
         showCellFocusIndicator: false,
-        focusCellOnPointerMove: false,
+        focusCellOnPointerMove: true,
         forceLineHeight: false
       });
 
