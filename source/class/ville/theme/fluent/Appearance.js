@@ -834,8 +834,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           backgroundColor : states.selected ? "NeutralBackground1Hover" : undefined,
-          //textColor : states.selected ? "text-selected" : "text",
-          padding : [ 6, 6 ]
+          decorator: "button-box-common",
+          padding : [ 6, 6 ],
+          margin: [ 0, 6 ]
         };
       }
     },
@@ -847,7 +848,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     	style : function(states)
     	{
     		return {
-	          //textColor : states.disabled ? "text-selected" : "text",
 	          font : "menu-button-header",
 	          padding : [ 6, 0 ]
         	};
@@ -918,7 +918,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           alignY : "middle",
-          marginLeft : 14,
+          margin : [0, 0, 0, 20],
           padding : 1
         };
       }
@@ -931,12 +931,13 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          source : "",
-          decorator : "ville-icon-arrow-right",
+          source : "ville/wax/ChevronRightRegular.svg",
+          //decorator : "ville-icon-arrow-right",
           alignY : "middle",
-          marginLeft : 6,
-          width : 0,
-          height : 0
+          marginRight: 10,
+          paddingRight: 20,
+          width : 20,
+          height : 20
         };
       }
     },

@@ -42,6 +42,9 @@
  * @asset(ville/wax/CutRegular.svg)
  * @asset(ville/wax/CopyRegular.svg)
  * @asset(ville/wax/PasteRegular.svg)
+ * @asset(ville/wax/OptionsRegular.svg)
+ * @asset(ville/wax/ChevronRightRegular.svg)
+ * @asset(ville/wax/PanesRegular.svg)
  */
 qx.Class.define("ville.wax.demo.Application",
 {
@@ -411,17 +414,47 @@ qx.Class.define("ville.wax.demo.Application",
         pasteCommand
       );
 
+      var optionmenu1 = new qx.ui.menu.Menu();
+      optionmenu1.add(new qx.ui.menu.RadioButton("Option 1"));
+      optionmenu1.add(new qx.ui.menu.RadioButton("Option 2"));
+      optionmenu1.add(new qx.ui.menu.RadioButton("Option 3"));
+
+      var groupOptions = new qx.ui.form.RadioGroup();
+      groupOptions.add.apply(groupOptions, optionmenu1.getChildren());
+      //groupOptions.addListener("changeSelection", this.debugRadio);
+      var optionButton = new qx.ui.menu.Button(
+        "Options",
+        "ville/wax/OptionsRegular.svg",
+        null,
+        optionmenu1
+      );
+
+      var panesmenu = new qx.ui.menu.Menu();
+      panesmenu.add(new qx.ui.menu.CheckBox("Show tabs"));
+      panesmenu.add(new qx.ui.menu.CheckBox("Show status bar"));
+      panesmenu.add(new qx.ui.menu.CheckBox("Show tree"));
+      panesmenu.add(new qx.ui.menu.CheckBox("Show macros"));
+
+      var panesButton = new qx.ui.menu.Button(
+        "Panes",
+        "ville/wax/PanesRegular.svg",
+        null,
+        panesmenu
+      );
+
       // header 1
-      menu1.add(new qx.ui.menu.Button("Header 1").set({anonymous: true, appearance: "menu-button-header", marginLeft: 0}));
+      menu1.add(new qx.ui.menu.Button("Section Header").set({anonymous: true, appearance: "menu-button-header", margin: [0,26,0,-26]}));
       menu1.add(cutButton);
       menu1.add(copyButton);
       menu1.add(pasteButton);
       // separator
       menu1.addSeparator();
       // header 2
-      menu1.add(new qx.ui.menu.Button("Header 2").set({anonymous: true, appearance: "menu-button-header"}));
+      menu1.add(new qx.ui.menu.Button("Section Header").set({anonymous: true, appearance: "menu-button-header", margin: [0,26,0,-26]}));
       // options radiobuttons
+      menu1.add(optionButton);
       // view panes check buttons
+      menu1.add(panesButton);
 
       var menubutton1 = new qx.ui.form.MenuButton(
         "Toggle menu",

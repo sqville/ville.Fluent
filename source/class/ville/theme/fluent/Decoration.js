@@ -1736,7 +1736,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
         radius : 10,
         width : 0,
         color : "transparent",
-        innerColor: "text",
+        innerColor: "NeutralStroke1",
         innerWidth: 0
       }
     },
