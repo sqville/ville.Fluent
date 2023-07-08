@@ -718,15 +718,15 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         var result =
         {
-          backgroundColor : "background",
+          backgroundColor : "NeutralBackground1",
           decorator : "popup",
           spacingX : 12,
           spacingY : 0,
-          iconColumnWidth : 16,
+          iconColumnWidth : 12,
           arrowColumnWidth : 8,
           padding : 0,
           placementModeY : states.submenu || states.contextmenu ? "best-fit" : "keep-align",
-          offset : [8,0,0,0]
+          offset : [1,0,0,0]
         };
 
         if (states.submenu)
@@ -833,8 +833,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : states.selected ? "combobox-item-selected" : undefined,
-          textColor : states.selected ? "text-selected" : "text",
+          backgroundColor : states.selected ? "NeutralBackground1Hover" : undefined,
+          //textColor : states.selected ? "text-selected" : "text",
           padding : [ 6, 6 ]
         };
       }
@@ -847,9 +847,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     	style : function(states)
     	{
     		return {
-	          textColor : states.disabled ? "text-selected" : "text",
-	          font : "bold",
-	          padding : [ 8, 6 ]
+	          //textColor : states.disabled ? "text-selected" : "text",
+	          font : "menu-button-header",
+	          padding : [ 6, 0 ]
         	};
     	}
     },
@@ -862,7 +862,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           alignY : "middle",
-          marginLeft : 14
+          marginLeft : 14,
+          width: 20,
+          height: 20
         };
       }
     },
@@ -899,9 +901,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
+          font : "menu-button-header",
+          textColor: "NeutralForeground3",
           alignY : "middle",
-          padding : [1,1,1,0],
-          marginLeft: -10
+          alignX : "left",
+          padding : 1
         };
       }
     },

@@ -1725,7 +1725,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         widthTop: 1,
-        colorTop : "border-light"
+        colorTop : "NeutralStroke1"
       }
     },
 

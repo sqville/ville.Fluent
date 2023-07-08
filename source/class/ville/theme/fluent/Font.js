@@ -58,6 +58,14 @@ qx.Theme.define("ville.theme.fluent.Font",
       lineHeight: 1.43
     },
 
+    "menu-button-header" :
+    {
+      include : "default",
+      weight: ville.global.font.weight.Semibold,
+      size: ville.global.font.size.Base200,
+      lineHeight: 1.43
+    },
+
     "bold" :
     {
       include : "default",

@@ -39,6 +39,9 @@
  * @asset(ville/wax/arrow-down-outline.svg)
  * @asset(ville/wax/Brightness.svg)
  * @asset(ville/wax/ClearNight.svg)
+ * @asset(ville/wax/CutRegular.svg)
+ * @asset(ville/wax/CopyRegular.svg)
+ * @asset(ville/wax/PasteRegular.svg)
  */
 qx.Class.define("ville.wax.demo.Application",
 {
@@ -379,6 +382,54 @@ qx.Class.define("ville.wax.demo.Application",
         list1.add(tempItem);
       }
       firststackpage.add(list1);
+
+      // Menu
+      firststackpage.add(new qx.ui.basic.Label("Menu").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default Menu and MenuButton widgets").set({font: "body1", rich: true, wrap: true}));
+      var menu1 = new qx.ui.menu.Menu();
+
+      var cutCommand = new qx.ui.command.Command("Ctrl+X");
+      cutCommand.addListener("execute", () => {console.log("cutcommand")});
+      var copyCommand = new qx.ui.command.Command("Ctrl+C");
+      copyCommand.addListener("execute", () => {console.log("copycommand")});
+      var pasteCommand = new qx.ui.command.Command("Ctrl+P");
+      pasteCommand.addListener("execute", () => {console.log("pastecommand")});
+
+      var cutButton = new qx.ui.menu.Button(
+        "Cut",
+        "ville/wax/CutRegular.svg",
+        cutCommand
+      );
+      var copyButton = new qx.ui.menu.Button(
+        "Copy",
+        "ville/wax/CopyRegular.svg",
+        copyCommand
+      );
+      var pasteButton = new qx.ui.menu.Button(
+        "Paste",
+        "ville/wax/PasteRegular.svg",
+        pasteCommand
+      );
+
+      // header 1
+      menu1.add(new qx.ui.menu.Button("Header 1").set({anonymous: true, appearance: "menu-button-header", marginLeft: 0}));
+      menu1.add(cutButton);
+      menu1.add(copyButton);
+      menu1.add(pasteButton);
+      // separator
+      menu1.addSeparator();
+      // header 2
+      menu1.add(new qx.ui.menu.Button("Header 2").set({anonymous: true, appearance: "menu-button-header"}));
+      // options radiobuttons
+      // view panes check buttons
+
+      var menubutton1 = new qx.ui.form.MenuButton(
+        "Toggle menu",
+        null,
+        menu1
+      ).set({minWidth: 96, allowStretchX: false, allowStretchY: false});
+
+      firststackpage.add(menubutton1);
 
       // RadioButton
       firststackpage.add(new qx.ui.basic.Label("RadioButton").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
