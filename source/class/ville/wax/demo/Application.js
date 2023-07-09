@@ -319,7 +319,7 @@ qx.Class.define("ville.wax.demo.Application",
       // Line
       // Controls in alpha order
       firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, RadioButton, SelectBox, TextField, TextArea").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, MenuButton, RadioButton, SelectBox, Table, TextField, TextArea").set({font: "body2", rich: true, wrap: true}));
 
       // BUTTON
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
