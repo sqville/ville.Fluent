@@ -78,9 +78,10 @@ qx.Mixin.define("ville.wax.MEmbed",
     {
       value.setAnonymous(true);
       this._addAt(value, 0);
-      if (this.getIcon() != null) {
-        value.exclude();
-      }
+      console.log(value);
+      //if (this.getIcon() != null) {
+        //value.exclude();
+      //}
     }
   }
 });

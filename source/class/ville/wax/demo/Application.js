@@ -104,7 +104,8 @@ qx.Class.define("ville.wax.demo.Application",
       // *** Base Scaffolding are objects common to all Wax - Franklin based apps  ***********
 
       // Change Widget to enable touch action for native scrolling
-      qx.Class.include(qx.ui.core.Widget, ville.wax.MWidget); 
+      qx.Class.include(qx.ui.core.Widget, ville.wax.MWidget);
+      qx.Class.include(qx.ui.basic.Atom, ville.wax.MEmbed);  
       qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MEmbed); 
       //qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage); 
 
@@ -325,7 +326,9 @@ qx.Class.define("ville.wax.demo.Application",
       // BUTTON
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default Button").set({font: "body1", rich: true, wrap: true}));
-      var defaultbutton = new qx.ui.form.Button("Default").set({minWidth: 96, allowStretchX: false, allowStretchY: false});
+      
+      var iconcalendarmonth = new ville.wax.icons.CalendarMonthRegular().set({ width: 20, height: 20 });
+      var defaultbutton = new qx.ui.form.Button("Default").set({ embed: iconcalendarmonth, minWidth: 96, allowStretchX: false, allowStretchY: false});
       firststackpage.add(defaultbutton);
       firststackpage.add(new qx.ui.basic.Label("Default Button rounded - appearance = default-rounded-button").set({marginTop: 40, font: "body1", rich: true, wrap: true}));
       var defaultroundedbutton = new qx.ui.form.Button("Rounded").set({minWidth: 96, appearance: "default-rounded-button", allowStretchX: false, allowStretchY: false});

@@ -24,6 +24,7 @@
    construct ()
    {
     super();
+    this.setBackgroundColor("transparent");
    },
 
    members :
@@ -37,7 +38,7 @@
     svgit (pathtags)
     {
       return `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048" fill="currentColor">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048" fill="currentColor">
        ${pathtags}
       </svg>`
     }
