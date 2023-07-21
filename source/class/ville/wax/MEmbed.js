@@ -78,7 +78,7 @@ qx.Mixin.define("ville.wax.MEmbed",
     {
       value.setAnonymous(true);
       this._addAt(value, 0);
-      console.log(value);
+      //console.log(value);
       //if (this.getIcon() != null) {
         //value.exclude();
       //}

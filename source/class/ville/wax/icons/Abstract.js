@@ -24,8 +24,19 @@
    construct ()
    {
     super();
-    this.setBackgroundColor("transparent");
+    this.setAppearance("icon");
    },
+
+   properties :
+  {
+    viewBox :
+    {
+      check : "String",
+      init : "0 0 20 20",
+      themeable : true
+    }
+  	
+  },
 
    members :
    {
@@ -37,8 +48,9 @@
 
     svgit (pathtags)
     {
+      var viewbox = this.getViewBox();
       return `
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048" fill="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewbox}" fill="currentColor">
        ${pathtags}
       </svg>`
     }

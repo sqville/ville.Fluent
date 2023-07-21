@@ -64,6 +64,18 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       }
     },
 
+    "icon" :
+    {
+      include: "label",
+      
+      style : function(states)
+      {
+        return {
+          backgroundColor : "transparent"
+        };
+      }
+    },
+
     "atom" : {},
     "atom/label" : "label",
     "atom/icon" : "image",
@@ -2169,7 +2181,17 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          textColor : states.disabled ? "text-disabled" :  "NeutralForegroundOnBrand"
+          textColor : states.disabled ? "NeutralForegroundDisabled" :  "NeutralForegroundOnBrand"
+        };
+      }
+    },
+
+    "primary-button/embed" : {
+      include: "icon",
+      style : function(states)
+      {
+        return {
+          textColor : states.disabled ? "NeutralForegroundDisabled" :  "NeutralForegroundOnBrand"
         };
       }
     },

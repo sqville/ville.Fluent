@@ -333,8 +333,10 @@ qx.Class.define("ville.wax.demo.Application",
       firststackpage.add(new qx.ui.basic.Label("Default Button rounded - appearance = default-rounded-button").set({marginTop: 40, font: "body1", rich: true, wrap: true}));
       var defaultroundedbutton = new qx.ui.form.Button("Rounded").set({minWidth: 96, appearance: "default-rounded-button", allowStretchX: false, allowStretchY: false});
       firststackpage.add(defaultroundedbutton);
+      //var iconcalendarmonth2 = iconcalendarmonth.clone();
+      var iconcalendarmonth2 = new ville.wax.icons.CalendarMonthRegular().set({ width: 20, height: 20, textColor: "NeutralForegroundOnBrand" });
       firststackpage.add(new qx.ui.basic.Label("Primary Button - appearance = primary-button").set({marginTop: 40, font: "body1", rich: true, wrap: true}));
-      var primarybutton = new qx.ui.form.Button("Primary").set({minWidth: 96, appearance: "primary-button", allowStretchX: false, allowStretchY: false});
+      var primarybutton = new qx.ui.form.Button("Primary").set({embed: iconcalendarmonth2, minWidth: 96, appearance: "primary-button", allowStretchX: false, allowStretchY: false});
       firststackpage.add(primarybutton);
       firststackpage.add(new qx.ui.basic.Label("Primary Button rounded - appearance = primary-rounded-button").set({marginTop: 40, font: "body1", rich: true, wrap: true}));
       var primaryroundedbutton = new qx.ui.form.Button("Rounded").set({minWidth: 96, appearance: "primary-rounded-button", allowStretchX: false, allowStretchY: false});
