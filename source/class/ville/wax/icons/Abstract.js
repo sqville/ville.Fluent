@@ -24,17 +24,30 @@
    construct ()
    {
     super();
-    this.setAppearance("icon");
    },
 
    properties :
   {
+    // overridden
+    appearance: 
+    {
+      refine: true,
+      init: "icon"
+    },
+    
     viewBox :
     {
       check : "String",
       init : "0 0 20 20",
       themeable : true
-    }
+    },
+
+    iconStyle :
+    {
+      check : ["regular", "filled"],
+      nullable : true,
+      init: "regular"
+    },
   	
   },
 

@@ -4,21 +4,11 @@
      * Chris Eskew (sqville) sqville@gmail.com
 ************************************************************************ */
 
-
 /**
- * A mixin that enables the font property, and thus, font handling abilities to the Image object
- * This mixin is needed to enable font icons to show up using the Font object
  * @childControl embed {qx.ui.embed.Html} inline icon of the widget
  */
-qx.Mixin.define("ville.wax.MEmbed",
+qx.Mixin.define("ville.wax.MMenuButtonEmbed",
 {
-    
-  /*
-  *****************************************************************************
-     PROPERTIES
-  *****************************************************************************
-  */
- 
   properties :
   {
   	/** Control the text alignment */
@@ -48,12 +38,7 @@ qx.Mixin.define("ville.wax.MEmbed",
     }
   	
   },
-
-  /*
-  *****************************************************************************
-     MEMBERS
-  *****************************************************************************
-  */
+  
   members :
   {
   	
@@ -66,14 +51,16 @@ qx.Mixin.define("ville.wax.MEmbed",
     // property apply
     _applyEmbedProps (value, old) 
     {
-      this.getEmbed().set(value);
+      if (this.getEmbed() != null) {
+        this.getEmbed().set(value);
+      }
     },
 
     // property apply
     _applyEmbed (value, old) 
     {
       value.setAnonymous(true);
-      this._addAt(value, 0);
+      this._add(value, { column: 0 });
       if (this.getIcon() != null) {
         value.exclude();
       }

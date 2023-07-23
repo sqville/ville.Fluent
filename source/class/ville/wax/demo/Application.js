@@ -106,7 +106,7 @@ qx.Class.define("ville.wax.demo.Application",
       // Change Widget to enable touch action for native scrolling
       qx.Class.include(qx.ui.core.Widget, ville.wax.MWidget);
       qx.Class.include(qx.ui.basic.Atom, ville.wax.MEmbed);  
-      qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MEmbed); 
+      qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MMenuButtonEmbed); 
       //qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage); 
 
       // App's Root
@@ -404,13 +404,13 @@ qx.Class.define("ville.wax.demo.Application",
       var pasteCommand = new qx.ui.command.Command("Ctrl+P");
       pasteCommand.addListener("execute", () => {console.log("pastecommand")});
 
-      var cutregular = new ville.wax.icons.CutRegular().set({width: 20, height: 20});
+      var iconcut = new ville.wax.icons.Cut().set({width: 20, height: 20});
 
       var cutButton = new qx.ui.menu.Button(
         "Cut",
         null,
         cutCommand
-      ).set({ embed: cutregular });
+      ).set({ embed: iconcut });
       var copyButton = new qx.ui.menu.Button(
         "Copy",
         "ville/wax/CopyRegular.svg",
