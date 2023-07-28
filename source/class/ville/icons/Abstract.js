@@ -17,9 +17,11 @@
  * NOTE: Instances of this class must be disposed of after use
  *
  */
- qx.Class.define("ville.wax.icons.Abstract",
+ qx.Class.define("ville.icons.Abstract",
  {
-   extend : qx.ui.embed.Html,
+  type: "abstract", 
+  
+  extend : qx.ui.embed.Html,
  
    construct ()
    {
@@ -45,14 +47,21 @@
     iconStyle :
     {
       check : ["regular", "filled"],
+      init: "regular",
+      apply: "_applyIconStyle",
+      event: "changeIconStyle",
       nullable : true,
-      init: "regular"
+      themeable : true
     },
   	
   },
 
    members :
    {
+    _htmlregular : null,
+
+    _htmlfilled : null,
+    
     pathit (pathd)
     {
       return `
@@ -66,6 +75,16 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewbox}" fill="currentColor">
        ${pathtags}
       </svg>`
+    },
+
+    // property apply
+    _applyIconStyle(value, old) {
+      if (this._htmlregular != null) {
+        if (value == "regular")
+          this.setHtml(this._htmlregular);
+        else if (value == "filled" & this._htmlfilled != null)
+          this.setHtml(this._htmlfilled);
+      }
     }
    }
  });

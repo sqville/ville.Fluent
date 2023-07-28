@@ -582,6 +582,28 @@ qx.Theme.define("ville.wax.theme.Appearance",
           height : 24
         };
       }
+    },
+
+    /*
+    ---------------------------------------------------------------------------
+      QX APPEARANCE OVERRIDES
+    ---------------------------------------------------------------------------
+    */
+
+    "menu-button" :
+    {
+      alias : "atom",
+
+      style : function(states)
+      {
+        return {
+          backgroundColor : states.selected ? "NeutralBackground1Hover" : undefined,
+          decorator: "button-box-common",
+          embedProps: states.selected ? { textColor: "BrandForeground1", iconStyle: "filled" } : { textColor: "NeutralForeground1", iconStyle: "regular" },
+          padding : [ 6, 6 ],
+          margin: [ 0, 6 ]
+        };
+      }
     }
 
   }

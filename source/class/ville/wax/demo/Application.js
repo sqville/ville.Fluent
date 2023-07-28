@@ -198,7 +198,7 @@ qx.Class.define("ville.wax.demo.Application",
       //profilepart.add(profilemenubutton);
 
       //var atmvillelogo = new qx.ui.basic.Atom("ville", "ville/wax/ville_logo.svg").set({font: "ville-logo-header"});
-      var lblvillelogoheader = new qx.ui.basic.Label("ville").set({font: "ville-logo-header", padding: 12});
+      var lblvillelogoheader = new qx.ui.basic.Label("ville.").set({font: "ville-logo-header", padding: 12});
       //mainmenupart.add(atmvillelogo);
       mainmenupart.add(lblvillelogoheader);
 
@@ -327,7 +327,7 @@ qx.Class.define("ville.wax.demo.Application",
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default Button").set({font: "body1", rich: true, wrap: true}));
       
-      var iconcalendarmonth = new ville.wax.icons.CalendarMonthRegular().set({ width: 20, height: 20 });
+      var iconcalendarmonth = new ville.icons.CalendarMonth().set({ width: 20, height: 20 });
       var defaultbutton = new qx.ui.form.Button("Default").set({ embed: iconcalendarmonth, minWidth: 96, allowStretchX: false, allowStretchY: false});
       firststackpage.add(defaultbutton);
       firststackpage.add(new qx.ui.basic.Label("Default Button rounded - appearance = default-rounded-button").set({marginTop: 40, font: "body1", rich: true, wrap: true}));
@@ -404,7 +404,10 @@ qx.Class.define("ville.wax.demo.Application",
       var pasteCommand = new qx.ui.command.Command("Ctrl+P");
       pasteCommand.addListener("execute", () => {console.log("pastecommand")});
 
-      var iconcut = new ville.wax.icons.Cut().set({width: 20, height: 20});
+      // svg inline icons
+      var iconcut = new ville.icons.Cut().set({ marginLeft: 14, width: 20, height: 20});
+      var iconcopy = new ville.icons.Copy().set({ marginLeft: 14, width: 20, height: 20});
+      var iconpaste = new ville.icons.Paste().set({ marginLeft: 14, width: 20, height: 20});
 
       var cutButton = new qx.ui.menu.Button(
         "Cut",
@@ -413,14 +416,14 @@ qx.Class.define("ville.wax.demo.Application",
       ).set({ embed: iconcut });
       var copyButton = new qx.ui.menu.Button(
         "Copy",
-        "ville/wax/CopyRegular.svg",
+        null,
         copyCommand
-      );
+      ).set({ embed: iconcopy });
       var pasteButton = new qx.ui.menu.Button(
         "Paste",
-        "ville/wax/PasteRegular.svg",
+        null,
         pasteCommand
-      );
+      ).set({ embed: iconpaste });
 
       var optionmenu1 = new qx.ui.menu.Menu();
       optionmenu1.add(new qx.ui.menu.RadioButton("Option 1"));
@@ -594,7 +597,7 @@ qx.Class.define("ville.wax.demo.Application",
       var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "blue", zIndex: 5, decorator : "wax-tabview-line"});
       wtabView2.getChildControl("bar").add(tabviewbarline); 
 
-      wtabView2.addListener("changeSelection", function(e) {
+      wtabView2.addListener("changeSelection", (e) => {
         var oldbounds = e.getOldData()[0].getChildControl("button").getBounds();
         var newbounds = e.getData()[0].getChildControl("button").getBounds();
         var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();

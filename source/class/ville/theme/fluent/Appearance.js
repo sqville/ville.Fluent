@@ -847,7 +847,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           backgroundColor : states.selected ? "NeutralBackground1Hover" : undefined,
           decorator: "button-box-common",
-          embedProps: states.selected ? { textColor: "BrandForeground1" } : { textColor: "NeutralForeground1" },
+          //embedProps: states.selected ? { textColor: "BrandForeground1", iconStyle: "filled" } : { textColor: "NeutralForeground1", iconStyle: "regular" },
           padding : [ 6, 6 ],
           margin: [ 0, 6 ]
         };
