@@ -1720,6 +1720,17 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       MENU
     ---------------------------------------------------------------------------
     */
+    "menu-popup" : 
+    {
+      include : "popup",
+      style :
+      {
+        transitionProperty: ['visibility'],
+        transitionDuration: ville.global.duration.Slower,
+        transitionTimingFunction : ville.global.curve.DecelerateMid
+      }
+    },
+
     "menu-separator" :
     {
       style :

@@ -405,9 +405,11 @@ qx.Class.define("ville.wax.demo.Application",
       pasteCommand.addListener("execute", () => {console.log("pastecommand")});
 
       // svg inline icons
-      var iconcut = new ville.icons.Cut().set({ marginLeft: 14, width: 20, height: 20});
-      var iconcopy = new ville.icons.Copy().set({ marginLeft: 14, width: 20, height: 20});
-      var iconpaste = new ville.icons.Paste().set({ marginLeft: 14, width: 20, height: 20});
+      var iconcut = new ville.icons.Cut().set({ width: 20, height: 20});
+      var iconcopy = new ville.icons.Copy().set({ width: 20, height: 20});
+      var iconpaste = new ville.icons.Paste().set({ width: 20, height: 20});
+      var iconoptions = new ville.icons.Options().set({ width: 20, height: 20});
+      var iconpanes = new ville.icons.PanelLeftHeader().set({ width: 20, height: 20});
 
       var cutButton = new qx.ui.menu.Button(
         "Cut",
@@ -435,10 +437,10 @@ qx.Class.define("ville.wax.demo.Application",
       //groupOptions.addListener("changeSelection", this.debugRadio);
       var optionButton = new qx.ui.menu.Button(
         "Options",
-        "ville/wax/OptionsRegular.svg",
+        null,
         null,
         optionmenu1
-      );
+      ).set({ embed: iconoptions });
 
       var panesmenu = new qx.ui.menu.Menu();
       panesmenu.add(new qx.ui.menu.CheckBox("Show tabs"));
@@ -448,24 +450,92 @@ qx.Class.define("ville.wax.demo.Application",
 
       var panesButton = new qx.ui.menu.Button(
         "Panes",
-        "ville/wax/PanesRegular.svg",
+        null,
         null,
         panesmenu
-      );
+      ).set({ embed: iconpanes });
 
       // header 1
-      menu1.add(new qx.ui.menu.Button("Section Header").set({anonymous: true, appearance: "menu-button-header", margin: [0,26,0,-26]}));
+      menu1.add(new qx.ui.menu.Button("Section header").set({anonymous: true, appearance: "menu-button-header" }));
       menu1.add(cutButton);
       menu1.add(copyButton);
       menu1.add(pasteButton);
       // separator
       menu1.addSeparator();
       // header 2
-      menu1.add(new qx.ui.menu.Button("Section Header").set({anonymous: true, appearance: "menu-button-header", margin: [0,26,0,-26]}));
+      menu1.add(new qx.ui.menu.Button("Section header").set({anonymous: true, appearance: "menu-button-header" }));
       // options radiobuttons
       menu1.add(optionButton);
       // view panes check buttons
       menu1.add(panesButton);
+
+      menu1.addListener("appear", function() {
+        var menubounds = this.getBounds(); 
+        var ptopstart = menubounds.top;
+        
+        // adjust the popup animation to accomidate for dynamic position change (above or below opener) 
+        if (ptopstart < this.getOpener().getContentLocation().top)
+          ptopstart += 14;
+        else
+          ptopstart -= 14;
+        
+        var popupup = {
+          duration: parseInt(ville.global.duration.Slower.slice(0,-2)), 
+          timing: ville.global.curve.DecelerateMid, 
+          keyFrames : {
+            0: {top: ptopstart + "px", opacity: 0},
+            100: {top: menubounds.top + "px", opacity: 1}
+          },
+          keep : 100
+        };
+        qx.bom.element.AnimationCss.animate(this.getContentElement().getDomElement(), popupup);
+      });
+
+      optionmenu1.addListener("appear", function() {
+        var menubounds = this.getBounds(); 
+        var plftstart = menubounds.left;
+        
+        // adjust the popup animation to accomidate for dynamic position change (above or below opener) 
+        if (plftstart < this.getOpener().getContentLocation().left)
+          plftstart += 14;
+        else
+          plftstart -= 14;
+        
+        var popupup = {
+          duration: parseInt(ville.global.duration.Slower.slice(0,-2)), 
+          timing: ville.global.curve.DecelerateMid, 
+          keyFrames : {
+            0: {left: plftstart + "px", opacity: 0},
+            100: {left: menubounds.left + "px", opacity: 1}
+          },
+          keep : 100
+        };
+        qx.bom.element.AnimationCss.animate(this.getContentElement().getDomElement(), popupup);
+      });
+
+      
+      panesmenu.addListener("appear", function() {
+        var menubounds = this.getBounds(); 
+        var plftstart = menubounds.left;
+        
+        // adjust the popup animation to accomidate for dynamic position change (above or below opener) 
+        if (plftstart < this.getOpener().getContentLocation().left)
+          plftstart += 14;
+        else
+          plftstart -= 14;
+        
+        var popupup = {
+          duration: parseInt(ville.global.duration.Slower.slice(0,-2)), 
+          timing: ville.global.curve.DecelerateMid, 
+          keyFrames : {
+            0: {left: plftstart + "px", opacity: 0},
+            100: {left: menubounds.left + "px", opacity: 1}
+          },
+          keep : 100
+        };
+        qx.bom.element.AnimationCss.animate(this.getContentElement().getDomElement(), popupup);
+      });
+      
 
       var menubutton1 = new qx.ui.form.MenuButton(
         "Toggle menu",
@@ -701,6 +771,22 @@ qx.Class.define("ville.wax.demo.Application",
       firststackpage.add(textarea1);
 
       // ToggleButton
+
+
+      // Window
+      firststackpage.add(new qx.ui.basic.Label("Window").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default Window").set({font: "body1", rich: true, wrap: true}));
+      var window1 = new qx.ui.window.Window("Window title");
+      window1.setLayout(new qx.ui.layout.VBox(4));
+      window1.add(new qx.ui.basic.Label("I am a qx.ui.window.Window"));
+      var openwindowbutton1 = new qx.ui.form.Button("Open window").set({ minWidth: 96, allowStretchX: false, allowStretchY: false});
+      firststackpage.add(openwindowbutton1);
+
+      openwindowbutton1.addListener("execute", function() {
+        window1.center();
+        //winDrawer.fadeIn(200);
+        window1.show();
+      });
 
 
 

@@ -599,9 +599,9 @@ qx.Theme.define("ville.wax.theme.Appearance",
         return {
           backgroundColor : states.selected ? "NeutralBackground1Hover" : undefined,
           decorator: "button-box-common",
-          embedProps: states.selected ? { textColor: "BrandForeground1", iconStyle: "filled" } : { textColor: "NeutralForeground1", iconStyle: "regular" },
+          embedProps: states.selected ? { textColor: "BrandForeground1", iconStyle: "filled" } : { textColor: "NeutralForeground2", iconStyle: "regular" },
           padding : [ 6, 6 ],
-          margin: [ 0, 6 ]
+          margin: [ 0, 6, 0, 8 ]
         };
       }
     }

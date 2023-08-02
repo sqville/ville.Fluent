@@ -738,7 +738,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           arrowColumnWidth : 8,
           padding : 0,
           placementModeY : states.submenu || states.contextmenu ? "best-fit" : "keep-align",
-          offset : [1,0,0,0]
+          offset : [0,0,0,0]
         };
 
         if (states.submenu)
@@ -847,9 +847,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           backgroundColor : states.selected ? "NeutralBackground1Hover" : undefined,
           decorator: "button-box-common",
-          //embedProps: states.selected ? { textColor: "BrandForeground1", iconStyle: "filled" } : { textColor: "NeutralForeground1", iconStyle: "regular" },
           padding : [ 6, 6 ],
-          margin: [ 0, 6 ]
+          margin: [ 0, 6, 0, 8 ]
         };
       }
     },
@@ -901,6 +900,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
+          textColor: "NeutralForeground2",
           alignY : "middle",
           padding : 1
         };
@@ -918,7 +918,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           textColor: "NeutralForeground3",
           alignY : "middle",
           alignX : "left",
-          padding : 1
+          padding : 1,
+          marginLeft : -10
         };
       }
     },
@@ -930,6 +931,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
+          textColor: "NeutralForeground2",
           alignY : "middle",
           margin : [0, 0, 0, 20],
           padding : 1
@@ -1012,7 +1014,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator : decorator,
           width: 8,
           height: 8,
-          backgroundColor : "text",
+          backgroundColor : "NeutralForeground2",
           marginLeft : 17
         };
       }
