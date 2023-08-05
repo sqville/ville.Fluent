@@ -1216,17 +1216,13 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     */
     "window" :
     {
+      include : "shadow64",
+
       style :
       {
-        width : 1,
-        color : "border-light",
-        innerWidth : 4,
-        innerColor: "window-border-inner",
-        shadowLength : 0,
-        shadowBlurRadius : 0,
-        shadowColor : "shadow",
-        backgroundColor : "background",
-        radius : 3
+        radius : ville.global.border.radius.XLarge,
+        width : ville.global.stroke.widths.Thin,
+        color : "NeutralStroke1"
       }
     },
 
@@ -1245,8 +1241,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     "window-caption" : {
       style :
       {
-        width : [0, 0, 2, 0],
-        color : "background"
+        width : 0
       }
     },
 
@@ -1265,7 +1260,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         width : [0,10,4,0],
-        color : "gray"
+        color : "NeutralStroke1"
       }
     },
     
@@ -1284,7 +1279,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         width : [4,2,2,2],
-        color : "gray"
+        color : "NeutralStroke1"
       }
     },
     
@@ -1302,7 +1297,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        color : "gray"
+        color : "NeutralStroke1"
       }
     },
     
@@ -1319,8 +1314,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         width : [4,2,2,2],
-        color : "gray",
-        shadowColor : "gray",
+        color : "NeutralStroke1",
+        shadowColor : "NeutralStroke1",
         shadowLength : [2, 2],
         shadowBlurRadius : 0,
         shadowSpreadRadius : 0

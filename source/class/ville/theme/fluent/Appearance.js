@@ -2681,24 +2681,24 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          contentPadding : [ 10, 10, 10, 10 ],
-          backgroundColor : "background",
-          decorator : states.maximized ? undefined : states.active ? "window-active" : "window"
+          contentPadding : [0, 24, 24, 24],
+          backgroundColor : "NeutralBackground1",
+          decorator : states.maximized ? undefined : "window"
         };
       }
     },
 
     "window-resize-frame" : "resize-frame",
 
-    "window/pane" : {},
+    //"window/pane" : {},
 
     "window/captionbar" :
     {
       style : function(states)
       {
         return {
-          backgroundColor : "background",
-          padding : 8,
+          backgroundColor : "NeutralBackground1",
+          padding : 24,
           decorator : "window-caption"
         };
       }
@@ -2722,6 +2722,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           cursor : "default",
           font : "window-header",
+          textColor : "NeutralForeground1",
           alignY: "middle"
         };
       }

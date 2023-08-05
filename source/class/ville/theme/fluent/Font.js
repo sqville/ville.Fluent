@@ -89,11 +89,12 @@ qx.Theme.define("ville.theme.fluent.Font",
       include : "bold"
     },
 
-    "window-header" :
+    "window-header": 
     {
       include : "default",
-      size : 20
-    },    
+      size: ville.global.font.size.Base500,
+      weight: ville.global.font.weight.Semibold
+    },   
     
     "unicode-icons-sm" :
     {

@@ -8,6 +8,11 @@
 
 ************************************************************************ */
 
+/**
+ * @require(ville.icons.Dismiss)
+ */
+
+
 qx.Theme.define("ville.wax.theme.Appearance",
 {
   extend : ville.theme.fluent.Appearance,
@@ -602,6 +607,21 @@ qx.Theme.define("ville.wax.theme.Appearance",
           embedProps: states.selected ? { textColor: "BrandForeground1", iconStyle: "filled" } : { textColor: "NeutralForeground2", iconStyle: "regular" },
           padding : [ 6, 6 ],
           margin: [ 0, 6, 0, 8 ]
+        };
+      }
+    },
+
+    "window/close-button" :
+    {
+      alias : "button",
+
+      style : function(states)
+      {
+        return {  
+          //icon : "",
+          padding : [ 1, 1 ],
+          marginLeft: 6,
+          cursor : states.disabled ? undefined : "pointer"
         };
       }
     }

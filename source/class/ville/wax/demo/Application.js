@@ -492,8 +492,10 @@ qx.Class.define("ville.wax.demo.Application",
       });
 
       optionmenu1.addListener("appear", function() {
-        var menubounds = this.getBounds(); 
+        var menubounds = this.getBounds(); //TO-DO: Get bounds if submenu
         var plftstart = menubounds.left;
+
+        //console.log(plftstart);
         
         // adjust the popup animation to accomidate for dynamic position change (above or below opener) 
         if (plftstart < this.getOpener().getContentLocation().left)
@@ -776,15 +778,17 @@ qx.Class.define("ville.wax.demo.Application",
       // Window
       firststackpage.add(new qx.ui.basic.Label("Window").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default Window").set({font: "body1", rich: true, wrap: true}));
-      var window1 = new qx.ui.window.Window("Window title");
+      var window1 = new qx.ui.window.Window("Window title").set({ width: 450, height: 250 });
       window1.setLayout(new qx.ui.layout.VBox(4));
+      var icondismiss = new ville.icons.Dismiss().set({ width: 20, height: 20});
+      window1.getChildControl("close-button").set({ embed: icondismiss });
       window1.add(new qx.ui.basic.Label("I am a qx.ui.window.Window"));
       var openwindowbutton1 = new qx.ui.form.Button("Open window").set({ minWidth: 96, allowStretchX: false, allowStretchY: false});
       firststackpage.add(openwindowbutton1);
 
       openwindowbutton1.addListener("execute", function() {
         window1.center();
-        //winDrawer.fadeIn(200);
+        window1.fadeIn(50);
         window1.show();
       });
 
