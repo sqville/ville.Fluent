@@ -31,6 +31,7 @@
  * @asset(decoration/colorselector/*)
  * @asset(decoration/treevirtual/*)
  * @asset(decoration/cursor/*)
+ * @asset(decoration/close-24px.svg)
  */
 qx.Class.define("ville.theme.fluent.Image",
 {
@@ -57,6 +58,7 @@ qx.Class.define("ville.theme.fluent.Image",
       //"window-maximize" : "decoration/window/maximize.gif", //Replaced with -- pure Qx -- Decoration entry:: window-button-maximize-icon
       //"window-restore" : "decoration/window/restore.gif", //Replaced with -- pure Qx -- Decoration entry:: window-button-restore
       //"window-close" : "decoration/window/close.gif",
+      "window-dismiss" : "decoration/close-24px.svg",
 
       // cursor
       "cursor-copy" : "decoration/cursor/circle-add.svg",

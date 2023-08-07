@@ -780,8 +780,8 @@ qx.Class.define("ville.wax.demo.Application",
       firststackpage.add(new qx.ui.basic.Label("Default Window").set({font: "body1", rich: true, wrap: true}));
       var window1 = new qx.ui.window.Window("Window title").set({ width: 450, height: 250 });
       window1.setLayout(new qx.ui.layout.VBox(4));
-      var icondismiss = new ville.icons.Dismiss().set({ width: 20, height: 20});
-      window1.getChildControl("close-button").set({ embed: icondismiss });
+      //var icondismiss = new ville.icons.Dismiss().set({ width: 20, height: 20});
+      //window1.getChildControl("close-button").set({ embed: icondismiss });
       window1.add(new qx.ui.basic.Label("I am a qx.ui.window.Window"));
       var openwindowbutton1 = new qx.ui.form.Button("Open window").set({ minWidth: 96, allowStretchX: false, allowStretchY: false});
       firststackpage.add(openwindowbutton1);

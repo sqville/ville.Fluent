@@ -1259,7 +1259,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        width : [0,10,4,0],
+        width : [0,8,2,0],
         color : "NeutralStroke1"
       }
     },
@@ -1278,8 +1278,9 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        width : [4,2,2,2],
-        color : "NeutralStroke1"
+        radius : 3,
+        width : [2,1,1,1],
+        color : "NeutralForeground1"
       }
     },
     
@@ -1313,10 +1314,11 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        width : [4,2,2,2],
-        color : "NeutralStroke1",
-        shadowColor : "NeutralStroke1",
-        shadowLength : [2, 2],
+        radius : 3,
+        width : [2,1,1,1],
+        color : "NeutralForeground1",
+        shadowColor : "NeutralForeground1",
+        shadowLength : [1, 1],
         shadowBlurRadius : 0,
         shadowSpreadRadius : 0
       }

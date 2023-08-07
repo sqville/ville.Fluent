@@ -2750,9 +2750,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : states.hovered ? "black" : "gray",
-          width : 10,
-          height : 4
+          backgroundColor : "NeutralForeground1",
+          width : 12,
+          height : 2
         };
       }
     },
@@ -2781,9 +2781,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          width : 10,
-          height : 10,
-          decorator : states.hovered ? "window-button-restore-icon-hover" : "window-button-restore-icon"
+          width : 12,
+          height : 12,
+          decorator : "window-button-restore-icon"
         };
       }
     },
@@ -2811,9 +2811,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          decorator : states.hovered ? "window-button-maximize-icon-hover" : "window-button-maximize-icon",
-          width : 12,
-          height : 12
+          decorator : "window-button-maximize-icon",
+          width : 14,
+          height : 14
         };
       }
     },
@@ -2825,7 +2825,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          icon : states.hovered ? ville.theme.fluent.Image.URLS["tabview-close-hovered"] : ville.theme.fluent.Image.URLS["tabview-close"],
+          icon : ville.theme.fluent.Image.URLS["window-dismiss"],
           padding : [ 1, 1 ],
           marginLeft: 6,
           cursor : states.disabled ? undefined : "pointer"
