@@ -321,7 +321,7 @@ qx.Class.define("ville.wax.demo.Application",
       // Line
       // Controls in alpha order
       firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, MenuButton, RadioButton, SelectBox, Table, TextField, TextArea").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, MenuButton, RadioButton, SelectBox, Table, TabView, TextField, TextArea, Window").set({font: "body2", rich: true, wrap: true}));
 
       // BUTTON
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
@@ -641,30 +641,30 @@ qx.Class.define("ville.wax.demo.Application",
 
 
       // TabView
-      // firststackpage.add(new qx.ui.basic.Label("TabView").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      // firststackpage.add(new qx.ui.basic.Label("Here is the tabview").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("TabView").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Here is the tabview").set({font: "body1", rich: true, wrap: true}));
 
       // Wax TabView with a line
       var wtabView2 = new qx.ui.tabview.TabView();
 
-      var page1tbv2 = new qx.ui.tabview.Page("Home").set({appearance: "wax-tabview-page-line"});
+      var page1tbv2 = new qx.ui.tabview.Page("First Tab"); //appearance: "wax-tabview-page-line"
       page1tbv2.setLayout(new qx.ui.layout.VBox());
-      page1tbv2.add(new qx.ui.basic.Label("Home Page"));
+      page1tbv2.add(new qx.ui.basic.Label("First Tab Page"));
       wtabView2.add(page1tbv2);
 
-      var page2tbv2 = new qx.ui.tabview.Page("Next Long").set({appearance: "wax-tabview-page-line"});
+      var page2tbv2 = new qx.ui.tabview.Page("Second Tab");
       page2tbv2.setLayout(new qx.ui.layout.VBox());
-      page2tbv2.add(new qx.ui.basic.Label("Next Long Page"));
+      page2tbv2.add(new qx.ui.basic.Label("Second Tab Page"));
       wtabView2.add(page2tbv2);
 
-      var page3tbv2 = new qx.ui.tabview.Page("Last Very Long").set({appearance: "wax-tabview-page-line"});
+      var page3tbv2 = new qx.ui.tabview.Page("Third Tab");
       page3tbv2.setLayout(new qx.ui.layout.VBox());
-      page3tbv2.add(new qx.ui.basic.Label("Last Very Long Page"));
+      page3tbv2.add(new qx.ui.basic.Label("Third Tab Page"));
       wtabView2.add(page3tbv2);
 
-      // firststackpage.add(wtabView2);
+      firststackpage.add(wtabView2);
 
-      wtabView2.setSelection([page2tbv2]);
+      wtabView2.setSelection([page1tbv2]);
 
       var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "blue", zIndex: 5, decorator : "wax-tabview-line"});
       wtabView2.getChildControl("bar").add(tabviewbarline); 
@@ -680,45 +680,11 @@ qx.Class.define("ville.wax.demo.Application",
           timing: "ease", 
           keyFrames : {
             0: {"left": oldbounds.left + "px", "top": oldtop + "px", "width": oldbounds.width + "px"},
-            100: {"left": newbounds.left + 8 + "px", "top": newtop + "px", "width": newbounds.width - 16 + "px"}
+            100: {"left": newbounds.left + "px", "top": newtop + "px", "width": newbounds.width + "px"}
           },
           keep : 100
         };
         qx.bom.element.AnimationCss.animate(tbvmarkdom, tabviewbarlinemove);
-
-        //remove old mouseover and mouseout listeners
-        e.getOldData()[0].getChildControl("button").removeListenerById(tabviewbarline.getUserData("mouseoverid"));
-        e.getOldData()[0].getChildControl("button").removeListenerById(tabviewbarline.getUserData("mouseoutid"));
-
-        var tabvbutton = e.getData()[0].getChildControl("button");
-
-        var mouseoverid = tabvbutton.addListener("mouseover", function() {
-          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
-            duration: 150, 
-            timing: "ease-in", 
-            keyFrames : {
-              0: {"width": newbounds.width + "px"},
-              100: {"width": newbounds.width -16 + "px", "left": newbounds.left +8 + "px"}
-            },
-            keep : 100
-          });
-        });
-        var mouseoutid = tabvbutton.addListener("mouseout", function() {
-          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
-            duration: 150, 
-            timing: "ease-in", 
-            keyFrames : {
-              0: {"width": newbounds.width -16 + "px", "left": newbounds.left +8 + "px"},
-              100: {"width": newbounds.width + "px", "left": newbounds.left + "px"}
-            },
-            keep : 100
-          });
-        });
-        tabviewbarline.setUserData("mouseoverid", mouseoverid);
-        tabviewbarline.setUserData("mouseoutid", mouseoutid);
-
       }, this); 
     
       wtabView2.addListenerOnce("appear", function() {
@@ -729,35 +695,6 @@ qx.Class.define("ville.wax.demo.Application",
           "width": movetobounds.width + "px", 
           "height": tabviewbarline.getHeight() + "px"
         });
-
-        var tabvbutton = this.getSelection()[0].getChildControl("button");
-
-        var mouseoverid = tabvbutton.addListener("mouseover", function() {
-          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
-            duration: 150, 
-            timing: "ease-in", 
-            keyFrames : {
-              0: {"width": this.getBounds().width + "px"},
-              100: {"width": this.getBounds().width -16 + "px", "left": this.getBounds().left +8 + "px"}
-            },
-            keep : 100
-          });
-        });
-        var mouseoutid = tabvbutton.addListener("mouseout", function() {
-          var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-          qx.bom.element.AnimationCss.animate(tbvmarkdom, {
-            duration: 150, 
-            timing: "ease-in", 
-            keyFrames : {
-              0: {"width": this.getBounds().width -16 + "px", "left": this.getBounds().left +8 + "px"},
-              100: {"width": this.getBounds().width + "px", "left": this.getBounds().left + "px"}
-            },
-            keep : 100
-          });
-        });
-        tabviewbarline.setUserData("mouseoverid", mouseoverid);
-        tabviewbarline.setUserData("mouseoutid", mouseoutid);
       });
       
       // TextField

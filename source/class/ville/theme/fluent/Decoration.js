@@ -43,14 +43,13 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       }
     },
 
-
     "main" :
     {
       style :
       {
-        width : 1,
-        radius : 3,
-        color : "white-box-border"
+        radius : ville.global.border.radius.Medium,
+        width : ville.global.stroke.widths.Thin,
+        color : "NeutralStroke1"
       }
     },
 
@@ -1571,6 +1570,46 @@ qx.Theme.define("ville.theme.fluent.Decoration",
         transitionTimingFunction : ville.global.curve.AccelerateMid
       }
     },
+
+    /*
+    "comboboxfield-focused" :
+    {
+      style :
+      {
+        after : 
+        {
+          position: "absolute",
+          content: "''",
+          borderBottomWidth: "2px",
+          borderBottomStyle: "solid",
+          borderBottomColor: ville.global.color.Brand[80],
+          borderBottomLeftRadius: "4px",
+          borderBottomRightRadius: "4px",
+          left: "-1px",
+          bottom: "-1px", 
+          right: "-1px",
+          clipPath: "inset(calc(100% -2px) 0px 0px)",
+          height: "max(2px, 4px)",
+          boxSizing: "border-box",
+          borderRadius: "inherit",
+          transform: "scaleX(0)",
+          transitionProperty: "transform",
+          transitionDuration: ville.global.duration.Normal,
+          transitionDelay: ville.global.curve.DecelerateMid
+        },
+        focusWithin :
+        {
+          after :
+          {
+            transform: "scaleX(1)",
+            transitionProperty: "transform",
+            transitionDuration: ville.global.duration.UltraFast,
+            transitionDelay: ville.global.curve.AccelerateMid
+          }
+        }
+        
+      }
+    },*/
     
     "combobox-inset" :
     {
@@ -1860,7 +1899,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         width : [1, 1, 0, 1],
-        backgroundColor: "background",
+        backgroundColor: "NeutralBackground1",
         color : "white-box-border",
         //color : ["white-box-border", "white-box-border", "white", "white-box-border"],
         radius : [3, 3, 0, 0]

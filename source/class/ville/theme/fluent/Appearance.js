@@ -1623,6 +1623,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
    "combobox" : {
     style : function(states)
     {
+      /**
+       * TODO - use maps with Camel Case to store rules; hyphenate and add to style sheet when called 
+       */
+      
       var decorator = "comboboxfield";
       var sheet = qx.ui.style.Stylesheet.getInstance();
       var prefix = qx.theme.manager.Decoration.CSS_CLASSNAME_PREFIX;
@@ -1673,6 +1677,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         var rule0 = prefixdecbase + "::after";
         sheet.addRule(rule0, css1.join(' '));
         sheet.addRule(rule1, css1.join(' '));
+        //qx.theme.manager.Decoration.getInstance().addCssClass("comboboxfield-focused");
         sheet.addRule(rule2, css2.join(' '));
       }
       
@@ -2824,8 +2829,41 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
       style : function(states)
       {
+        var decorator = "window-button-close-icon";
+        var sheet = qx.ui.style.Stylesheet.getInstance();
+        var prefix = qx.theme.manager.Decoration.CSS_CLASSNAME_PREFIX;
+        var prefixdecbase = "." + prefix + decorator; 
+        if (!sheet.hasRule(prefixdecbase + ":after"))
+        {
+          //var keyframe1 = "@keyframes textfieldout";
+          var rule1 = prefixdecbase + ":after";
+          var css = [
+            "width: 24px;",
+            "height: 24px;",
+            "top: 50%;",
+            "left: 50%;",
+            "border-radius: .06em;",
+            "background-color: red;"
+          ];
+          var cssa = css;
+          cssa.push("transform: translate(-50%, -50%) rotate(-225deg);");
+          
+          var rule2 = prefixdecbase + ":before";
+          var cssb = css;
+          cssb.push("transform: translate(-50%, -50%) rotate(225deg);");
+
+          //sheet.addRule(rule1, cssa.join(' '));
+          //sheet.addRule(rule2, cssb.join(' '));
+        }
+        
+        
         return {
           icon : ville.theme.fluent.Image.URLS["window-dismiss"],
+          //icon : "",
+          //width : 24,
+          //height : 24,
+          //decorator : decorator,
+          //textColor : "NeutralForeground1",
           padding : [ 1, 1 ],
           marginLeft: 6,
           cursor : states.disabled ? undefined : "pointer"
@@ -3290,31 +3328,14 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "tabview/bar" :
     {
-      alias : "slidebar",
-
       style : function(states)
       {
-        var marginTop=0, marginRight=0, marginBottom=0, marginLeft=0;
-
-        if (states.barTop) {
-          marginBottom -= 1;
-        } else if (states.barBottom) {
-          marginTop -= 1;
-        } else if (states.barRight) {
-          marginLeft -= 1;
-        } else {
-          marginRight -= 1;
-        }
-
         return {
-          marginBottom : marginBottom,
-          marginTop : marginTop,
-          marginLeft : marginLeft,
-          marginRight : marginRight
+          marginBottom : 4,
+          height : 40
         };
       }
     },
-
 
     "tabview/bar/button-forward" :
     {
@@ -3383,7 +3404,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "background",
+          backgroundColor : "NeutralBackground1",
           decorator : "main",
           padding : 10
         };
@@ -3439,13 +3460,13 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         return {
           zIndex : states.checked ? 10 : 5,
-          decorator : decorator,
-          textColor : states.disabled ? "text-disabled" : states.checked ? null : "button-text",
-          font : states.checked ? "bold" : "bold",
-          padding : padding,
-          cursor: "pointer",
-          marginBottom : states.barBottom ? 1 : undefined,
-          marginLeft : states.barLeft ? 1 : undefined
+          //decorator : decorator,
+          textColor : states.disabled ? "text-disabled" : "NeutralForeground1",
+          font : states.checked ? "button" : "default",
+          padding : [10, 16, 4, 16],
+          cursor: "pointer"
+          //marginBottom : states.barBottom ? 1 : undefined,
+          //marginLeft : states.barLeft ? 1 : undefined
         };
       }
     },
