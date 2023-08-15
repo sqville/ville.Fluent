@@ -321,7 +321,7 @@ qx.Class.define("ville.wax.demo.Application",
       // Line
       // Controls in alpha order
       firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, MenuButton, RadioButton, SelectBox, Table, TabView, TextField, TextArea, Window").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, MenuButton, RadioButton, SelectBox, Table, TabView, TextField, TextArea, Tree, Window").set({font: "body2", rich: true, wrap: true}));
 
       // BUTTON
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
@@ -647,7 +647,7 @@ qx.Class.define("ville.wax.demo.Application",
       // Wax TabView with a line
       var wtabView2 = new qx.ui.tabview.TabView();
 
-      var page1tbv2 = new qx.ui.tabview.Page("First Tab"); //appearance: "wax-tabview-page-line"
+      var page1tbv2 = new qx.ui.tabview.Page("First Tab").set({ height : 300 }); //appearance: "wax-tabview-page-line"
       page1tbv2.setLayout(new qx.ui.layout.VBox());
       page1tbv2.add(new qx.ui.basic.Label("First Tab Page"));
       wtabView2.add(page1tbv2);
@@ -666,7 +666,7 @@ qx.Class.define("ville.wax.demo.Application",
 
       wtabView2.setSelection([page1tbv2]);
 
-      var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "blue", zIndex: 5, decorator : "wax-tabview-line"});
+      var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "BrandBackground1", zIndex: 5, decorator : "tabview-page-button-line"});
       wtabView2.getChildControl("bar").add(tabviewbarline); 
 
       wtabView2.addListener("changeSelection", (e) => {
@@ -676,8 +676,8 @@ qx.Class.define("ville.wax.demo.Application",
         var oldtop = oldbounds.height - tabviewbarline.getHeight();
         var newtop = newbounds.height - tabviewbarline.getHeight();
         var tabviewbarlinemove = {
-          duration: 300, 
-          timing: "ease", 
+          duration: parseInt(ville.global.duration.Slow.slice(0,-2)), 
+          timing: ville.global.curve.DecelerateMid,  
           keyFrames : {
             0: {"left": oldbounds.left + "px", "top": oldtop + "px", "width": oldbounds.width + "px"},
             100: {"left": newbounds.left + "px", "top": newtop + "px", "width": newbounds.width + "px"}
@@ -712,6 +712,43 @@ qx.Class.define("ville.wax.demo.Application",
       // ToggleButton
 
 
+      // Tree
+      firststackpage.add(new qx.ui.basic.Label("Tree").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default Tree").set({font: "body1", rich: true, wrap: true}));
+      var tree1 = new qx.ui.tree.Tree().set({ width: 200, height: 400 });
+      var root1 = new qx.ui.tree.TreeFolder("root");
+      root1.setOpen(true);
+      tree1.setRoot(root1);
+
+      var te1 = new qx.ui.tree.TreeFolder("Desktop");
+      te1.setOpen(true);
+      root1.add(te1);
+
+      var te1_1 = new qx.ui.tree.TreeFolder("Files");
+      var te1_2 = new qx.ui.tree.TreeFolder("Workspace");
+      var te1_3 = new qx.ui.tree.TreeFolder("Network");
+      var te1_4 = new qx.ui.tree.TreeFolder("Trash");
+      te1.add(te1_1, te1_2, te1_3, te1_4);
+
+      var te1_2_1 = new qx.ui.tree.TreeFile("Windows (C:)");
+      var te1_2_2 = new qx.ui.tree.TreeFile("Documents (D:)");
+      te1_2.add(te1_2_1, te1_2_2);
+
+      var te2 = new qx.ui.tree.TreeFolder("Inbox");
+
+      var te2_1 = new qx.ui.tree.TreeFolder("Presets");
+      var te2_2 = new qx.ui.tree.TreeFolder("Sent");
+      var te2_3 = new qx.ui.tree.TreeFolder("Trash");
+      var te2_4 = new qx.ui.tree.TreeFolder("Data");
+      var te2_5 = new qx.ui.tree.TreeFolder("Edit");
+
+      te2.add(te2_1, te2_2, te2_3, te2_4, te2_5);
+
+      root1.add(te2);
+      
+      firststackpage.add(tree1);
+
+
       // Window
       firststackpage.add(new qx.ui.basic.Label("Window").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default Window").set({font: "body1", rich: true, wrap: true}));
@@ -743,7 +780,7 @@ qx.Class.define("ville.wax.demo.Application",
       // TODOs: Need to grab colors from Color Theme
       
       var slideright = {
-        duration: ville.global.duration.Slow, 
+        duration: 300, 
         timing: ville.global.curve.EasyEase, 
         keyFrames : {
           0: {

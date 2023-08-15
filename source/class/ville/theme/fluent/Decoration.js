@@ -202,8 +202,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    {
    	  style :
       {
-        color : ["transparent",null,"transparent","ville-arrow-gray"],
-        style : ["solid",null,"solid","dotted"],
+        color : ["transparent",null,"transparent","NeutralForeground1"],
+        style : ["solid",null,"solid","solid"],
         width : [4.5,0,4.5,4]
       }
    },
@@ -279,7 +279,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    {
    	style :
       {
-        color : [null,null,"ville-arrow-gray","transparent"],
+        color : [null,null,"NeutralForeground1","transparent"],
         style : [null,null,"solid","solid"],
         width : [0,0,6,6]
       }
@@ -1935,6 +1935,14 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       {
         radius : [0, 3, 3, 0],
         width : [1, 1, 1, 0]
+      }
+    },
+
+    "tabview-page-button-line" : 
+    {
+      style :
+      {
+        radius : 3
       }
     },
     

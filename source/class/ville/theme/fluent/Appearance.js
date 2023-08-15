@@ -2567,6 +2567,22 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     ---------------------------------------------------------------------------
     */
 
+    "tree" :
+    {
+      include : "list",
+      alias : "list",
+
+      style : function(states, styles)
+      {
+        //TEMP delete. remove later
+        delete styles.spacing;
+        return {
+          contentPadding : states.invalid && !states.disabled? [3, 0] : [4, 1],
+          padding : states.focused ? 0 : 0
+        };
+      }
+    },
+
     "tree-folder/open" :
     {
       include : "image",
@@ -2657,23 +2673,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         };
       }
     },
-
-    "tree" :
-    {
-      include : "list",
-      alias : "list",
-
-      style : function(states, styles)
-      {
-        //TEMP delete. remove later
-        delete styles.spacing;
-        return {
-          contentPadding : states.invalid && !states.disabled? [3, 0] : [4, 1],
-          padding : states.focused ? 0 : 0
-        };
-      }
-    },
-    
 
     /*
     ---------------------------------------------------------------------------
