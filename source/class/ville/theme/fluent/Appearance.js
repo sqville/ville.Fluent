@@ -2770,7 +2770,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           icon : "",
-          padding : [ 1, 2 ],
+          //padding : [ 1, 2 ],
           marginRight : 5,
           marginLeft : 5,
           cursor : states.disabled ? undefined : "pointer"
@@ -2800,7 +2800,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           icon : "",
-          padding : [ 1, 2 ],
+          //padding : [ 1, 2 ],
           marginRight : 6,
           marginLeft : 6,
           cursor : states.disabled ? undefined : "pointer"
@@ -2828,42 +2828,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
       style : function(states)
       {
-        var decorator = "window-button-close-icon";
-        var sheet = qx.ui.style.Stylesheet.getInstance();
-        var prefix = qx.theme.manager.Decoration.CSS_CLASSNAME_PREFIX;
-        var prefixdecbase = "." + prefix + decorator; 
-        if (!sheet.hasRule(prefixdecbase + ":after"))
-        {
-          //var keyframe1 = "@keyframes textfieldout";
-          var rule1 = prefixdecbase + ":after";
-          var css = [
-            "width: 24px;",
-            "height: 24px;",
-            "top: 50%;",
-            "left: 50%;",
-            "border-radius: .06em;",
-            "background-color: red;"
-          ];
-          var cssa = css;
-          cssa.push("transform: translate(-50%, -50%) rotate(-225deg);");
-          
-          var rule2 = prefixdecbase + ":before";
-          var cssb = css;
-          cssb.push("transform: translate(-50%, -50%) rotate(225deg);");
-
-          //sheet.addRule(rule1, cssa.join(' '));
-          //sheet.addRule(rule2, cssb.join(' '));
-        }
-        
-        
         return {
           icon : ville.theme.fluent.Image.URLS["window-dismiss"],
-          //icon : "",
-          //width : 24,
-          //height : 24,
-          //decorator : decorator,
-          //textColor : "NeutralForeground1",
-          padding : [ 1, 1 ],
+          width : 24,
+          height : 24,
+          //paddingBottom : 4,
           marginLeft: 6,
           cursor : states.disabled ? undefined : "pointer"
         };

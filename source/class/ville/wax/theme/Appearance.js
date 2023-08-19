@@ -604,7 +604,52 @@ qx.Theme.define("ville.wax.theme.Appearance",
           margin: [ 0, 6, 0, 8 ]
         };
       }
-    }
+    },
 
+    "window/maximize-button/icon" :
+    {
+      include : "image",
+
+      style : function(states)
+      {
+        return {
+          decorator : "window-button-maximize-icon",
+          width : 16,
+          height : 16
+        };
+      }
+    },
+
+    "window/close-button" :
+    {
+      alias : "button",
+
+      style : function(states)
+      {
+        return {
+          icon : "",
+          width : 24,
+          height : 24,
+          paddingBottom : 4,
+          marginLeft: 6,
+          cursor : states.disabled ? undefined : "pointer"
+        };
+      }
+    },
+
+    "window/close-button/icon" : 
+    {
+      include: "image",
+
+      style : function(state)
+      {
+        return {
+          html: ville.theme.fluent.Image.SVG["dismiss"],
+          width: 20,
+          height: 20,
+          textColor : "NeutralForeground1"
+        }
+      }
+    }
   }
 });

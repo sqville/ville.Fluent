@@ -107,7 +107,7 @@ qx.Class.define("ville.wax.demo.Application",
       qx.Class.include(qx.ui.core.Widget, ville.wax.MWidget);
       qx.Class.include(qx.ui.basic.Atom, ville.wax.MEmbed);  
       qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MMenuButtonEmbed); 
-      //qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage); 
+      qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage); 
 
       // App's Root
       var approot = this.getRoot();
@@ -676,7 +676,7 @@ qx.Class.define("ville.wax.demo.Application",
         var oldtop = oldbounds.height - tabviewbarline.getHeight();
         var newtop = newbounds.height - tabviewbarline.getHeight();
         var tabviewbarlinemove = {
-          duration: parseInt(ville.global.duration.Slow.slice(0,-2)), 
+          duration: parseInt(ville.global.duration.Slower.slice(0,-2)), 
           timing: ville.global.curve.DecelerateMid,  
           keyFrames : {
             0: {"left": oldbounds.left + "px", "top": oldtop + "px", "width": oldbounds.width + "px"},
