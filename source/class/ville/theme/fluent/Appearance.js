@@ -1719,7 +1719,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "combobox/button" :
     {
-  
       style : function(states)
       {
         //var imgcolor = qx.theme.manager.Color.getInstance().resolve("NeutralStrokeAccessible");
@@ -2605,19 +2604,20 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     {
       style : function(states)
       {
-        var backgroundColor;
+        /*var backgroundColor;
         if (states.selected) {
           backgroundColor = "combobox-item-selected";
           if (states.disabled) {
             backgroundColor = "background-selected-disabled";
           }
-        }
+        }*/
         return {
           padding : [3, 8, 3, 5],
           icon : states.opened ? ville.theme.fluent.Image.URLS["tree-folder-open"] : ville.theme.fluent.Image.URLS["tree-folder"],
           iconOpened : ville.theme.fluent.Image.URLS["tree-folder-open"],
-          backgroundColor : backgroundColor,
-          opacity : states.drag ? 0.5 : undefined
+          //backgroundColor : backgroundColor,
+          opacity : states.drag ? 0.5 : undefined,
+          cursor : "pointer"
         };
       }
     },
@@ -2641,7 +2641,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           padding : [ 1, 4 ],
-          textColor : states.selected && !states.disabled ? "text-selected" : "text"
+          textColor : "NeutralForeground1"
         };
       }
     },
@@ -2655,7 +2655,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           icon : ville.theme.fluent.Image.URLS["tree-file"],
-          opacity : states.drag ? 0.5 : undefined
+          opacity : states.drag ? 0.5 : undefined,
+          cursor : "pointer"
         };
       }
     },

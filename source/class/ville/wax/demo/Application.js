@@ -107,7 +107,8 @@ qx.Class.define("ville.wax.demo.Application",
       qx.Class.include(qx.ui.core.Widget, ville.wax.MWidget);
       qx.Class.include(qx.ui.basic.Atom, ville.wax.MEmbed);  
       qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MMenuButtonEmbed); 
-      qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage); 
+      qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage);
+      //kdjfd 
 
       // App's Root
       var approot = this.getRoot();
@@ -642,12 +643,12 @@ qx.Class.define("ville.wax.demo.Application",
 
       // TabView
       firststackpage.add(new qx.ui.basic.Label("TabView").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Here is the tabview").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Default TabView. Works for all bar positions.").set({font: "body1", rich: true, wrap: true}));
 
       // Wax TabView with a line
       var wtabView2 = new qx.ui.tabview.TabView();
 
-      var page1tbv2 = new qx.ui.tabview.Page("First Tab").set({ height : 300 }); //appearance: "wax-tabview-page-line"
+      var page1tbv2 = new qx.ui.tabview.Page("First Tab").set({ height : 200 }); //appearance: "wax-tabview-page-line"
       page1tbv2.setLayout(new qx.ui.layout.VBox());
       page1tbv2.add(new qx.ui.basic.Label("First Tab Page"));
       wtabView2.add(page1tbv2);
@@ -664,7 +665,7 @@ qx.Class.define("ville.wax.demo.Application",
 
       firststackpage.add(wtabView2);
 
-      wtabView2.setSelection([page1tbv2]);
+      wtabView2.setSelection([page2tbv2]);
 
       var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "BrandBackground1", zIndex: 5, decorator : "tabview-page-button-line"});
       wtabView2.getChildControl("bar").add(tabviewbarline); 
@@ -673,8 +674,8 @@ qx.Class.define("ville.wax.demo.Application",
         var oldbounds = e.getOldData()[0].getChildControl("button").getBounds();
         var newbounds = e.getData()[0].getChildControl("button").getBounds();
         var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-        var oldtop = oldbounds.height - tabviewbarline.getHeight();
-        var newtop = newbounds.height - tabviewbarline.getHeight();
+        var oldtop = oldbounds.top + oldbounds.height - tabviewbarline.getHeight();
+        var newtop = newbounds.top + newbounds.height - tabviewbarline.getHeight();
         var tabviewbarlinemove = {
           duration: parseInt(ville.global.duration.Slower.slice(0,-2)), 
           timing: ville.global.curve.DecelerateMid,  
@@ -691,11 +692,13 @@ qx.Class.define("ville.wax.demo.Application",
         var movetobounds = this.getSelection()[0].getChildControl("button").getBounds();
         tabviewbarline.getContentElement().setStyles({
           "left": movetobounds.left + "px", 
-          "top": movetobounds.height - tabviewbarline.getHeight() + "px", 
+          "top": movetobounds.top + movetobounds.height - tabviewbarline.getHeight() + "px", 
           "width": movetobounds.width + "px", 
           "height": tabviewbarline.getHeight() + "px"
         });
       });
+
+
       
       // TextField
       firststackpage.add(new qx.ui.basic.Label("TextField").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
@@ -765,8 +768,6 @@ qx.Class.define("ville.wax.demo.Application",
         window1.fadeIn(50);
         window1.show();
       });
-
-
 
       // SWITCH
       //firststackpage.add(new qx.ui.basic.Label("Switch").set({font: stackpageheaderfont, padding: [60, 0, 0, 0]}));

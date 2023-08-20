@@ -590,6 +590,97 @@ qx.Theme.define("ville.wax.theme.Appearance",
     ---------------------------------------------------------------------------
     */
 
+    "combobox/button" :
+    {
+      style : function(states)
+      {
+        return {
+          icon : "",
+          backgroundColor : "TransparentBackground",
+          decorator : "button-box-right-borderless",
+          padding : [2,8,0,6],
+          width: 24,
+          cursor : "pointer"
+        };
+      }
+    },
+    
+    "combobox/button/icon" :
+    {
+    	include : "image",
+    	
+    	style : function(states)
+    	{
+    		return {
+          html : ville.theme.fluent.Image.SVG["chevronDownRegular"],
+          width : 20,
+          height : 20
+    		};
+    	}
+    },
+
+    "combobox-listitem" :
+    {
+      alias : "atom",
+
+      style : function(states)
+      {
+        var padding = ville.global.spacing.S;
+        if (states.lead) {
+          padding = [9, 9, 9, 13];
+        }
+        if (states.dragover) {
+          padding[2] -= 2;
+        }
+        var backgroundColor;
+
+        if (states.selected) {
+          backgroundColor = "transparent";
+          if (states.disabled) {
+            backgroundColor = "background-selected-disabled";
+          }
+        }
+        if (states.selected && states.hovered) {
+          backgroundColor = "NeutralBackground1Hover";
+          if (states.disabled) {
+            backgroundColor = "background-selected-disabled";
+          }
+        }
+        if (states.hovered && !states.selected) {
+          backgroundColor = "NeutralBackground1Hover";
+          if (states.disabled) {
+            backgroundColor = "background-selected-disabled";
+          }
+        }
+        if (!states.hovered && !states.selected) {
+          backgroundColor = "transparent";
+        }
+        
+        return {
+          icon: "",
+          gap : 6,
+          padding : padding,
+          backgroundColor : backgroundColor,
+          textColor : states.disabled ? "NeutralForegroundDisabled" : "NeutralForeground1",
+          decorator : states.lead ? "lead-item" : states.dragover ? "dragover" : "combobox-listitem",
+          opacity : states.drag ? 0.5 : undefined
+        };
+      }
+    },
+
+    "combobox-listitem/icon" :
+    {
+      include : "image",
+      style : function(states)
+      {
+        return {
+          html: states.selected ? ville.theme.fluent.Image.SVG["checkMarkRegular"] : "",
+          width : 20,
+          height : 20
+        };
+      }
+    },
+
     "menu-button" :
     {
       alias : "atom",
@@ -599,9 +690,158 @@ qx.Theme.define("ville.wax.theme.Appearance",
         return {
           backgroundColor : states.selected ? "NeutralBackground1Hover" : undefined,
           decorator: "button-box-common",
-          embedProps: states.selected ? { textColor: "BrandForeground1", iconStyle: "filled" } : { textColor: "NeutralForeground2", iconStyle: "regular" },
+          embedProps: states.selected ? 
+            { textColor: "BrandForeground1", iconStyle: "filled" } : 
+            { textColor: "NeutralForeground2", iconStyle: "regular" },
           padding : [ 6, 6 ],
           margin: [ 0, 6, 0, 8 ]
+        };
+      }
+    },
+
+    "selectbox/arrow" : {
+      style (states) {
+        return {
+          textColor : "NeutralForeground1",
+          html : ville.theme.fluent.Image.SVG["chevronDownRegular"],
+          width: 20,
+          height : 20,
+          marginRight: ville.global.spacing.S
+        };
+      }
+    },
+
+    "table/column-button" :
+    {
+      alias : "button",
+
+      style : function(states)
+      {
+        return {
+          decorator : "table-header-column-button",
+          padding : 6,
+          backgroundColor : "NeutralBackground1",
+          icon : ""
+        };
+      }
+    },
+    
+    "table/column-button/icon" :
+    {
+      alias : "image",
+
+      style : function(states)
+      {
+        return {
+          html: ville.theme.fluent.Image.SVG["tableSettingsRegular"],
+          textColor: "NeutralForeground1",
+          width: 14,
+          height : 14
+        };
+      }
+    },
+
+    "table-column-reset-button" :
+    {
+      include : "menu-button",
+      alias : "menu-button",
+
+      style : function()
+      {
+        return {
+          icon : ""
+        };
+      }
+    },
+
+    "table-column-reset-button/icon" :
+    {
+      alias : "image",
+
+      style : function(states)
+      {
+        return {
+          html: ville.theme.fluent.Image.SVG["arrowResetRegular"],
+          textColor: "NeutralForeground1",
+          width: 14,
+          height : 14
+        };
+      }
+    },
+
+    "tree-folder" :
+    {
+      style : function(states)
+      {
+        return {
+          padding : [3, 8, 3, 5],
+          icon : "",
+          iconOpened : "",
+          opacity : states.drag ? 0.5 : undefined,
+          cursor : "pointer"
+        };
+      }
+    },
+
+    "tree-folder/icon" :
+    {
+      include : "image",
+      style : function(states)
+      {
+        return {
+          html: states.opened ? ville.theme.fluent.Image.SVG["folderOpenRegular"] : ville.theme.fluent.Image.SVG["folderRegular"],
+          marginLeft: 6,
+          textColor: "NeutralForeground1",
+          width : 18,
+          height : 18
+        };
+      }
+    },
+
+    "tree-folder/open" :
+    {
+      include : "image",
+      style : function(states)
+      {
+        return {
+          source : "",
+          html : states.opened ? ville.theme.fluent.Image.SVG["chevronDownRegular"] : ville.theme.fluent.Image.SVG["chevronRightRegular"], 
+          //margin : states.opened ? [4,0,0,0] : [0,0,0,0],
+          //padding : states.opened ? [4,0,0,0] : [0,0,0,0],
+          textColor : "NeutralForeground1",
+          alignX: "left",
+          width : 14,
+          height : 14
+        };
+      }
+    },
+
+    "tree-file" :
+    {
+      include : "tree-folder",
+      alias : "tree-folder",
+
+      style : function(states)
+      {
+        return {
+          icon : "",
+          opacity : states.drag ? 0.5 : undefined,
+          cursor : "pointer"
+        };
+      }
+    },
+    
+    "tree-file/icon" :
+    {
+      include : "image",
+      style : function(states)
+      {
+        return {
+          html: ville.theme.fluent.Image.SVG["documentTextRegular"],
+          textColor: "NeutralForeground1",
+          width : 18,
+          height : 18,
+          scale : true
         };
       }
     },
