@@ -1492,16 +1492,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       SPINNER
     ---------------------------------------------------------------------------
     */
-
-    "spinner" :
-    {
-      style : function(states)
-      {
-        return {
-          textColor : states.disabled ? "text-disabled" : undefined
-        };
-      }
-    },
+    
+    "spinner" : "combobox",
 
     "spinner/textfield" : "combobox/textfield",
 
@@ -1512,11 +1504,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
 
         return {
-          backgroundColor : "background",
-          decorator : states.hovered ? "button-box-hovered-top-right" : "button-box-top-right",
+          backgroundColor : states.hovered ? "NeutralBackground1Hover" : "transparent",
+          decorator : "button-box-top-right",
           padding : [0,3,0,4],
           icon : "",
-          width: 17
+          width: 20,
+          cursor : "pointer"
         };
       }
     },
@@ -1543,10 +1536,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         return {
           icon : "",
-          backgroundColor : "background",
-          decorator : states.hovered ? "button-box-hovered-bottom-right" : "button-box-bottom-right",
+          backgroundColor : states.hovered ? "NeutralBackground1Hover" : "transparent",
+          decorator : "button-box-bottom-right",
           padding : [0,3,0,4],
-          width: 17
+          width: 20,
+          cursor : "pointer"
         };
       }
     },

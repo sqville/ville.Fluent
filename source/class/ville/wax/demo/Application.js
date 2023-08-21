@@ -108,7 +108,6 @@ qx.Class.define("ville.wax.demo.Application",
       qx.Class.include(qx.ui.basic.Atom, ville.wax.MEmbed);  
       qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MMenuButtonEmbed); 
       qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage);
-      //kdjfd 
 
       // App's Root
       var approot = this.getRoot();
@@ -567,6 +566,13 @@ qx.Class.define("ville.wax.demo.Application",
         select1.add(tempItem);
       }
       firststackpage.add(select1);
+
+      // Spinner
+      firststackpage.add(new qx.ui.basic.Label("Spinner").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default Spinner").set({font: "body1", rich: true, wrap: true}));
+      var spinner1 = new qx.ui.form.Spinner(-100, 0, 100).set({ width: 250, allowStretchX: false, allowStretchY: false });
+
+      firststackpage.add(spinner1);
 
       // Table
       firststackpage.add(new qx.ui.basic.Label("Table").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));

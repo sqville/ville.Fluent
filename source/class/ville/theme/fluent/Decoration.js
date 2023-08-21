@@ -152,7 +152,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    {
    	  style :
       {
-        color : [null,"transparent","ville-black","transparent"],
+        color : [null,"transparent","NeutralForeground1","transparent"],
         style : [null, "solid","solid","solid"],
         width : [0,3.5,3,3.5]
       }
@@ -192,7 +192,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    {
    	  style :
       {
-        color : ["ville-black","transparent",null,"transparent"],
+        color : ["NeutralForeground1","transparent",null,"transparent"],
         style : ["solid", "solid",null,"solid"],
         width : [3,3.5,0,3.5]
       }
@@ -703,7 +703,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       {
         radius : [0, 3, 0, 0],
         width: [1, 1, 1, 1],
-        color: "border-light"
+        color: "transparent"
       }
     },
     
@@ -730,7 +730,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       {
         radius : [0, 0, 3, 0],
         width : [0, 1, 1, 1],
-        color: "border-light"
+        color: "transparent"
       }
     },
 
