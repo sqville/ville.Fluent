@@ -804,7 +804,7 @@ qx.Class.define("ville.wax.demo.Application",
         keep : 100
       };
 
-      //console.log(qx.theme.manager.Color.getInstance().resolve("NeutralStrokeAccessible"));
+      
 
       // Wax Theme switcher - light dark
       waxcolorswitch.addListener("changeValue", function(e) {
@@ -813,15 +813,31 @@ qx.Class.define("ville.wax.demo.Application",
           //qx.bom.element.AnimationCss.animate(cbimage, slideright);
           qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.ColorDark);
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "dark");
-          localStorage.thememode = "dark";
+          localStorage.waxthememode = "dark";
         }
         else {
           //qx.bom.element.AnimationCss.animateReverse(cbimage, slideright);
           qx.theme.manager.Color.getInstance().setTheme(ville.wax.theme.Color);
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "normal");
-          localStorage.thememode = "light";
+          localStorage.waxthememode = "light";
         }
       });
+
+      if (localStorage.waxthememode)
+      {
+        if (localStorage.waxthememode == "light")
+        {
+          waxcolorswitch.setValue(false);
+          qx.theme.manager.Color.getInstance().setTheme(ville.wax.theme.Color);
+          firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "normal");
+        }
+        else
+        {
+          waxcolorswitch.setValue(true);
+          qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.ColorDark);
+          firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "dark");
+        }
+      }
 
       // Wax Switch - animate on change of value
       waxswitch.addListener("changeValue", function(e) {
