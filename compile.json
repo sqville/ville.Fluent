@@ -19,7 +19,7 @@
     {
       "class": "ville.wax.demo.Application",
       "theme": "ville.wax.theme.Theme",
-      "name": "ville.wax"
+      "name": "ville.wax" 
     }
   ],
   "environment": {
