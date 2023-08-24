@@ -106,6 +106,7 @@ qx.Mixin.define("ville.theme.MImage",
 
     // property apply
     _applySvgIcon(value, old) {
+      var elem = this.getContentElement();
       //prep regular
       //this._svgregular = this._svgit(this._pathit(value[0]));
 
@@ -113,9 +114,13 @@ qx.Mixin.define("ville.theme.MImage",
       //if (value[1])
         //this._svgfilled = this.svgit(this.pathit(value[1]));
 
+      var template = document.getElementById(value);
+
+      // Clone the new row and insert it into the table
+      var svg = template.content.cloneNode(true).firstElementChild.outerHTML;
+
       // Insert HTML content
-      //elem.setAttribute("html", value || "");
-      this.setHtml(this._svgit(this._pathit(value)));
+      elem.setAttribute("html", svg || "");
     }
   }
   

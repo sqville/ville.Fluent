@@ -321,7 +321,7 @@ qx.Class.define("ville.wax.demo.Application",
       // Line
       // Controls in alpha order
       firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, MenuButton, RadioButton, SelectBox, Table, TabView, TextField, TextArea, Tree, Window").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, MenuButton, RadioButton, SelectBox, Slider, Spinner, Table, TabView, TextField, TextArea, Tree, Window").set({font: "body2", rich: true, wrap: true}));
 
       // BUTTON
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
@@ -566,6 +566,13 @@ qx.Class.define("ville.wax.demo.Application",
         select1.add(tempItem);
       }
       firststackpage.add(select1);
+
+      // Slider
+      firststackpage.add(new qx.ui.basic.Label("Slider").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default Slider").set({font: "body1", rich: true, wrap: true}));
+      var slider1 = new qx.ui.form.Slider().set({ allowStretchX: false, allowStretchY: false, width: 250, minimum: -100, maximum: 100, singleStep: 5, pageStep: 20, value: 0 });
+
+      firststackpage.add(slider1);
 
       // Spinner
       firststackpage.add(new qx.ui.basic.Label("Spinner").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));

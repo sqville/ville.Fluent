@@ -1984,9 +1984,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "slider" :
     {
+      include : "combobox",
+      
       style : function(states)
       {
-        var decorator;
+        /*var decorator;
         if (states.disabled) {
           decorator = "inset-line";
         } else if (states.invalid) {
@@ -1995,12 +1997,31 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator = "focused-inset-line";
         } else {
           decorator = "inset-line";
-        }
+        }*/
+
+        //var padding = [0, ville.global.spacing.MNudge];
+        /*var backgroundcolor = "NeutralBackground1";
+        if (states.disabled) {
+          decorator = "textfield-disabled";
+          backgroundcolor = "TransparentBackground";
+        } else if (states.invalid) {
+          decorator = "textfield-invalid";
+        } 
+        else if (states.focused) {
+          decorator = "textfield-focused";
+        } 
+        else {
+          decorator = "textfield";
+        }*/
+
+        var prefix = qx.theme.manager.Decoration.getInstance().addCssClass("sq-test");
+        console.log(prefix);
 
         return {
-          decorator : decorator,
-          backgroundColor : "transparent",
-          padding   : [0,0]
+          //decorator : decorator,
+          height : 20,
+          //backgroundColor : backgroundcolor
+          cursor : "pointer"
         };
       }
     },
@@ -2011,6 +2032,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         var decorator = "slider-knob";
 
+        /*
         if (!states.disabled) {
           if (states.hovered && !states.pressed && !states.checked) {
             decorator = "slider-knob-hovered";
@@ -2020,14 +2042,16 @@ qx.Theme.define("ville.theme.fluent.Appearance",
             decorator = "slider-knob-pressed";
           }
         }
+        */
 
         return {
           height : 14,
-          width : 14,
+          width : 18,
+          backgroundColor : "CompoundBrandForeground1",
           cursor : states.disabled ? undefined : "pointer",
           decorator : decorator,
-          minHeight : states.horizontal ? undefined : 20,
-          minWidth : states.horizontal ? 20 : undefined
+          minHeight : states.horizontal ? undefined : 14,
+          minWidth : states.horizontal ? 18 : undefined
         };
       }
     },

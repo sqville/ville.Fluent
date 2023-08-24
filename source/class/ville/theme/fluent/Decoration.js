@@ -1138,13 +1138,14 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       SLIDER KNOB
     ---------------------------------------------------------------------------
     */
-   "slider-knob" :
+   
+    "slider-knob" :
    {
-    include : "scroll-knob", 
+    include : "radiobutton-checked", 
     
     style :
      {
-       radius : 10
+       radius : ville.global.border.radius.Circular
      }
    },
 
@@ -1414,6 +1415,11 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       TEXT FIELD
     ---------------------------------------------------------------------------
     */
+
+    "sq-test" :
+    {
+      radius : ville.global.border.radius.Circular
+    },
 
     "textfield-common" :
     {

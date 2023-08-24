@@ -734,6 +734,7 @@ qx.Theme.define("ville.wax.theme.Appearance",
       {
         return {
           html: ville.theme.fluent.Image.SVG["tableSettingsRegular"],
+          //svgIcon: "tableSettingsRegular",
           textColor: "NeutralForeground1",
           width: 14,
           height : 14
