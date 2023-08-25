@@ -571,8 +571,9 @@ qx.Class.define("ville.wax.demo.Application",
       firststackpage.add(new qx.ui.basic.Label("Slider").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default Slider").set({font: "body1", rich: true, wrap: true}));
       var slider1 = new qx.ui.form.Slider().set({ allowStretchX: false, allowStretchY: false, width: 250, minimum: -100, maximum: 100, singleStep: 5, pageStep: 20, value: 0 });
-
+      var slider2 = new qx.ui.form.Slider("vertical").set({ allowStretchX: false, allowStretchY: false, height: 250, minimum: -100, maximum: 100, singleStep: 5, pageStep: 20, value: 0 });
       firststackpage.add(slider1);
+      firststackpage.add(slider2);
 
       // Spinner
       firststackpage.add(new qx.ui.basic.Label("Spinner").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));

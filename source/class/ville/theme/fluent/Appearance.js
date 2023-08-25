@@ -2014,12 +2014,13 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator = "textfield";
         }*/
 
-        var prefix = qx.theme.manager.Decoration.getInstance().addCssClass("sq-test");
-        console.log(prefix);
+        //var prefix = qx.theme.manager.Decoration.getInstance().addCssClass("sq-test");
+        //console.log(prefix);
 
         return {
           //decorator : decorator,
           height : 20,
+          width : 20,
           //backgroundColor : backgroundcolor
           cursor : "pointer"
         };
@@ -2045,13 +2046,14 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         */
 
         return {
-          height : 14,
+          height : states.horizontal ? 14 : 18,
           width : 18,
           backgroundColor : "CompoundBrandForeground1",
           cursor : states.disabled ? undefined : "pointer",
           decorator : decorator,
-          minHeight : states.horizontal ? undefined : 14,
-          minWidth : states.horizontal ? 18 : undefined
+          //minHeight : states.horizontal ? undefined : 14,
+          //minWidth : states.horizontal ? 18 : undefined,
+          //maxHeight : states.horizontal ? undefined : 14,
         };
       }
     },
