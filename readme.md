@@ -27,25 +27,10 @@
 
 <!-- GETTING STARTED -->
 ## Using the Theme in your Application
-To use the Theme in your application, go into the application root directory and install the theme into your project:
-```sh
-$ qx package update
-$ qx package list
-$ qx package install sqville/ville.Fluent
-```
-now you just have to modify your compile.json to enable the theme:
-```sh
-"applications": [
-  {
-    ...
-    "theme": "ville.theme.Fluent",
-    ...
-  }
-],
-```
+Qooxdoo package (qx pkg) installation coming soon. In the meantime, just add the ville.theme folder to your project and reference it in your compile.json as a stand alone theme, or update your project's theme to extend ville.theme.fluent theme classes (Appearance, Decoration, Font, Color, etc).  
 
 <!-- DEMOS -->
-## Demo
+## Demos
 
 [Demo](https://sqville.github.io/ville.Fluent/published/)
 
