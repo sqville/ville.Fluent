@@ -1,19 +1,5 @@
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/sqville/ville.Fluent">
-    <img src="ville_Fluent.png" alt="Logo" width="289" height="119">
-  </a>
-
-  <h3 align="center"></h3>
-
-  <p align="center">
-    A theme for the Qooxdoo JavaScript Framework
-  </p>
-</p>
-
 <!-- ABOUT THE PROJECT -->
-## About The Project
+# Ville.Fluent
 
 **ville.Fluent** is a [Qooxdoo](https://qooxdoo.org/) theme inspired by [Microsofts Fluent UI](https://fluent2.microsoft.design/).
 
