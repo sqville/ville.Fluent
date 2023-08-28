@@ -770,6 +770,22 @@ qx.Theme.define("ville.wax.theme.Appearance",
       }
     },
 
+    "tabview/bar/button-forward" :
+    {
+      style : function(states)
+      {
+        icon : ""
+      }
+    },
+
+    "tabview/bar/button-backward" :
+    {
+      style : function (states)
+      {
+        icon : ""
+      }
+    },
+
     "tree-folder" :
     {
       style : function(states)
