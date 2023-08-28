@@ -657,25 +657,61 @@ qx.Class.define("ville.wax.demo.Application",
 
       // TabView
       firststackpage.add(new qx.ui.basic.Label("TabView").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Default TabView. Works for all bar positions.").set({font: "body1", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Default TabView. Works for all bar positions. Resize window to see overflow menu button.").set({font: "body1", rich: true, wrap: true}));
 
+      // add overflow menu button feature to tabview bar child control
+      var tvbarmenu = new qx.ui.menu.Menu();
+      
       // Wax TabView with a line
       var wtabView2 = new qx.ui.tabview.TabView();
 
-      var page1tbv2 = new qx.ui.tabview.Page("First Tab").set({ height : 200 }); //appearance: "wax-tabview-page-line"
+      var page1tbv2 = new qx.ui.tabview.Page("First Tab").set({ height : 200 });
       page1tbv2.setLayout(new qx.ui.layout.VBox());
       page1tbv2.add(new qx.ui.basic.Label("First Tab Page"));
       wtabView2.add(page1tbv2);
+      var p1tbmb = new qx.ui.menu.Button("First Tab", null, null);
+      p1tbmb.addListener("execute", function() {
+        wtabView2.setSelection([page1tbv2]);
+      });
+      tvbarmenu.add(p1tbmb);
 
       var page2tbv2 = new qx.ui.tabview.Page("Second Tab");
       page2tbv2.setLayout(new qx.ui.layout.VBox());
       page2tbv2.add(new qx.ui.basic.Label("Second Tab Page"));
       wtabView2.add(page2tbv2);
+      var p2tbmb = new qx.ui.menu.Button("Second Tab", null, null);
+      p2tbmb.addListener("execute", function() {
+        wtabView2.setSelection([page2tbv2]);
+      });
+      tvbarmenu.add(p2tbmb);
 
       var page3tbv2 = new qx.ui.tabview.Page("Third Tab");
       page3tbv2.setLayout(new qx.ui.layout.VBox());
       page3tbv2.add(new qx.ui.basic.Label("Third Tab Page"));
       wtabView2.add(page3tbv2);
+      var p3tbmb = new qx.ui.menu.Button("Third Tab", null, null);
+      p3tbmb.addListener("execute", function() {
+        wtabView2.setSelection([page3tbv2]);
+      });
+      tvbarmenu.add(p3tbmb);
+
+      var page4tbv2 = new qx.ui.tabview.Page("Fourth Tab");
+      page4tbv2.setLayout(new qx.ui.layout.VBox());
+      wtabView2.add(page4tbv2);
+      var p4tbmb = new qx.ui.menu.Button("Fourth Tab", null, null);
+      p4tbmb.addListener("execute", function() {
+        wtabView2.setSelection([page4tbv2]);
+      });
+      tvbarmenu.add(p4tbmb);
+
+      var page5tbv2 = new qx.ui.tabview.Page("Fifth Tab");
+      page5tbv2.setLayout(new qx.ui.layout.VBox());
+      wtabView2.add(page5tbv2);
+      var p5tbmb = new qx.ui.menu.Button("Fifth Tab", null, null);
+      p5tbmb.addListener("execute", function() {
+        wtabView2.setSelection([page5tbv2]);
+      });
+      tvbarmenu.add(p5tbmb);
 
       firststackpage.add(wtabView2);
 
@@ -685,8 +721,8 @@ qx.Class.define("ville.wax.demo.Application",
       wtabView2.getChildControl("bar").add(tabviewbarline); 
 
       wtabView2.addListener("changeSelection", (e) => {
-        var oldbounds = e.getOldData()[0].getChildControl("button").getBounds();
-        var newbounds = e.getData()[0].getChildControl("button").getBounds();
+        var oldbounds = e.getOldData()[0].getButton().getBounds();
+        var newbounds = e.getData()[0].getButton().getBounds();
         var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
         var oldtop = oldbounds.top + oldbounds.height - tabviewbarline.getHeight();
         var newtop = newbounds.top + newbounds.height - tabviewbarline.getHeight();
@@ -701,9 +737,13 @@ qx.Class.define("ville.wax.demo.Application",
         };
         qx.bom.element.AnimationCss.animate(tbvmarkdom, tabviewbarlinemove);
       }, this); 
+
+      
+      var tabviewoverflowmenubutton1 = new qx.ui.form.MenuButton("...", null, tvbarmenu).set({decorator : null});
+      wtabView2.getChildControl("bar")._add(tabviewoverflowmenubutton1);
     
       wtabView2.addListenerOnce("appear", function() {
-        var movetobounds = this.getSelection()[0].getChildControl("button").getBounds();
+        var movetobounds = this.getSelection()[0].getButton().getBounds();
         tabviewbarline.getContentElement().setStyles({
           "left": movetobounds.left + "px", 
           "top": movetobounds.top + movetobounds.height - tabviewbarline.getHeight() + "px", 
@@ -711,6 +751,32 @@ qx.Class.define("ville.wax.demo.Application",
           "height": tabviewbarline.getHeight() + "px"
         });
       });
+
+      
+
+      // show hide overflow menu
+      wtabView2.getChildControl("bar").getChildControl("scrollpane").addListener("update", function(e) 
+      {
+        var content = this.getChildren()[0];
+        if (!content) {
+          return;
+        }
+
+        var innerSize = this.getInnerSize();
+        var contentSize = content.getBounds();
+
+        var overflow =
+        wtabView2.getChildControl("bar").getOrientation() === "horizontal"
+            ? contentSize.width - 100 > innerSize.width
+            : contentSize.height - 40 > innerSize.height;
+
+        if (overflow) {
+          tabviewoverflowmenubutton1.setVisibility("visible");
+        } else {
+          tabviewoverflowmenubutton1.setVisibility("hidden");
+        }
+      });
+
 
 
       

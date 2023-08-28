@@ -3328,10 +3328,15 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "tabview/bar/button-forward" :
     {
-      include : "slidebar/button-forward",
-      alias : "slidebar/button-forward",
+      //include : "slidebar/button-forward",
+      //alias : "slidebar/button-forward",
 
       style : function(states)
+      {
+        icon : ""
+      }
+
+      /*style : function(states)
       {
         if (states.barTop) {
           return {
@@ -3354,15 +3359,20 @@ qx.Theme.define("ville.theme.fluent.Appearance",
             marginRight : 4
           };
         }
-      }
+      }*/
     },
 
     "tabview/bar/button-backward" :
     {
-      include : "slidebar/button-backward",
-      alias : "slidebar/button-backward",
+      //include : "slidebar/button-backward",
+      //alias : "slidebar/button-backward",
 
-      style : function(states)
+      style : function (states)
+      {
+        icon : ""
+      }
+
+      /*style : function(states)
       {
         if (states.barTop) {
           return {
@@ -3385,7 +3395,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
             marginRight : 4
           };
         }
-      }
+      }*/
     },
 
     "tabview/pane" :
