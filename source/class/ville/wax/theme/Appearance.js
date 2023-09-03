@@ -681,6 +681,43 @@ qx.Theme.define("ville.wax.theme.Appearance",
       }
     },
 
+    "datefield" : {
+      include : "combobox",
+
+      style : function(states)
+      {
+        return {
+          padding : 0
+        }
+      }
+    },	
+
+    "datefield/button" :
+    {
+      style : function(states)
+      {
+        return {
+          icon : "",
+          padding : 0,
+          width : 0
+        };
+      }
+    },
+
+    "datefield/textfield" : 
+    {
+      include : "textfield",
+
+      style : function(states)
+      {
+        return {
+          decorator : undefined,
+          height : undefined,
+          padding : [0,0,0,10]
+        };
+      }
+    },
+
     "menu-button" :
     {
       alias : "atom",

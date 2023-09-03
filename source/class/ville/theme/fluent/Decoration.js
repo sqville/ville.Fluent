@@ -162,7 +162,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    {
    	  style :
       {
-        color : ["ville-black","transparent",null,"transparent"],
+        color : ["NeutralForeground1","transparent",null,"transparent"],
         style : ["solid", "solid",null,"solid"],
         width : [4,4.5,0,4.5]
       }
@@ -1203,7 +1203,6 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        backgroundColor : "button",
         radius : 3
       }
     },
@@ -2225,17 +2224,20 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style:
       {
-        backgroundColor: "#FFF",
-        radius : 0,
-        width: 0,
-        color: "border-separator"
+        radius : ville.global.border.radius.Circular,
+        width : 1,
+        color : "NeutralBackground6"
       }
     },
     
     "progressbar-trans" :
     {
-        radius : 0,
-        width: 0
+      style :
+      {
+        radius : ville.global.border.radius.Circular,
+        width : 1,
+        color : "NeutralBackground6"
+      }
     },
 
 

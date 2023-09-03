@@ -1599,6 +1599,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       }
     },
 
+    "checked-selectbox" : "selectbox",
+
 
     /*
     ---------------------------------------------------------------------------
@@ -1787,16 +1789,27 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     */
 
     
-    "datefield" : "textfield",	
+    "datefield" : {
+      include : "combobox",
+
+      style : function(states)
+      {
+        return {
+          padding : [0,0,0,10]
+        }
+      }
+    },	
 
     "datefield/button" :
     {
       style : function(states)
       {
         return {
-          icon : "icon/22/apps/office-calendar.png",
-          padding : 0,
-          backgroundColor : undefined
+          icon : "",
+          padding : [0,0,0,10],
+          cursor : "pointer",
+          width : 30
+          //backgroundColor : undefined
         };
       }
     },
@@ -1808,22 +1821,23 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          width: 22,
-          height: 24,
-          padding : 2
+          decorator: "ville-icon-arrow-down",
+          //width: 22,
+          //height: 24,
+          //padding : 2
         };
       }
     },
 
-    "datefield/textfield" : {
-      alias : "textfield",
+    "datefield/textfield" : 
+    {
       include : "textfield",
 
       style : function(states)
       {
         return {
           decorator : undefined,
-          padding: 0
+          height : undefined
         };
       }
     },
@@ -2138,7 +2152,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          decorator : states.hovered ? "button-hover" : undefined
+          backgroundColor : states.hovered ? "Background1Pressed" : "NeutralBackground1"
         };
       }
     },
@@ -2380,7 +2394,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         decorator += "-left";
 
         return {
-          decorator : decorator,
+          //decorator : decorator,
           cursor : states.disabled ? undefined : "pointer"
         };
       }
@@ -3071,8 +3085,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
 
 
-
-
     /*
     ---------------------------------------------------------------------------
       PROGRESSBAR
@@ -3084,9 +3096,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           decorator: "progressbar",
           padding: 0,
-          backgroundColor: "progressbar-base",
+          backgroundColor: "NeutralBackground6",
           width : 200,
-          height : 20
+          height : 4
         };
       }
     },
@@ -3106,7 +3118,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     {
       style: function(states) {
         return {
-          backgroundColor: "progressbar-gray"
+          backgroundColor: "CompoundBrandBackground",
+          decorator: "progressbar"
         };
       }
     },

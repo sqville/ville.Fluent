@@ -321,7 +321,7 @@ qx.Class.define("ville.wax.demo.Application",
       // Line
       // Controls in alpha order
       firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, List, MenuButton, RadioButton, SelectBox, Slider, Spinner, Table, TabView, TextField, TextArea, Tree, Window").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, DateField, List, MenuButton, RadioButton, SelectBox, Slider, Spinner, SplitButton, Table, TabView, TextField, TextArea, ToggleButton, Tree, Window").set({font: "body2", rich: true, wrap: true}));
 
       // BUTTON
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
@@ -368,6 +368,17 @@ qx.Class.define("ville.wax.demo.Application",
 
       //firststackpage.add(new qx.ui.embed.Html(testsvg));
 
+      // CheckedSelectBox
+      //firststackpage.add(new qx.ui.basic.Label("CheckedSelectBox").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      //firststackpage.add(new qx.ui.basic.Label("Default CheckedSelectBox").set({font: "body1", rich: true, wrap: true}));
+      var defaultcheckedselectbox = new qx.ui.form.CheckedSelectBox("Default").set({width: 250, allowStretchX: false, allowStretchY: false});
+      for (var i = 1; i < 6; i++) {
+        var tempItem = new qx.ui.form.ListItem("2^ " + i + " = " + Math.pow(2, i));
+        //defaultcheckedselectbox.add(tempItem);
+      }
+      
+      //firststackpage.add(defaultcheckedselectbox);
+
       // ComboBox
       firststackpage.add(new qx.ui.basic.Label("ComboBox").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default ComboBox with the following modifications - quickSelection = false, and each ListItem's appearance = combobox-listitem").set({font: "body1", rich: true, wrap: true}));
@@ -381,6 +392,14 @@ qx.Class.define("ville.wax.demo.Application",
         comboBox1.add(tempItem);
       }
       firststackpage.add(comboBox1);
+
+      // DateField
+      firststackpage.add(new qx.ui.basic.Label("DateField").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default DateField").set({font: "body1", rich: true, wrap: true}));
+      var datefield1 = new qx.ui.form.DateField().set({width: 250, allowStretchX: false, allowStretchY: false});
+      datefield1.getChildControl("button").setVisibility("hidden");
+      datefield1.getChildControl("textfield").getContentElement().setAttribute("type", "date", true);
+      firststackpage.add(datefield1);
 
       // List
       firststackpage.add(new qx.ui.basic.Label("List").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
@@ -547,6 +566,30 @@ qx.Class.define("ville.wax.demo.Application",
 
       firststackpage.add(menubutton1);
 
+      // ProgressBar
+      firststackpage.add(new qx.ui.basic.Label("ProgressBar").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default ProgressBar").set({font: "body1", rich: true, wrap: true}));
+      var progressbar1 = new qx.ui.indicator.ProgressBar(50, 100);
+      firststackpage.add(progressbar1);
+      firststackpage.add(new qx.ui.basic.Label("Error ProgressBar").set({font: "body1", rich: true, wrap: true}));
+      var progressbar2 = new qx.ui.indicator.ProgressBar(50, 100); 
+      progressbar2.getChildControl("progress").setBackgroundColor("PaletteRedBackground3");
+      firststackpage.add(progressbar2);
+      firststackpage.add(new qx.ui.basic.Label("Warning ProgressBar").set({font: "body1", rich: true, wrap: true}));
+      var progressbar5 = new qx.ui.indicator.ProgressBar(50, 100); 
+      progressbar5.getChildControl("progress").setBackgroundColor("PaletteDarkOrangeBackground3");
+      firststackpage.add(progressbar5);
+      firststackpage.add(new qx.ui.basic.Label("Success ProgressBar").set({font: "body1", rich: true, wrap: true}));
+      var progressbar3 = new qx.ui.indicator.ProgressBar(100, 100);
+      progressbar3.getChildControl("progress").setBackgroundColor("PaletteGreenBackground3");
+      firststackpage.add(progressbar3);
+      firststackpage.add(new qx.ui.basic.Label("Indeterminate ProgressBar").set({font: "body1", rich: true, wrap: true}));
+      var progressbar4 = new qx.ui.indicator.ProgressBar(0, 100);
+      firststackpage.add(progressbar4);
+
+      // indicator animation layer
+      //var animalayer = new qx.ui.container.Composite(new qx.ui.layout.Canvas()).set({backgroundColor: "white", opacity: 0});
+
       // RadioButton
       firststackpage.add(new qx.ui.basic.Label("RadioButton").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default RadioButtons in a RadioButtonGroup").set({font: "body1", rich: true, wrap: true}));
@@ -581,6 +624,22 @@ qx.Class.define("ville.wax.demo.Application",
       var spinner1 = new qx.ui.form.Spinner(-100, 0, 100).set({ width: 250, allowStretchX: false, allowStretchY: false });
 
       firststackpage.add(spinner1);
+
+      // SplitButton
+      firststackpage.add(new qx.ui.basic.Label("Split Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default Split Button").set({font: "body1", rich: true, wrap: true}));
+      
+      var splitmenu1 = new qx.ui.menu.Menu();
+      var splitmb1 = new qx.ui.menu.Button("Menu Button 1");
+      var splitmb2 = new qx.ui.menu.Button("Menu Button 2");
+      var splitmb3 = new qx.ui.menu.Button("Menu Button 3");
+
+      splitmenu1.add(splitmb1);
+      splitmenu1.add(splitmb2);
+      splitmenu1.add(splitmb3);
+
+      var defaultsplitbutton = new qx.ui.form.SplitButton("Default Split Button", null, splitmenu1).set({ minWidth: 96, allowStretchX: false, allowStretchY: false});
+      firststackpage.add(defaultsplitbutton);
 
       // Table
       firststackpage.add(new qx.ui.basic.Label("Table").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
@@ -777,9 +836,6 @@ qx.Class.define("ville.wax.demo.Application",
         }
       });
 
-
-
-      
       // TextField
       firststackpage.add(new qx.ui.basic.Label("TextField").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default TextField").set({font: "body1", rich: true, wrap: true}));
@@ -793,7 +849,11 @@ qx.Class.define("ville.wax.demo.Application",
       firststackpage.add(textarea1);
 
       // ToggleButton
-
+      firststackpage.add(new qx.ui.basic.Label("Toggle Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
+      firststackpage.add(new qx.ui.basic.Label("Default Toggle Button").set({font: "body1", rich: true, wrap: true}));
+      
+      var defaulttogglebutton = new qx.ui.form.ToggleButton("Default Toggle").set({ minWidth: 96, allowStretchX: false, allowStretchY: false});
+      firststackpage.add(defaulttogglebutton);
 
       // Tree
       firststackpage.add(new qx.ui.basic.Label("Tree").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));

@@ -168,9 +168,13 @@ qx.Theme.define("ville.theme.fluent.Color",
     "Brand Shadow AmbientRest" : "#0000004d",
     "Brand Shadow KeyRest" : "#00000040",
 
-    "PaletteRedBorder2" : ville.global.color.Red.Primary,
-    
+    PaletteGreenBackground3 : "#107c10",
 
+    PaletteDarkOrangeBackground3 : "#da3b01",
+
+    PaletteRedBorder2 : ville.global.color.Red.Primary,
+    PaletteRedBackground3 : ville.global.color.Red.Primary,
+    
 
     
     
