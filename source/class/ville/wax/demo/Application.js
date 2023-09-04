@@ -321,7 +321,7 @@ qx.Class.define("ville.wax.demo.Application",
       // Line
       // Controls in alpha order
       firststackpage.add(new qx.ui.basic.Label("Widgets").set({font: "heading2", allowGrowX: true, decorator: "heading2", padding: [40, 0, 0, 0]}));
-      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, DateField, List, MenuButton, RadioButton, SelectBox, Slider, Spinner, SplitButton, Table, TabView, TextField, TextArea, ToggleButton, Tree, Window").set({font: "body2", rich: true, wrap: true}));
+      firststackpage.add(new qx.ui.basic.Label("Currently supported widgets are as follows: Button, ComboBox, DateField, List, MenuButton, ProgressBar, RadioButton, SelectBox, Slider, Spinner, SplitButton, Table, TabView, TextField, TextArea, ToggleButton, Tree, Window").set({font: "body2", rich: true, wrap: true}));
 
       // BUTTON
       firststackpage.add(new qx.ui.basic.Label("Button").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
@@ -584,11 +584,24 @@ qx.Class.define("ville.wax.demo.Application",
       progressbar3.getChildControl("progress").setBackgroundColor("PaletteGreenBackground3");
       firststackpage.add(progressbar3);
       firststackpage.add(new qx.ui.basic.Label("Indeterminate ProgressBar").set({font: "body1", rich: true, wrap: true}));
-      var progressbar4 = new qx.ui.indicator.ProgressBar(0, 100);
+      var progressbar4 = new qx.ui.indicator.ProgressBar(0, 100).set({backgroundColor: "CompoundBrandBackground"});
       firststackpage.add(progressbar4);
 
       // indicator animation layer
       //var animalayer = new qx.ui.container.Composite(new qx.ui.layout.Canvas()).set({backgroundColor: "white", opacity: 0});
+      //progressbar4.add(animalayer, {height: "100%", width: "100%"});
+      var progressanimation = {timing: "linear", repeat: "infinite", 
+        keyFrames : {
+          0 : {"opacity": .5, "width": "0"},
+          100 : {"opacity": .5, "width": "100%"}
+        }
+      };
+
+      progressbar4.addListener("appear", function(e) {
+        var domtable = progressbar4.getContentElement().getDomElement();
+        progressbar4.getContentElement().setStyle("background-image", "linear-gradient(to right, #e6e6e6 20%, transparent 40%, #e6e6e6 80%)", true);
+        //qx.bom.element.Animation.animate(domtable, progressanimation, 3000);
+       }, this);
 
       // RadioButton
       firststackpage.add(new qx.ui.basic.Label("RadioButton").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
