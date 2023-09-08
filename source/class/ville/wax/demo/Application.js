@@ -108,6 +108,7 @@ qx.Class.define("ville.wax.demo.Application",
       qx.Class.include(qx.ui.basic.Atom, ville.wax.MEmbed);  
       qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MMenuButtonEmbed); 
       qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage);
+      qx.Class.include(qx.ui.decoration.Decorator, ville.decoration.MClipPath); 
 
       // App's Root
       var approot = this.getRoot();

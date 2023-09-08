@@ -612,9 +612,12 @@ qx.Theme.define("ville.wax.theme.Appearance",
     	style : function(states)
     	{
     		return {
-          html : ville.theme.fluent.Image.SVG["chevronDownRegular"],
+          //html : ville.theme.fluent.Image.SVG["chevronDownRegular"],
           width : 20,
-          height : 20
+          height : 20,
+          backgroundColor : "NeutralForeground1",
+          decorator : "ville-icon-chevron-down"
+
     		};
     	}
     },
@@ -739,11 +742,13 @@ qx.Theme.define("ville.wax.theme.Appearance",
     "selectbox/arrow" : {
       style (states) {
         return {
-          textColor : "NeutralForeground1",
-          html : ville.theme.fluent.Image.SVG["chevronDownRegular"],
+          //textColor : "NeutralForeground1",
+          //html : ville.theme.fluent.Image.SVG["chevronDownRegular"],
           width: 20,
           height : 20,
-          marginRight: ville.global.spacing.S
+          marginRight: ville.global.spacing.S,
+          backgroundColor : "NeutralForeground1",
+          decorator : "ville-icon-chevron-down"
         };
       }
     },
@@ -846,6 +851,8 @@ qx.Theme.define("ville.wax.theme.Appearance",
           html: states.opened ? ville.theme.fluent.Image.SVG["folderOpenRegular"] : ville.theme.fluent.Image.SVG["folderRegular"],
           marginLeft: 6,
           textColor: "NeutralForeground1",
+          //clipPath: states.opened ? ville.theme.fluent.Image.SVG["folderOpenRegular-path"] : ville.theme.fluent.Image.SVG["folderRegular-path"],
+          //backgroundColor : "NeutralForeground1",
           width : 18,
           height : 18
         };
@@ -894,8 +901,7 @@ qx.Theme.define("ville.wax.theme.Appearance",
           html: ville.theme.fluent.Image.SVG["documentTextRegular"],
           textColor: "NeutralForeground1",
           width : 18,
-          height : 18,
-          scale : true
+          height : 18
         };
       }
     },
@@ -943,7 +949,8 @@ qx.Theme.define("ville.wax.theme.Appearance",
           height: 20,
           //textColor : "NeutralForeground1"
           backgroundColor : "NeutralForeground1",
-          clipPath : ville.theme.fluent.Image.SVG["dismiss-path"]
+          //clipPath : ville.theme.fluent.Image.SVG["dismiss-path"]
+          decorator : "ville-icon-dismiss"
         }
       }
     }

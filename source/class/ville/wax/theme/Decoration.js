@@ -395,6 +395,28 @@ qx.Theme.define("ville.wax.theme.Decoration",
 
    /*
     ---------------------------------------------------------------------------
+      VILLE ICONS USING CLIP-PATH
+    ---------------------------------------------------------------------------
+    */
+
+   "ville-icon-dismiss" :
+   {
+     style :
+     {
+       clipPath : ville.theme.fluent.Image.SVG["dismiss-path"]
+     }
+   },
+
+   "ville-icon-chevron-down" :
+   {
+     style :
+     {
+       clipPath : ville.theme.fluent.Image.SVG["chevronDownRegular-path"]
+     }
+   },
+
+   /*
+    ---------------------------------------------------------------------------
       WAX TABVIEW
     ---------------------------------------------------------------------------
     */
