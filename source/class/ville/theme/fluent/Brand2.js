@@ -64,13 +64,6 @@ qx.Theme.define("ville.theme.fluent.Brand2",
     CompoundBrandStrokeHover : ville.global.color.Brand2[70],
     CompoundBrandStrokePressed : ville.global.color.Brand2[60],
     "Brand Shadow AmbientRest" : "#0000004d",
-    "Brand Shadow KeyRest" : "#00000040",
-
-    PaletteGreenBackground3 : "#107c10",
-
-    PaletteDarkOrangeBackground3 : "#da3b01",
-
-    PaletteRedBorder2 : ville.global.color.Red.Primary,
-    PaletteRedBackground3 : ville.global.color.Red.Primary
+    "Brand Shadow KeyRest" : "#00000040"
   }
 });

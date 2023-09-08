@@ -938,10 +938,12 @@ qx.Theme.define("ville.wax.theme.Appearance",
       style : function(state)
       {
         return {
-          html: ville.theme.fluent.Image.SVG["dismiss"],
+          //html: ville.theme.fluent.Image.SVG["dismiss"],
           width: 20,
           height: 20,
-          textColor : "NeutralForeground1"
+          //textColor : "NeutralForeground1"
+          backgroundColor : "NeutralForeground1",
+          clipPath : ville.theme.fluent.Image.SVG["dismiss-path"]
         }
       }
     }

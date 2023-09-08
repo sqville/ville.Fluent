@@ -35,6 +35,15 @@ qx.Mixin.define("ville.theme.MImage",
       event: "changeIconStyle",
       nullable : true,
       themeable : true
+    },
+
+    clipPath :
+    {
+      check: "String",
+      apply: "_applyClipPath",
+      event: "changeClipPath",
+      themeable: true,
+      nullable: true
     }
   },
   
@@ -121,7 +130,13 @@ qx.Mixin.define("ville.theme.MImage",
 
       // Insert HTML content
       elem.setAttribute("html", svg || "");
-    }
+    },
+
+    // property apply
+    _applyClipPath(value, old) {
+      var elem = this.getContentElement();
+      elem.setStyle("clip-path", value);
+    },
   }
   
 });

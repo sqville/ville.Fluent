@@ -29,7 +29,7 @@ qx.Theme.define("ville.wax.theme.Font",
     },
     
     "ville-fluent-logo-display" : {
-      size: 84,
+      size: 80,
       letterSpacing: 2,
       family: ["Providence","sans-serif"],
       sources: [
