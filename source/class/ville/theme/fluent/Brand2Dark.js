@@ -16,9 +16,9 @@
 /**
  * Light - Fluent color theme
  */
-qx.Theme.define("ville.theme.fluent.Brand2",
+qx.Theme.define("ville.theme.fluent.Brand2Dark",
 {  
-  extend : ville.theme.fluent.Light,
+  extend : ville.theme.fluent.Dark,
   
   colors :
   {
@@ -68,14 +68,14 @@ qx.Theme.define("ville.theme.fluent.Brand2",
 
     // used in table code
     "table-header-cell" : "red",
-    "table-row-background-focused-selected" : ville.global.color.Brand2[160], //BrandBackground2
-    "table-row-background-focused" : ville.global.color.Brand2[160], //BrandBackground2
-    "table-row-background-selected" : ville.global.color.Brand2[160], //BrandBackground2
+    "table-row-background-focused-selected" : ville.global.color.Brand2[30], //BrandBackground2
+    "table-row-background-focused" : ville.global.color.Brand2[30], //BrandBackground2
+    "table-row-background-selected" : ville.global.color.Brand2[30], //BrandBackground2
     "table-row-background-even" : "transparent",
     "table-row-background-odd" : "transparent",
-    "table-row-selected" : ville.global.color.Grey[14], //NeutralForeground1
-    "table-row" : ville.global.color.Grey[14], //NeutralForeground1
-    "table-row-line" : ville.global.color.Grey[88], //NeutralStorke2
+    "table-row-selected" : ville.global.color.White, //NeutralForeground1
+    "table-row" : ville.global.color.White, //NeutralForeground1
+    "table-row-line" : ville.global.color.Grey[32], //NeutralStorke2
     "table-column-line" : "transparent" //ville.global.color.Grey[88], //NeutralStorke2
   }
 });

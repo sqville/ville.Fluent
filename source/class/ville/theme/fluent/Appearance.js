@@ -1627,6 +1627,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       var sheet = qx.ui.style.Stylesheet.getInstance();
       var prefix = qx.theme.manager.Decoration.CSS_CLASSNAME_PREFIX;
       var prefixdecbase = "." + prefix + decorator; 
+      sheet.addRule(":root", "--compoundbrandbackground:" + qx.theme.manager.Color.getInstance().resolve("CompoundBrandBackground"));
       if (!sheet.hasRule(prefixdecbase + "-focused:focus-within::after"))
       {
         //var keyframe1 = "@keyframes textfieldout";
@@ -1636,7 +1637,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           "content: '';",
           "border-bottom-width: 2px;",
           "border-bottom-style: solid;",
-          "border-bottom-color: " + ville.global.color.Brand[80] + ";",
+          "border-bottom-color: var(--compoundbrandbackground);",
           "border-bottom-left-radius: 4px;",
           "border-bottom-right-radius: 4px;",
           "left: -1px; bottom: -1px; right: -1px;",
