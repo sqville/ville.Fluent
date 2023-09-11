@@ -346,6 +346,8 @@ qx.Class.define("ville.wax.demo.Application",
       var primaryroundedbutton = new qx.ui.form.Button("Rounded").set({minWidth: 96, appearance: "primary-rounded-button", allowStretchX: false, allowStretchY: false});
       firststackpage.add(primaryroundedbutton);
 
+      //defaultroundedbutton.getContentElement().setStyle("border-radius", "4% 95% 6% 95%/95% 4% 92% 5%");
+
       // CheckBox
       firststackpage.add(new qx.ui.basic.Label("CheckBox").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default CheckBox").set({font: "body1", rich: true, wrap: true}));
