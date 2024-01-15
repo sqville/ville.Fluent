@@ -400,16 +400,16 @@ qx.Theme.define("ville.wax.theme.Decoration",
     */
 
    "ville-icon-dismiss" :
-   {
-     style :
+   {    
+    style :
      {
        clipPath : ville.theme.fluent.Image.SVG["dismiss-path"]
      }
    },
 
    "ville-icon-chevron-down" :
-   {
-     style :
+   {    
+    style :
      {
        clipPath : ville.theme.fluent.Image.SVG["chevronDownRegular-path"]
      }

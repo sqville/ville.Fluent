@@ -47,7 +47,7 @@
     }
   },
   "requires": {
-    "@qooxdoo/framework": "^7.5.0",
+    "@qooxdoo/framework": "^7.6.1",
     "qooxdoo/qxl.formdemo": "^2.0.0",
     "qooxdoo/qxl.versionlabel": "^2.0.0"
   }

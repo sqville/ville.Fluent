@@ -88,14 +88,6 @@ qx.Mixin.define("ville.theme.MImage",
     // property apply
     _applyHtml(value, old) {
       var elem = this.getContentElement();
-      // Workaround for http://bugzilla.qooxdoo.org/show_bug.cgi?id=7679
-      if (
-        qx.core.Environment.get("engine.name") == "mshtml" &&
-        qx.core.Environment.get("browser.documentmode") == 9
-      ) {
-        elem.setStyle("position", "relative");
-      }
-
       // Insert HTML content
       elem.setAttribute("html", value || "");
     },

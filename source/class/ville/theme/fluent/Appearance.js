@@ -21,7 +21,6 @@
 /**
  * The fluent appearance theme.
  * @asset(qx/icon/${qx.icontheme}/22/apps/office-calendar.png)
- * 
  */
 qx.Theme.define("ville.theme.fluent.Appearance",
 {
@@ -3102,7 +3101,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator: "progressbar",
           padding: 0,
           backgroundColor: "NeutralBackground6",
-          width : 200,
+          //width : 200,
           height : 4
         };
       }

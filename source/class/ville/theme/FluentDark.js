@@ -13,11 +13,11 @@
 
 ************************************************************************ */
 
-qx.Theme.define("ville.theme.Fluent",
+qx.Theme.define("ville.theme.FluentDark",
 {
   meta :
   {
-    color : ville.theme.fluent.Brand1,
+    color : ville.theme.fluent.Brand1Dark,
     decoration : ville.theme.fluent.Decoration,
     font : ville.theme.fluent.Font,
     icon : qx.theme.icon.Tango,

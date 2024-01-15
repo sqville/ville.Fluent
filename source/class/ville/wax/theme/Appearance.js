@@ -610,8 +610,8 @@ qx.Theme.define("ville.wax.theme.Appearance",
     	include : "image",
     	
     	style : function(states)
-    	{
-    		return {
+    	{        
+        return {
           //html : ville.theme.fluent.Image.SVG["chevronDownRegular"],
           width : 20,
           height : 20,

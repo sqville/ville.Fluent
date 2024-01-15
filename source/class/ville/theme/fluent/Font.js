@@ -69,7 +69,7 @@ qx.Theme.define("ville.theme.fluent.Font",
     "bold" :
     {
       include : "default",
-      weight : "600"
+      weight: ville.global.font.weight.Bold
     },
 
     "datechooser" :

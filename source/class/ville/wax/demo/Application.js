@@ -204,13 +204,13 @@ qx.Class.define("ville.wax.demo.Application",
       mainmenupart.add(lblvillelogoheader);
 
       // Select Brand Color
-      var selectbrand = new qx.ui.form.SelectBox().set({margin: [10,18,0,0], width: 140, allowStretchX: false, allowStretchY: false});
-      var blueItem = new qx.ui.form.ListItem("Brand Blue");
-      var orangeItem = new qx.ui.form.ListItem("Brand Orange");
+      var selectbrand = new qx.ui.form.SelectBox().set({margin: [10,16,0,0], width: 100, allowStretchX: false, allowStretchY: false});
+      var blueItem = new qx.ui.form.ListItem("Blue");
+      var orangeItem = new qx.ui.form.ListItem("Orange");
       selectbrand.add(blueItem);
       selectbrand.add(orangeItem);
 
-      var waxcolorswitch = new qx.ui.form.CheckBox("Theme").set({appearance: "wax-switch-larger"});
+      var waxcolorswitch = new qx.ui.form.CheckBox().set({appearance: "wax-switch-larger"});
 
       profilepart.add(selectbrand);
       profilepart.add(waxcolorswitch);
@@ -960,23 +960,23 @@ qx.Class.define("ville.wax.demo.Application",
       selectbrand.addListener("changeSelection", function (e) {
         var selecteditmlbl = e.getData()[0].getLabel();
         
-        if (selecteditmlbl == "Brand Blue" && localStorage.waxthememode == "light")
+        if (selecteditmlbl == "Blue" && localStorage.waxthememode == "light")
         {
           qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand1);
           localStorage.waxthemecolor = selecteditmlbl;
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "normal");
         }
-        else if (selecteditmlbl == "Brand Orange" && localStorage.waxthememode == "light")
+        else if (selecteditmlbl == "Orange" && localStorage.waxthememode == "light")
         {
           qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand2);
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "normal");
         }
-        else if (selecteditmlbl == "Brand Blue" && localStorage.waxthememode == "dark")
+        else if (selecteditmlbl == "Blue" && localStorage.waxthememode == "dark")
         {
           qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand1Dark);
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "dark");
         }
-        else if (selecteditmlbl == "Brand Orange" && localStorage.waxthememode == "dark")
+        else if (selecteditmlbl == "Orange" && localStorage.waxthememode == "dark")
         {
           qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand2Dark);
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "dark");
@@ -989,13 +989,13 @@ qx.Class.define("ville.wax.demo.Application",
       waxcolorswitch.addListener("changeValue", function(e) {
         if (e.getData()) {
           //qx.bom.element.AnimationCss.animate(cbimage, slideright);
-          localStorage.waxthemecolor == "Brand Blue" ? qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand1Dark) : qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand2Dark);
+          localStorage.waxthemecolor == "Blue" ? qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand1Dark) : qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand2Dark);
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "dark");
           localStorage.waxthememode = "dark";
         }
         else {
           //qx.bom.element.AnimationCss.animateReverse(cbimage, slideright);
-          localStorage.waxthemecolor == "Brand Blue" ? qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand1) : qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand2);
+          localStorage.waxthemecolor == "Blue" ? qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand1) : qx.theme.manager.Color.getInstance().setTheme(ville.theme.fluent.Brand2);
           firstscrollstackpage.getChildControl("pane").getContentElement().setStyle("color-scheme", "normal");
           localStorage.waxthememode = "light";
         }
@@ -1024,7 +1024,7 @@ qx.Class.define("ville.wax.demo.Application",
 
       if (localStorage.waxthemecolor)
       {
-        if (localStorage.waxthemecolor == "Brand Blue")
+        if (localStorage.waxthemecolor == "Blue")
         {
           selectbrand.setSelection([blueItem]);
           if (waxcolorswitch.getValue())
@@ -1059,7 +1059,7 @@ qx.Class.define("ville.wax.demo.Application",
       }
       else 
       {
-        localStorage.waxthemecolor = "Brand Blue";
+        localStorage.waxthemecolor = "Blue";
       }
 
       // Wax Switch - animate on change of value
