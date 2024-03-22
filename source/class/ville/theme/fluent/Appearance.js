@@ -3428,10 +3428,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         // default padding
         if (states.barTop ) {
-          padding = [10, 1, 8, 1];//[12, 18, 12, 15];
+          padding = [10, 1, 10, 1];//[12, 18, 12, 15];
           margin = [0, 26];
         } else if (states.barBottom) {
-          padding = [8, 1, 10, 1];//[12, 8, 12, 8];
+          padding = [10, 1, 10, 1];//[12, 8, 12, 8];
           margin = [0, 26];
         }
         else if (states.barLeft) {
@@ -3439,7 +3439,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           margin = [16, 0];
         }
         else {
-          padding = [1, 8, 1, 16];
+          padding = [1, 10, 1, 16];
           margin = [16, 0];
         }
 
