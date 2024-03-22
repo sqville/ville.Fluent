@@ -3337,8 +3337,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          marginBottom : 4,
-          height : 40
+          margin : 4
         };
       }
     },
@@ -3425,54 +3424,85 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         var decorator;
         var padding;
+        var margin;
 
         // default padding
-        if (states.barTop || states.barBottom) {
-          padding = [12, 18, 12, 15];
-        } else {
-          padding = [12, 8, 12, 8];
+        if (states.barTop ) {
+          padding = [10, 1, 8, 1];//[12, 18, 12, 15];
+          margin = [0, 26];
+        } else if (states.barBottom) {
+          padding = [8, 1, 10, 1];//[12, 8, 12, 8];
+          margin = [0, 26];
+        }
+        else if (states.barLeft) {
+          padding = [1, 16, 1, 10];//[12, 8, 12, 8];
+          margin = [16, 0];
+        }
+        else {
+          padding = [1, 8, 1, 16];
+          margin = [16, 0];
         }
 
         // decorator
-        if (states.checked) {
-          if (states.barTop) {
-            decorator = "tabview-page-button-top";
-          } else if (states.barBottom) {
-            decorator = "tabview-page-button-bottom";
-          } else if (states.barRight) {
-            decorator = "tabview-page-button-right";
-          } else if (states.barLeft) {
-            decorator = "tabview-page-button-left";
+        if (!states.disabled) {
+          if (states.hovered && !states.checked) {
+            if (states.barTop) {
+              decorator = "tabview-page-button-top-hovered";
+              padding[2] -= 4;
+            } else if (states.barBottom) {
+              decorator = "tabview-page-button-bottom-hovered";
+              padding[0] -= 4;
+            } else if (states.barRight) {
+              decorator = "tabview-page-button-right-hovered";
+              padding[1] -= 4;
+            } else if (states.barLeft) {
+              decorator = "tabview-page-button-left-hovered";
+              padding[3] -= 4;
+            }
           }
+          else if (states.checked) {
+            if (states.barTop) {
+              decorator = "tabview-page-button-top";
+              padding[2] -= 4;
+            } else if (states.barBottom) {
+              decorator = "tabview-page-button-bottom";
+              padding[0] -= 4;
+            } else if (states.barRight) {
+              decorator = "tabview-page-button-right";
+              padding[1] -= 4;
+            } else if (states.barLeft) {
+              decorator = "tabview-page-button-left";
+              padding[3] -= 4;
+            }
+          } 
         } else {
-          for (var i=0; i < padding.length; i++) {
-            padding[i] += 1;
-          }
-          // reduce the size by 1 because we have different decorator border width
-          if (states.barTop) {
-            padding[2] -= 1;
-            //margin[0] -= 1;
-          } else if (states.barBottom) {
-            padding[0] -= 1;
-            //margin[2] += 1;
-          } else if (states.barRight) {
-            padding[3] -= 1;
-            //margin[1] += 1;
-          } else if (states.barLeft) {
-            padding[1] -= 1;
-            //margin[3] += 1;
-          }
+          if (states.checked) {
+            if (states.barTop) {
+              decorator = "tabview-page-button-top-disabled";
+              padding[2] -= 4;
+            } else if (states.barBottom) {
+              decorator = "tabview-page-button-bottom-disabled";
+              padding[0] -= 4;
+            } else if (states.barRight) {
+              decorator = "tabview-page-button-right-disabled";
+              padding[1] -= 4;
+            } else if (states.barLeft) {
+              decorator = "tabview-page-button-left-disabled";
+              padding[3] -= 4;
+            }
+          } 
         }
 
         return {
           zIndex : states.checked ? 10 : 5,
-          //decorator : decorator,
+          decorator : decorator,
+          //backgroundColor: "NeutralBackground1",
           textColor : states.disabled ? "text-disabled" : "NeutralForeground1",
           font : states.checked ? "button" : "default",
-          padding : [10, 16, 4, 16],
-          cursor: "pointer"
-          //marginBottom : states.barBottom ? 1 : undefined,
-          //marginLeft : states.barLeft ? 1 : undefined
+          padding : padding, //[10, 16, 4, 16],
+          cursor: "pointer",
+          margin: margin
+          //opacity : states.disabled ? .8 : 1
         };
       }
     },
@@ -3484,7 +3514,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          padding : [2, 1, 2, 1]
+          padding : 0 //[2, 1, 2, 1]
         };
       }
     },

@@ -737,16 +737,19 @@ qx.Class.define("ville.wax.demo.Application",
       firststackpage.add(new qx.ui.basic.Label("TabView").set({font: "title3", allowGrowX: true, padding: [40, 0, 0, 0]}));
       firststackpage.add(new qx.ui.basic.Label("Default TabView. Works for all bar positions. Resize window to see overflow menu button.").set({font: "body1", rich: true, wrap: true}));
 
+      // **SQ**MIXIN** START
       // add overflow menu button feature to tabview bar child control
       var tvbarmenu = new qx.ui.menu.Menu();
       
-      // Wax TabView with a line
+      // Create tabview
       var wtabView2 = new qx.ui.tabview.TabView();
 
       var page1tbv2 = new qx.ui.tabview.Page("First Tab").set({ height : 200 });
       page1tbv2.setLayout(new qx.ui.layout.VBox());
       page1tbv2.add(new qx.ui.basic.Label("First Tab Page"));
       wtabView2.add(page1tbv2);
+      
+      // **SQ**MIXIN** START
       var p1tbmb = new qx.ui.menu.Button("First Tab", null, null);
       p1tbmb.addListener("execute", function() {
         wtabView2.setSelection([page1tbv2]);
@@ -757,6 +760,8 @@ qx.Class.define("ville.wax.demo.Application",
       page2tbv2.setLayout(new qx.ui.layout.VBox());
       page2tbv2.add(new qx.ui.basic.Label("Second Tab Page"));
       wtabView2.add(page2tbv2);
+
+      // **SQ**MIXIN** START
       var p2tbmb = new qx.ui.menu.Button("Second Tab", null, null);
       p2tbmb.addListener("execute", function() {
         wtabView2.setSelection([page2tbv2]);
@@ -767,6 +772,8 @@ qx.Class.define("ville.wax.demo.Application",
       page3tbv2.setLayout(new qx.ui.layout.VBox());
       page3tbv2.add(new qx.ui.basic.Label("Third Tab Page"));
       wtabView2.add(page3tbv2);
+
+      // **SQ**MIXIN** START
       var p3tbmb = new qx.ui.menu.Button("Third Tab", null, null);
       p3tbmb.addListener("execute", function() {
         wtabView2.setSelection([page3tbv2]);
@@ -776,6 +783,8 @@ qx.Class.define("ville.wax.demo.Application",
       var page4tbv2 = new qx.ui.tabview.Page("Fourth Tab");
       page4tbv2.setLayout(new qx.ui.layout.VBox());
       wtabView2.add(page4tbv2);
+
+      // **SQ**MIXIN** START
       var p4tbmb = new qx.ui.menu.Button("Fourth Tab", null, null);
       p4tbmb.addListener("execute", function() {
         wtabView2.setSelection([page4tbv2]);
@@ -785,6 +794,8 @@ qx.Class.define("ville.wax.demo.Application",
       var page5tbv2 = new qx.ui.tabview.Page("Fifth Tab");
       page5tbv2.setLayout(new qx.ui.layout.VBox());
       wtabView2.add(page5tbv2);
+
+      // **SQ**MIXIN** START
       var p5tbmb = new qx.ui.menu.Button("Fifth Tab", null, null);
       p5tbmb.addListener("execute", function() {
         wtabView2.setSelection([page5tbv2]);
@@ -795,9 +806,11 @@ qx.Class.define("ville.wax.demo.Application",
 
       wtabView2.setSelection([page2tbv2]);
 
+      // **SQ**MIXIN** START
       var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "BrandBackground1", zIndex: 5, decorator : "tabview-page-button-line"});
       wtabView2.getChildControl("bar").add(tabviewbarline); 
 
+      // **SQ**MIXIN** START
       wtabView2.addListener("changeSelection", (e) => {
         var oldbounds = e.getOldData()[0].getButton().getBounds();
         var newbounds = e.getData()[0].getButton().getBounds();
@@ -816,10 +829,11 @@ qx.Class.define("ville.wax.demo.Application",
         qx.bom.element.AnimationCss.animate(tbvmarkdom, tabviewbarlinemove);
       }, this); 
 
-      
+      // **SQ**MIXIN** START
       var tabviewoverflowmenubutton1 = new qx.ui.form.MenuButton("...", null, tvbarmenu).set({decorator : null});
-      wtabView2.getChildControl("bar")._add(tabviewoverflowmenubutton1);
+      wtabView2.getChildControl("bar").add(tabviewoverflowmenubutton1);
     
+      // **SQ**MIXIN** START
       wtabView2.addListenerOnce("appear", function() {
         var movetobounds = this.getSelection()[0].getButton().getBounds();
         tabviewbarline.getContentElement().setStyles({
@@ -830,8 +844,7 @@ qx.Class.define("ville.wax.demo.Application",
         });
       });
 
-      
-
+      // **SQ**MIXIN** START
       // show hide overflow menu
       wtabView2.getChildControl("bar").getChildControl("scrollpane").addListener("update", function(e) 
       {

@@ -1902,11 +1902,9 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style :
       {
-        width : [1, 1, 0, 1],
-        backgroundColor: "NeutralBackground1",
-        color : "white-box-border",
-        //color : ["white-box-border", "white-box-border", "white", "white-box-border"],
-        radius : [3, 3, 0, 0]
+        width : [0, 0, 4, 0],
+        color : "BrandBackground1",
+        radius : 0
       }
     },
 
@@ -1915,9 +1913,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
       style :
       {
-        radius : [0, 0, 3, 3],
-        width : [0, 1, 1, 1]
-        //color : ["white", "white-box-border", "white-box-border", "white-box-border"]
+        width : [4, 0, 0, 0]
       }
     },
 
@@ -1926,9 +1922,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
       style :
       {
-        radius : [3, 0, 0, 3],
-        width : [1, 0, 1, 1]
-        //color : ["white-box-border", "white", "white-box-border", "white-box-border"]
+        width : [0, 0, 0, 4]
       }
     },
 
@@ -1937,8 +1931,87 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
       style :
       {
-        radius : [0, 3, 3, 0],
-        width : [1, 1, 1, 0]
+        width : [0, 4, 0, 0]
+      }
+    },
+
+    "tabview-page-button-top-hovered" :
+    {
+      include : "tabview-page-button-top",
+      
+      style :
+      {
+        color : "NeutralStroke1Hover",
+      }
+    },
+
+    "tabview-page-button-bottom-hovered" :
+    {
+      include : "tabview-page-button-bottom",
+      
+      style :
+      {
+        color : "NeutralStroke1Hover",
+      }
+    },
+
+    "tabview-page-button-right-hovered" :
+    {
+      include : "tabview-page-button-right",
+      
+      style :
+      {
+        color : "NeutralStroke1Hover",
+      }
+    },
+
+    "tabview-page-button-left-hovered" :
+    {
+      include : "tabview-page-button-left",
+      
+      style :
+      {
+        color : "NeutralStroke1Hover",
+      }
+    },
+
+    "tabview-page-button-top-disabled" :
+    {
+      include : "tabview-page-button-top",
+      
+      style :
+      {
+        color : "NeutralStrokeDisabled",
+      }
+    },
+
+    "tabview-page-button-bottom-disabled" :
+    {
+      include : "tabview-page-button-bottom",
+      
+      style :
+      {
+        color : "NeutralStrokeDisabled",
+      }
+    },
+
+    "tabview-page-button-right-disabled" :
+    {
+      include : "tabview-page-button-right",
+      
+      style :
+      {
+        color : "NeutralStrokeDisabled",
+      }
+    },
+
+    "tabview-page-button-left-disabled" :
+    {
+      include : "tabview-page-button-left",
+      
+      style :
+      {
+        color : "NeutralStrokeDisabled",
       }
     },
 

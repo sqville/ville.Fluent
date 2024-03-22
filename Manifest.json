@@ -26,6 +26,7 @@
       "name": "widgetbrowser",
       "title": "WidgetBrowser",
       "include": [
+        "ville.theme.FluentDark",
         "qx.theme.Simple",
         "qx.theme.Classic",
         "qxl.widgetbrowser.pages.Tree",

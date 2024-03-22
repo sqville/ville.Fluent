@@ -53,13 +53,14 @@ qx.Class.define("qxl.widgetbrowser.view.Header", {
     for (var key in themes) {
       let theme = themes[key];
       if (theme.type === "meta") {
-        var item = new qx.ui.form.ListItem(theme.title);
+        var item = new qx.ui.form.ListItem(theme.name);
         item.setUserData("value", theme.name);
         select.add(item);
         if (theme === currentTheme) {
           select.setSelection([item]);
         }
-        if (!currentThemeItem && hashTheme && theme.name.match(hashTheme)) {
+        //if (!currentThemeItem && hashTheme && theme.name.match(hashTheme)) {
+        if (! currentThemeItem  && theme.name =="ville.theme.Fluent"){
           currentThemeItem = item;
         }
       }
