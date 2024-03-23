@@ -1169,33 +1169,13 @@ qx.Theme.define("ville.theme.fluent.Decoration",
      }
    },
 
-   "slider-knob-pressed" :
+   "slider-knob-disabled" :
    {
      include : "slider-knob",
 
      style :
      {
-       backgroundColor : "scrollbar-dark"
-     }
-   },
-
-   "slider-knob-hovered" :
-   {
-     include: "slider-knob",
-
-     style :
-     {
-       color : "button-border-hovered"
-     }
-   },
-
-   "slider-knob-pressed-hovered" :
-   {
-     include: "slider-knob-pressed",
-
-     style :
-     {
-       color : "button-border-hovered"
+       color : "NeutralStrokeDisabled"
      }
    },
 
@@ -2351,7 +2331,6 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       }
     },
 
-    // Not used any more
     "radiobutton-checked" :
     {
       include: "radiobutton",
@@ -2360,11 +2339,24 @@ qx.Theme.define("ville.theme.fluent.Decoration",
         color : "CompoundBrandStroke",
         innerWidth: ville.global.stroke.widths.Thick,
         innerColor: "NeutralBackground2"
-        /*inset : true,
-        shadowColor : "CompoundBrandForeground1",
-        shadowVerticalLength : 14,
-        shadowBlurRadius : 0,
-        shadowSpreadRadius : 2*/
+      }
+    },
+
+    "radiobutton-checked-disabled" :
+    {
+      include: "radiobutton-checked",
+      style :
+      {
+        color : "NeutralStrokeDisabled"
+      }
+    },
+
+    "radiobutton-disabled" :
+    {
+      include: "radiobutton",
+      style :
+      {
+        color : "NeutralStrokeDisabled"
       }
     },
 
@@ -2394,6 +2386,15 @@ qx.Theme.define("ville.theme.fluent.Decoration",
         innerWidth: 0
       }
     },
+
+    "checkbox-disabled" :
+    {
+      include : "checkbox",
+      style :
+      {
+        color : "NeutralStrokeDisabled"
+      }
+    },
     
     "checkbox-checked" :
     {
@@ -2406,7 +2407,35 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     	}
     },
 
-    "checkbox-checked-disabled" : "checkbox-checked",   
+    "checkbox-undetermined" :
+    {
+      include : "checkbox",
+      style :
+      {
+        innerWidth : [ville.global.spacing.XS, ville.global.spacing.XS],
+        innerColor: "CompoundBrandBackground"
+      }
+    },
+
+    "checkbox-undetermined-disabled" :
+    {
+      include : "checkbox-undetermined",
+      style :
+      {
+        color : "NeutralStrokeDisabled",
+        innerColor: "NeutralStrokeDisabled"
+      }
+    },
+
+    "checkbox-checked-disabled" : 
+    {
+      include : "checkbox-checked",
+      style :
+      {
+        color : "NeutralStrokeDisabled",
+        innerColor: "TransparentBackground"
+      }
+    },   
 
     "checkbox-focused" :
     {
@@ -2446,16 +2475,6 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       }
     },
 
-    "checkbox-undetermined" :
-    {
-      include : "checkbox",
-      style :
-      {
-        innerWidth : [6,3],
-        innerColor: "white"
-      }
-    },
-
     "checkbox-undetermined-focused" :
     {
     	include : "checkbox-undetermined",
@@ -2464,15 +2483,6 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     	{
     		color : "textfield-selected"
     	}
-    },
-
-    "checkbox-undetermined-disabled" :
-    {
-      include : "checkbox-undetermined",
-      style :
-      {
-        color : "text-disabled"
-      }
     },
 
     "checkbox-undetermined-invalid" :

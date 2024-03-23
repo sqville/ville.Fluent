@@ -945,7 +945,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          source : "ville/wax/ChevronRightRegular.svg",
+          source : ville.theme.fluent.Image.URLS["chevron-right-regular"],
           //decorator : "ville-icon-arrow-right",
           alignY : "middle",
           marginRight: 10,
@@ -1323,7 +1323,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       RADIO BUTTON
     ---------------------------------------------------------------------------
     */
-    "radiobutton":
+    "radiobutton" :
     {
       style : function(states)
       {
@@ -1346,6 +1346,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         if (!states.checked && states.hovered){
           textcolor = "NeutralForeground2"
         }
+        if (states.disabled) {
+          textcolor = "NeutralStrokeDisabled"
+        }
 
         return {
           textColor : textcolor
@@ -1362,9 +1365,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         var backgroundColor = "TransparentBackground";
         if (states.disabled && states.checked) {
-          //backgroundColor = "background-disabled-checked";
+          backgroundColor = "NeutralBackgroundDisabled";
+          decorator += "-checked-disabled";
         } else if (states.disabled) {
-          //backgroundColor = "background-disabled";
+          decorator += "-disabled";
         } else if (states.checked) {
           backgroundColor = "CompoundBrandForeground1";
           decorator += "-checked";
@@ -1398,7 +1402,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       CHECK BOX
     ---------------------------------------------------------------------------
     */
-    "checkbox":
+    "checkbox" :
     {
       alias : "atom",
 
@@ -1446,7 +1450,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           padding = [0,0,0,0];
           decorator = "checkbox-checked";
           bckgrdcolr = "CompoundBrandBackground";
-          //decorator = "ville-icon-arrow-right";
           if (states.hovered) {
             bckgrdcolr = "CompoundBrandBackgroundHover";
           }
@@ -1457,6 +1460,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
             decorator = "checkbox-checked-invalid"; 
           } 
           if (states.disabled) {
+            bckgrdcolr = "TransparentBackground";
             decorator = "checkbox-checked-disabled";   
           }
           // Undetermined
@@ -1471,8 +1475,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           }
           if (states.disabled) {
             decorator = "checkbox-undetermined-disabled";
-            bckgrdcolr = "text-disabled";
+            bckgrdcolr = "TransparentBackground";
           }
+        } else if (states.disabled) {
+          decorator = "checkbox-disabled"; 
         }
 
         return {
@@ -1492,16 +1498,29 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     ---------------------------------------------------------------------------
     */
     
-    "spinner" : "combobox",
+    "spinner" : {
+      include : "combobox",
+      style (states) {
+        return {
+          cursor : "pointer"
+          //padding : [ville.global.spacing.SNudge, ville.global.spacing.SNudge]
+        }
+      }
+    },
 
-    "spinner/textfield" : "combobox/textfield",
+    "spinner/textfield" : {
+      include : "combobox/textfield",
+      style (states) {
+        return {
+          padding : [ville.global.spacing.XS, ville.global.spacing.S]
+        }
+      }
+    },
 
     "spinner/upbutton" :
     {
-
       style : function(states)
       {
-
         return {
           backgroundColor : states.hovered ? "NeutralBackground1Hover" : "transparent",
           decorator : "button-box-top-right",
@@ -2002,40 +2021,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       
       style : function(states)
       {
-        /*var decorator;
-        if (states.disabled) {
-          decorator = "inset-line";
-        } else if (states.invalid) {
-          decorator = "invalid-line";
-        } else if (states.focused) {
-          decorator = "focused-inset-line";
-        } else {
-          decorator = "inset-line";
-        }*/
-
-        //var padding = [0, ville.global.spacing.MNudge];
-        /*var backgroundcolor = "NeutralBackground1";
-        if (states.disabled) {
-          decorator = "textfield-disabled";
-          backgroundcolor = "TransparentBackground";
-        } else if (states.invalid) {
-          decorator = "textfield-invalid";
-        } 
-        else if (states.focused) {
-          decorator = "textfield-focused";
-        } 
-        else {
-          decorator = "textfield";
-        }*/
-
-        //var prefix = qx.theme.manager.Decoration.getInstance().addCssClass("sq-test");
-        //console.log(prefix);
-
         return {
-          //decorator : decorator,
-          height : 20,
-          width : 20,
-          //backgroundColor : backgroundcolor
+          padding: [6,0,2,0],
           cursor : "pointer"
         };
       }
@@ -2047,27 +2034,18 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         var decorator = "slider-knob";
 
-        /*
-        if (!states.disabled) {
-          if (states.hovered && !states.pressed && !states.checked) {
-            decorator = "slider-knob-hovered";
-          } else if (states.hovered && (states.pressed || states.checked)) {
-            decorator = "slider-knob-pressed-hovered";
-          } else if (states.pressed || states.checked) {
-            decorator = "slider-knob-pressed";
-          }
+        if (states.disabled) {
+          decorator += "-disabled";
         }
-        */
 
         return {
-          height : states.horizontal ? 14 : 18,
+          height : 18,
           width : 18,
-          backgroundColor : "CompoundBrandForeground1",
+          backgroundColor : !states.disabled ? "CompoundBrandForeground1" : "NeutralStrokeDisabled",
           cursor : states.disabled ? undefined : "pointer",
           decorator : decorator,
-          //minHeight : states.horizontal ? undefined : 14,
-          //minWidth : states.horizontal ? 18 : undefined,
-          //maxHeight : states.horizontal ? undefined : 14,
+          maxHeight : 18,
+          maxWidth : 18
         };
       }
     },
@@ -2386,13 +2364,24 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states, styles)
       {
         return {
+          icon : ville.theme.fluent.Image.URLS["chevron-down"],
           decorator : "split" + styles.decorator + "-arrow",
-          padding : [ville.global.spacing.SNudge, ville.global.spacing.None],
+          padding : [ville.global.spacing.SNudge, ville.global.spacing.XS],
         };
       }
     },
     
-    //"splitbutton/arrow/icon" : "combobox/button/icon",
+    "splitbutton/arrow/icon" : {
+      
+      include : "combobox/button/icon",
+
+      style : function() {
+        return {
+          width: 12,
+          height: 12
+        }
+      }
+    },
     
     "splitbutton-menu" :
     {
