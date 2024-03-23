@@ -1012,8 +1012,8 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     */
     
     "splitbutton" :
-    {
-    	style :
+    {      
+      style :
     	{
     		radius : 3
     	}
@@ -1021,42 +1021,63 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     
     "splitbutton-box-left" :
     {
-      inclue : "button-box",
+      include : "button-box",
       
       style :
       {
         radius : [3,0,0,3],
-        backgroundColor : "button-box-bright"
+        width : [ville.global.stroke.widths.Thin, 0, ville.global.stroke.widths.Thin, ville.global.stroke.widths.Thin]
       }
     },
     
     "splitbutton-box-pressed-left" :
     {
-      include : "splitbutton-box-left",
+      include : "button-box-pressed",
 
       style :
       {
-        backgroundColor : "button-box-bright-pressed"
-      }
-    },
-
-    "splitbutton-box-pressed-hovered-left" :
-    {
-      include : "splitbutton-box-pressed-left",
-
-      style :
-      {
-        color : "button-border-hovered"
+        radius : [3,0,0,3],
+        width : [ville.global.stroke.widths.Thin, 0, ville.global.stroke.widths.Thin, ville.global.stroke.widths.Thin]
       }
     },
 
     "splitbutton-box-hovered-left" :
     {
-      include : "splitbutton-box-left",
-
+      include : "button-box-hovered",
       style :
       {
-        backgroundColor : "button-box-bright-hovered"
+        radius : [3,0,0,3],
+        width : [ville.global.stroke.widths.Thin, 0, ville.global.stroke.widths.Thin, ville.global.stroke.widths.Thin]
+      }
+    },
+
+    "splitbutton-box-arrow" :
+    {
+      include : "button-box",
+      
+      style :
+      {
+        radius : [0,3,3,0]
+      }
+    },
+
+    "splitbutton-box-hovered-arrow" :
+    {
+      include : "button-box-hovered",
+      
+      style :
+      {
+        radius : [0,3,3,0]
+      }
+    },
+
+    "splitbutton-box-pressed-arrow" :
+    {
+      include : "button-box-pressed",
+      
+      style :
+      {
+        radius : [0,3,3,0]
       }
     },
 

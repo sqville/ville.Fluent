@@ -2362,75 +2362,37 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       SPLIT BUTTON
     ---------------------------------------------------------------------------
     */
-    "splitbutton" : {
-    	style : function(states)
-    	{
-    		return {decorator: "splitbutton"};
-    	}
-    },
+    "splitbutton" : {},
 
     "splitbutton/button" :
     {
-      include : "button",
       alias : "button",
+      include : "button",
       
-      style : function(states)
+      style : function(states, styles)
       {
-        var decorator = "splitbutton-box";
-
-        if (!states.disabled) {
-          if (states.pressed || states.checked) {
-            decorator += "-pressed";
-          }
-          if (states.hovered) {
-            decorator += "-hovered";
-          }
-        }
-
-        /*if (states.focused) {
-          decorator += "-focused";
-        }*/
-
-        decorator += "-left";
-
         return {
-          //decorator : decorator,
-          cursor : states.disabled ? undefined : "pointer"
+          decorator : "split" + styles.decorator + "-left"
         };
       }
+
     },
 
     "splitbutton/arrow" : {
 
-      style : function(states)
+      alias : "menubutton",
+      include : "menubutton",
+
+      style : function(states, styles)
       {
-        var decorator = "button-box";
-
-        if (!states.disabled) {
-          if (states.pressed || states.checked) {
-            decorator += "-pressed";
-          }
-          if (states.hovered) {
-            decorator += "-hovered";
-          }
-        }
-
-        if (states.focused) {
-          decorator += "-focused";
-        }
-
-        decorator += "-right";
-
         return {
-          icon : "",
-          decorator : decorator,
-          cursor : states.disabled ? undefined : "pointer",
-          padding: [3, 8]
+          decorator : "split" + styles.decorator + "-arrow",
+          padding : [ville.global.spacing.SNudge, ville.global.spacing.None],
         };
       }
     },
     
-    "splitbutton/arrow/icon" : "combobox/button/icon",
+    //"splitbutton/arrow/icon" : "combobox/button/icon",
     
     "splitbutton-menu" :
     {
@@ -3429,10 +3391,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         // default padding
         if (states.barTop ) {
           padding = [10, 1, 10, 1];//[12, 18, 12, 15];
-          margin = [0, 26];
+          margin = states.firstTab ? [0, 26, 0, 0] : [0, 26];
         } else if (states.barBottom) {
           padding = [10, 1, 10, 1];//[12, 8, 12, 8];
-          margin = [0, 26];
+          margin = states.firstTab ? [0, 26, 0, 0] : [0, 26];
         }
         else if (states.barLeft) {
           padding = [1, 16, 1, 10];//[12, 8, 12, 8];
