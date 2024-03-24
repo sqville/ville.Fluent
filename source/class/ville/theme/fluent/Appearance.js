@@ -760,10 +760,13 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "menu-slidebar-button" :
     {
+      include : "hover-button",
+      
       style : function(states)
       {
         return {
-          backgroundColor : states.hovered  ? "button-box-bright-hovered" : undefined,
+          backgroundColor : states.hovered ? "NeutralBackground1Hover" : "transparent",
+          decorator : "subtle-button-box",
           padding : 6,
           center : true
         };
@@ -1026,48 +1029,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     ---------------------------------------------------------------------------
     */
 
-    "menubar" :
-    {
-      style : function(states)
-      {
-        return {
-          backgroundColor : "background",
-          padding: [4, 2]
-        };
-      }
-    },
+    "menubar" : "toolbar",
 
-    "menubar-button" :
-    {
-      include : "menubutton",
-
-      style : function(states)
-      {
-        var decorator = "button-box-blank";
-
-        if (!states.disabled) {
-          if (states.hovered && !states.pressed && !states.checked) {
-            decorator = "button-box-hovered";
-          } else if (states.hovered && (states.pressed || states.checked)) {
-            decorator = "button-box-pressed-hovered";
-          } else if (states.pressed || states.checked) {
-            decorator = "button-box-pressed";
-          }
-        }
-
-        if (states.invalid && !states.disabled) {
-          decorator += "-invalid";
-        } else if (states.focused) {
-          decorator += "-focused";
-        }
-
-        return {
-          decorator : decorator,
-          font : "button"
-        };
-      }
-    },
-
+    "menubar-button" : "menubutton",
 
     /*
     ---------------------------------------------------------------------------
@@ -1158,9 +1122,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     {
       style : function(states)
       {
-
         return {
-          backgroundColor: "scrollbar-bright"
+          backgroundColor: "NeutralBackground2"
         };
       }
     },
@@ -1171,15 +1134,18 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     {
       style : function(states)
       {
-        var decorator = "scroll-knob";
+        var decorator = "button-box";
+        var bgcolor = "NeutralBackground1";
 
         if (!states.disabled) {
           if (states.hovered && !states.pressed && !states.checked) {
-            decorator = "scroll-knob-hovered";
+            bgcolor = "NeutralBackground1Hover";
+            decorator = "button-box-hovered";
           } else if (states.hovered && (states.pressed || states.checked)) {
-            decorator = "scroll-knob-pressed-hovered";
+            bgcolor = "NeutralBackground1Pressed";
+            decorator = "button-box-pressed";
           } else if (states.pressed || states.checked) {
-            decorator = "scroll-knob-pressed";
+            bgcolor = "NeutralBackground1Pressed";
           }
         }
 
@@ -1188,6 +1154,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           width : 14,
           cursor : states.disabled ? undefined : "pointer",
           decorator : decorator,
+          backgroundColor : bgcolor,
           minHeight : states.horizontal ? undefined : 20,
           minWidth : states.horizontal ? 20 : undefined
         };
@@ -1242,7 +1209,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "background"
+          backgroundColor : "NeutralBackground1"
         };
       }
     },
@@ -2130,7 +2097,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : states.hovered ? "Background1Pressed" : "NeutralBackground1"
+          backgroundColor : states.hovered ? "NeutralBackground1Pressed" : "NeutralBackground1"
         };
       }
     },
@@ -2406,22 +2373,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     */
 
     "groupbox" : {},
-    
-    "groupbox-connected" : {
-      style : function(states)
-      {
-        return {
-          backgroundColor : "background",
-          decorator  : "white-box"
-        };
-      }
-    },
-    
-    "groupbox-blue-top" : {},
-    
-    "groupbox-orange-top" : {},
-    
-    "groupbox-green-top" : {},
 
     "groupbox/legend" :
     {
@@ -2437,72 +2388,16 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         };
       }
     },
-    
-    "groupbox-connected/legend" : "groupbox/legend",
-    
-    "groupbox-blue-top/legend" : "groupbox/legend",
-    
-    "groupbox-orange-top/legend" : "groupbox/legend",
-    
-    "groupbox-green-top/legend" : "groupbox/legend",
 
     "groupbox/frame" :
     {
       style : function(states)
       {
         return {
-          backgroundColor : "background",
+          backgroundColor : "NeutralBackground1",
           padding : [6, 9],
           margin: [18, 2, 2, 2],
-          decorator  : "white-box"
-        };
-      }
-    },
-    
-    "groupbox-connected/frame" :
-    {
-      include : "groupbox/frame",
-      
-      style : function(states)
-      {
-        return {
-          decorator  : "connected-top-box"
-        };
-      }
-    },
-    
-    "groupbox-blue-top/frame" :
-    {
-      include : "groupbox/frame",
-      
-      style : function(states)
-      {
-        return {
-          decorator  : "blue-top-box"
-        };
-      }
-    },
-    
-    "groupbox-orange-top/frame" :
-    {
-      include : "groupbox/frame",
-      
-      style : function(states)
-      {
-        return {
-          decorator  : "orange-top-box"
-        };
-      }
-    },
-    
-    "groupbox-green-top/frame" :
-    {
-      include : "groupbox/frame",
-      
-      style : function(states)
-      {
-        return {
-          decorator  : "green-top-box"
+          decorator  : "textfield-common"
         };
       }
     },
@@ -2706,7 +2601,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           cursor : "default",
           font : "window-header",
-          textColor : "NeutralForeground1",
+          textColor : states.disabled ? "NeutralForegroundDisabled" : "NeutralForeground1",
           alignY: "middle"
         };
       }
@@ -2862,8 +2757,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "background",
-          textColor : states.disabled ? "text-disabled" : states.invalid ? "invalid" : undefined,
+          backgroundColor : "NeutralBackground1",
+          textColor : states.disabled ? "NeutralForegroundDisabled" : states.invalid ? "invalid" : "NeutralForeground1",
           padding : [2, 10]
         };
       }
@@ -2941,7 +2836,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         var result = {
-          backgroundColor : "background",
+          backgroundColor : "NeutralBackground1",
           width  : 14,
           show   : "icon",
           cursor : states.disabled ? undefined : "pointer"
@@ -2971,8 +2866,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          font          : "datechooser-bold",
-          textAlign     : "center"
+          font      : "datechooser-bold",
+          textAlign : "center",
+          textColor : "NeutralForeground1"
         };
       }
     },
@@ -2983,7 +2879,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           decorator       : "datechooser-date-pane",
-          backgroundColor : "background"
+          backgroundColor : "NeutralBackground1"
         };
       }
     },
@@ -2996,8 +2892,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator       : "datechooser-weekday",
           font            : "datechooser-bold",
           textAlign       : "center",
-          textColor       : states.disabled ? "text-disabled" : states.weekend ? "text" : "background",
-          backgroundColor : states.weekend ? "background" : "primary",
+          textColor       : states.disabled ? "NeutralForegroundDisabled" : states.weekend ? "NeutralForeground1" : "NeutralForegroundInverted",
+          backgroundColor : states.weekend ? "NeutralBackground1" : "BrandForeground1",
           paddingTop: 2
         };
       }
@@ -3010,9 +2906,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           textAlign       : "center",
           decorator       : states.today ? "main" : undefined,
-          textColor       : states.disabled ? "text-disabled" : states.selected ? "white" : states.otherMonth ? "text-disabled" : undefined,
+          textColor       : states.disabled ? "NeutralForegroundDisabled" : states.selected ? "NeutralForegroundInverted" : states.otherMonth ? "NeutralForegroundDisabled" : "NeutralForeground1",
           font : "datechooser",
-          backgroundColor : states.disabled ? undefined : states.selected ? "primary" : undefined,
+          backgroundColor : states.disabled ? undefined : states.selected ? "BrandForeground1" : undefined,
           padding         : states.today ? [ 1, 3 ] : [2, 4]
         };
       }
@@ -3024,7 +2920,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           textAlign : "center",
-          textColor : "text",
+          textColor : "NeutralForeground1",
           font : "datechooser-bold",
           padding   : [ 2, 4 ],
           decorator : states.header ? "datechooser-week-header" : "datechooser-week"
@@ -3087,7 +2983,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           backgroundColor : "NeutralBackground1",
-          padding : 0
+          padding : [4,0,4,0]
         };
       }
     },
@@ -3118,47 +3014,13 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "toolbar-button" :
     {
-      alias : "atom",
+      alias : "button",
+      include : "button",
 
       style : function(states)
       {
-        var decorator = "button-box";
-        var textcolor = "button-text";
-
-        if (states.disabled) {
-          decorator = "button-box";
-        } else if (states.hovered && !states.pressed && !states.checked) {
-          decorator = "button-box-hovered";
-        } else if (states.hovered && (states.pressed || states.checked)) {
-          decorator = "button-box-pressed-hovered";
-        } else if (states.pressed || states.checked) {
-          decorator = "button-box-pressed";
-        }
-
-        // set the right left and right decorators
-        if (states.left) {
-          decorator += "-left";
-        } else if (states.right) {
-          decorator += "-right";
-        } else if (states.middle) {
-          decorator += "-middle";
-        }
-
-        // set the margin
-        var margin = [7, 10];
-        if (states.left || states.middle || states.right) {
-          margin = [7, 0];
-        }
-
         return {
-          cursor  : states.disabled ? undefined : "pointer",
-          decorator : decorator,
-          textColor : textcolor,
-          font : "button",
-          margin : margin,
-          center : true,
-          padding : [10, 18],
-          gap : 8
+          cursor  : states.disabled ? undefined : "pointer"
         };
       }
     },
@@ -3176,7 +3038,19 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       }
     },
 
-    "toolbar-menubutton/arrow" :
+    "toolbar-menubutton/arrow" : 
+    {
+      include : "splitbutton/arrow/icon",
+
+      style : function(states)
+      {
+        return {
+          source : ville.theme.fluent.Image.URLS["chevron-down"]
+        };
+      }
+    },
+
+    /*"toolbar-menubutton/arrow" :
     {
       include : "image",
 
@@ -3191,83 +3065,15 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           height : 0
         };
       }
-    },
+    },*/
 
     "toolbar-splitbutton" : {},
-    "toolbar-splitbutton/button" :
-    {
-      alias : "toolbar-button",
-      include : "toolbar-button",
 
-      style : function(states)
-      {
-        var decorator = "button-box";
+    "toolbar-splitbutton/button" : "splitbutton/button",
 
-        if (states.disabled) {
-          decorator = "button-box";
-        } else if (states.hovered && !states.pressed && !states.checked) {
-          decorator = "button-box-hovered";
-        } else if (states.hovered && (states.pressed || states.checked)) {
-          decorator = "button-box-pressed-hovered";
-        } else if (states.pressed || states.checked) {
-          decorator = "button-box-pressed";
-        }
-
-        // set the right left and right decoratos
-        if (states.left) {
-          decorator += "-left";
-        } else if (states.right) {
-          decorator += "-middle";
-        } else if (states.middle) {
-          decorator += "-middle";
-        }
-
-        return {
-          icon : "",
-          decorator : decorator
-        };
-      }
-    },
-
-
-    "toolbar-splitbutton/arrow" :
-    {
-      alias : "toolbar-button",
-      include : "toolbar-button",
-
-      style : function(states)
-      {
-        var decorator = "button-box";
-
-        if (states.disabled) {
-          decorator = "button-box";
-        } else if (states.hovered && !states.pressed && !states.checked) {
-          decorator = "button-box-hovered";
-        } else if (states.hovered && (states.pressed || states.checked)) {
-          decorator = "button-box-pressed-hovered";
-        } else if (states.pressed || states.checked) {
-          decorator = "button-box-pressed";
-        }
-
-        // set the right left and right decoratos
-        if (states.left) {
-          decorator += "-middle";
-        } else if (states.right) {
-          decorator += "-right";
-        } else if (states.middle) {
-          decorator += "-middle";
-        }
-
-        return {
-          icon : "",
-          decorator : decorator,
-          padding: [3, 6]
-        };
-      }
-    },
-
-    "toolbar-splitbutton/arrow/icon" : "combobox/button/icon",
-
+    "toolbar-splitbutton/arrow" : "splitbutton/arrow",
+    
+    "toolbar-splitbutton/arrow/icon" : "splitbutton/arrow/icon",
 
     /*
     ---------------------------------------------------------------------------

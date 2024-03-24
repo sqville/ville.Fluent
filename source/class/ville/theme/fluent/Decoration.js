@@ -121,7 +121,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    {
    	  style :
       {
-        color : [null,"transparent","ville-black","transparent"],
+        color : [null,"transparent","NeutralForeground1","transparent"],
         style : [null, "solid","solid","solid"],
         width : [0,4.5,4,4.5]
       }
@@ -221,7 +221,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    {
    	  style :
       {
-        color : ["transparent",null,"transparent","ville-black"],
+        color : ["transparent",null,"transparent","NeutralForeground1"],
         style : ["solid",null,"solid","solid"],
         width : [3.5,0,3.5,4]
       }
@@ -231,10 +231,10 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    {
    	  style :
       {
-        color : ["transparent",null,"transparent","ville-black"],
+        color : ["transparent",null,"transparent","NeutralForeground1"],
         style : ["solid",null,"solid","solid"],
         width : [3.5,0,3.5,4],
-        shadowColor : "ville-black",
+        shadowColor : "NeutralForeground1",
         shadowLength : [0, 2],
         shadowBlurRadius : 0,
         shadowSpreadRadius : 0
@@ -247,7 +247,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     
     style :
    	  {
-        shadowColor : "ville-black",
+        shadowColor : "NeutralForeground1",
         shadowLength : [0, 2],
         shadowBlurRadius : 0,
         shadowSpreadRadius : 0
@@ -268,7 +268,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
    {
    	  style :
       {
-        color : ["transparent","ville-black","transparent",null],
+        color : ["transparent","NeutralForeground1","transparent",null],
         style : ["solid", "solid","solid",null],
         width : [3.5,4,3.5,0]
       }
@@ -427,6 +427,14 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       include : "button-box-pressed",
       style : { color : "button-border-hovered" }
+    },
+
+    "subtle-button-box" :
+    {
+      include : "button-box-common",
+      style : { 
+        width : 0
+      }
     },
 
     "rounded-button-box" :
@@ -1112,16 +1120,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       SCROLL KNOB
     ---------------------------------------------------------------------------
     */
-    "scroll-knob" :
-    {
-      style :
-      {
-        radius : 3,
-        width : 1,
-        color : "button-border",
-        backgroundColor : "scrollbar-bright"
-      }
-    },
+    "scroll-knob" : "textfield-common",
 
     "scroll-knob-pressed" :
     {
@@ -1352,62 +1351,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
         shadowBlurRadius : 0,
         shadowColor : "#999999"
       }
-    },
-    
-    "connected-top-legend" :
-    {
-    	include : "white-box",
-    	
-    	style :
-	    {
-	      width: [1,1,0,1],
-	      radius: [ 3, 3, 0, 0 ]
-	    }
-    },
-    
-    "connected-top-box" :
-    {
-    	include : "white-box",
-    	
-    	style :
-	    {
-	      width: [1,0,0,0],
-	      radius: [ 0, 0, 0, 0 ]
-	    }
-    },
-    
-    "blue-top-box" :
-    {
-      include : "white-box",
-      
-      style :
-      {
-        width: [2,1,1,1],
-        colorTop: "box-border-blue",
-        radius: [ 4, 4, 3, 3 ]
-      }
-    },
-    
-    "orange-top-box" :
-    {
-      include : "blue-top-box",
-      
-      style :
-      {
-        colorTop: "box-border-orange"
-      }
-    },
-    
-    "green-top-box" :
-    {
-      include : "blue-top-box",
-      
-      style :
-      {
-        colorTop: "box-border-green"
-      }
-    },
-
+    },    
 
     /*
     ---------------------------------------------------------------------------
