@@ -15,15 +15,15 @@ Qooxdoo package (qx pkg) installation coming soon. In the meantime, just add the
 <!-- DEMOS -->
 ## Demos
 
-[Demo](https://sqville.github.io/ville.Fluent/published/)
+[Demo](https://sqville.github.io/ville.Fluent/published/wax/)
 
-WidgetBrowser - Coming soon
+[WidgetBrowser](https://sqville.github.io/ville.Fluent/published/widgetbrowser/)
 
 <!-- ROADMAP -->
 ## Roadmap
 
 * Full Design (In Progress) - Wax demo showing the majority of qx ui widgets leveraging FluentUI design patterns
-* WidgetBrowser Design (In Progress) - Out of the box, qxl.widgetbrowser version of the theme
+* WidgetBrowser Design (Completed) - Out of the box, qxl.widgetbrowser version of the theme
 * Architecture Review (Not Started) - Evaluate how best to package underlying features (i.e. ville.global, ville.Embed, ville.theme.MImage )
 
 <!-- LICENSE -->
