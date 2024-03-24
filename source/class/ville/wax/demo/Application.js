@@ -109,6 +109,7 @@ qx.Class.define("ville.wax.demo.Application",
       qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MMenuButtonEmbed); 
       qx.Class.patch(qx.ui.basic.Image, ville.theme.MImage);
       qx.Class.include(qx.ui.decoration.Decorator, ville.decoration.MClipPath); 
+      qx.Class.include(qx.ui.tabview.TabView, ville.wax.MTabView);
 
       // App's Root
       var approot = this.getRoot();
@@ -802,47 +803,18 @@ qx.Class.define("ville.wax.demo.Application",
       });
       tvbarmenu.add(p5tbmb);
 
-      firststackpage.add(wtabView2);
+      firststackpage.add(wtabView2);  
 
       wtabView2.setSelection([page2tbv2]);
 
-      // **SQ**MIXIN** START
       var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "BrandBackground1", zIndex: 5, decorator : "tabview-page-button-line"});
-      wtabView2.getChildControl("bar").add(tabviewbarline); 
-
-      // **SQ**MIXIN** START
-      wtabView2.addListener("changeSelection", (e) => {
-        var oldbounds = e.getOldData()[0].getButton().getBounds();
-        var newbounds = e.getData()[0].getButton().getBounds();
-        var tbvmarkdom = tabviewbarline.getContentElement().getDomElement();
-        var oldtop = oldbounds.top + oldbounds.height - tabviewbarline.getHeight();
-        var newtop = newbounds.top + newbounds.height - tabviewbarline.getHeight();
-        var tabviewbarlinemove = {
-          duration: parseInt(ville.global.duration.Slower.slice(0,-2)), 
-          timing: ville.global.curve.DecelerateMid,  
-          keyFrames : {
-            0: {"left": oldbounds.left + "px", "top": oldtop + "px", "width": oldbounds.width + "px"},
-            100: {"left": newbounds.left + "px", "top": newtop + "px", "width": newbounds.width + "px"}
-          },
-          keep : 100
-        };
-        qx.bom.element.AnimationCss.animate(tbvmarkdom, tabviewbarlinemove);
-      }, this); 
+      wtabView2.setDynamicMarkAnimationDuration(parseInt(ville.global.duration.Slower.slice(0,-2))); 
+      wtabView2.setDynamicMarkAnimationTiming(ville.global.curve.DecelerateMid);
+      wtabView2.setDynamicMark(tabviewbarline);
 
       // **SQ**MIXIN** START
       var tabviewoverflowmenubutton1 = new qx.ui.form.MenuButton("...", null, tvbarmenu).set({decorator : null});
       wtabView2.getChildControl("bar").add(tabviewoverflowmenubutton1);
-    
-      // **SQ**MIXIN** START
-      wtabView2.addListenerOnce("appear", function() {
-        var movetobounds = this.getSelection()[0].getButton().getBounds();
-        tabviewbarline.getContentElement().setStyles({
-          "left": movetobounds.left + "px", 
-          "top": movetobounds.top + movetobounds.height - tabviewbarline.getHeight() + "px", 
-          "width": movetobounds.width + "px", 
-          "height": tabviewbarline.getHeight() + "px"
-        });
-      });
 
       // **SQ**MIXIN** START
       // show hide overflow menu

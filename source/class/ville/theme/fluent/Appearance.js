@@ -2589,18 +2589,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     {
       style : function(states)
       {
-        /*var backgroundColor;
-        if (states.selected) {
-          backgroundColor = "combobox-item-selected";
-          if (states.disabled) {
-            backgroundColor = "background-selected-disabled";
-          }
-        }*/
         return {
           padding : [3, 8, 3, 5],
           icon : states.opened ? ville.theme.fluent.Image.URLS["tree-folder-open"] : ville.theme.fluent.Image.URLS["tree-folder"],
           iconOpened : ville.theme.fluent.Image.URLS["tree-folder-open"],
-          //backgroundColor : backgroundColor,
+          backgroundColor : states.selected ? "NeutralBackground1Selected" : undefined,
           opacity : states.drag ? 0.5 : undefined,
           cursor : "pointer"
         };
@@ -2622,11 +2615,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "tree-folder/label" :
     {
+      include : "label",
       style : function(states)
       {
         return {
           padding : [ 1, 4 ],
-          textColor : "NeutralForeground1"
+          textColor : states.disabled ? "NeutralStrokeDisabled" : "NeutralForeground1"
         };
       }
     },
