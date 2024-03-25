@@ -3667,9 +3667,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          font : "headline",
-          textColor : "text-selected",
-          backgroundColor: "background-selected-dark",
+          backgroundColor: "BrandForeground1",
           padding : [8, 12]
         };
       }
@@ -3680,6 +3678,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
+          font : "headline",
+          textColor : "NeutralForeground1",
           padding : [4,8]
         };
       }
@@ -3702,7 +3702,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states) {
         return {
           padding: [0, 10, 10, 10],
-          backgroundColor: "light-background"
+          backgroundColor: "NeutralBackground1"
         };
       }
     },

@@ -40,6 +40,7 @@ qx.Class.define("qxl.widgetbrowser.view.Header", {
     this.getLayout().setAlignY("middle");
 
     var title = new qx.ui.basic.Label("Widget Browser");
+    title.setAppearance("app-header-title");
     var version = new qxl.versionlabel.VersionLabel();
     version.setFont("default");
     version.setAppearance("app-header-label");
