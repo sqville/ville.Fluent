@@ -10,7 +10,7 @@
 
 <!-- GETTING STARTED -->
 ## Using the Theme in your Application
-Qooxdoo package (qx pkg) installation coming soon. In the meantime, just add the ville.theme folder to your project and reference it in your compile.json as a stand alone theme, or update your project's theme to extend ville.theme.fluent theme classes (Appearance, Decoration, Font, Color, etc).  
+Use Qooxdoo's package (qx pkg) discovery and installation system. Other option is to download and add the ville.theme folder to your project. Reference it in your compile.json as a stand alone theme, or update your project's theme to extend the ville.theme.fluent theme classes (Appearance, Decoration, Font, Color, etc).  
 
 <!-- DEMOS -->
 ## Demos
@@ -22,9 +22,9 @@ Qooxdoo package (qx pkg) installation coming soon. In the meantime, just add the
 <!-- ROADMAP -->
 ## Roadmap
 
-* Full Design (In Progress) - Wax demo showing the majority of qx ui widgets leveraging FluentUI design patterns
-* WidgetBrowser Design (Completed) - Out of the box, qxl.widgetbrowser version of the theme
-* Architecture Review (Not Started) - Evaluate how best to package underlying features (i.e. ville.global, ville.Embed, ville.theme.MImage )
+* Full design (In Progress) - Wax demo showing the majority of qx ui widgets leveraging FluentUI design patterns.
+* WidgetBrowser design (Completed) - Out of the box, qxl.widgetbrowser version of the theme.
+* Architecture Review (Not Started) - Evaluate how best to package underlying features - i.e. ville.global (FluentUI's design tokens), ville.wax.MEmbed, ville.theme.MImage, and ville.wax.MTabView.
 
 <!-- LICENSE -->
 ## License
