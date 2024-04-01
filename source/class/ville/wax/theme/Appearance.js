@@ -842,8 +842,6 @@ qx.Theme.define("ville.wax.theme.Appearance",
       {
         return {
           html: ville.theme.fluent.Image.SVG["tableSettingsRegular"],
-          //svgIcon: "tableSettingsRegular",
-          //textColor: "NeutralForeground1",
           color : "NeutralForeground1",
           width: 14,
           height : 14
@@ -872,7 +870,6 @@ qx.Theme.define("ville.wax.theme.Appearance",
       {
         return {
           html: ville.theme.fluent.Image.SVG["arrowResetRegular"],
-          //textColor: "NeutralForeground1",
           color : "NeutralForeground1",
           width: 14,
           height : 14
@@ -904,6 +901,7 @@ qx.Theme.define("ville.wax.theme.Appearance",
           padding : [3, 8, 3, 5],
           icon : "",
           iconOpened : "",
+          backgroundColor : states.selected ? "NeutralBackground1Selected" : undefined,
           opacity : states.drag ? 0.5 : undefined,
           cursor : "pointer"
         };
@@ -918,7 +916,6 @@ qx.Theme.define("ville.wax.theme.Appearance",
         return {
           html: states.opened ? ville.theme.fluent.Image.SVG["folderOpenRegular"] : ville.theme.fluent.Image.SVG["folderRegular"],
           marginLeft: 6,
-          //textColor: "NeutralForeground1",
           color : "NeutralForeground1",
           //clipPath: states.opened ? ville.theme.fluent.Image.SVG["folderOpenRegular-path"] : ville.theme.fluent.Image.SVG["folderRegular-path"],
           //backgroundColor : "NeutralForeground1",
@@ -936,9 +933,6 @@ qx.Theme.define("ville.wax.theme.Appearance",
         return {
           source : "",
           html : states.opened ? ville.theme.fluent.Image.SVG["chevronDownRegular"] : ville.theme.fluent.Image.SVG["chevronRightRegular"], 
-          //margin : states.opened ? [4,0,0,0] : [0,0,0,0],
-          //padding : states.opened ? [4,0,0,0] : [0,0,0,0],
-          //textColor : "NeutralForeground1",
           color : "NeutralForeground1",
           alignX: "left",
           width : 14,
@@ -1017,7 +1011,6 @@ qx.Theme.define("ville.wax.theme.Appearance",
           //html: ville.theme.fluent.Image.SVG["dismiss"],
           width: 20,
           height: 20,
-          //textColor : "NeutralForeground1"
           backgroundColor : "NeutralForeground1",
           //clipPath : ville.theme.fluent.Image.SVG["dismiss-path"]
           decorator : "ville-icon-dismiss"

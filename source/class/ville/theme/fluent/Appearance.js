@@ -1604,10 +1604,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
    "combobox" : {
     style : function(states)
     {
-      /**
-       * TODO - use maps with Camel Case to store rules; hyphenate and add to style sheet when called 
-       */
-      
       var decorator = "comboboxfield";
       var sheet = qx.ui.style.Stylesheet.getInstance();
       var prefix = qx.theme.manager.Decoration.CSS_CLASSNAME_PREFIX;
@@ -1615,7 +1611,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       sheet.addRule(":root", "--compoundbrandbackground:" + qx.theme.manager.Color.getInstance().resolve("CompoundBrandBackground"));
       if (!sheet.hasRule(prefixdecbase + "-focused:focus-within::after"))
       {
-        //var keyframe1 = "@keyframes textfieldout";
         var rule1 = prefixdecbase + "-focused::after";
         var css1 = [
           "position: absolute;",
@@ -1636,18 +1631,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           "transition-delay: " + ville.global.curve.DecelerateMid + ";"
         ];
 
-        /*var css0 = [
-          "animation-name: textfieldout;",
-          "animation-duration: 400ms;",
-          "animation-timing-function: cubic-bezier(0.1,0.9,0.2,1)"
-        ];
-
-        var frames1 = [
-          "0% {transform: scaleX(0);}",
-          "98% {transform: scaleX(1);}",
-          "100% {transform: scaleX(0);}"
-        ];*/
-
         var rule2 = prefixdecbase + "-focused:focus-within::after";
         var css2 = [
           "transform: scaleX(1);",
@@ -1655,11 +1638,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           "transition-duration: " + ville.global.duration.UltraFast + ";",
           "transition-delay: " + ville.global.curve.AccelerateMid + ";"
         ];
-        //sheet.addRule(keyframe1, frames1.join(' '));
+
         var rule0 = prefixdecbase + "::after";
         sheet.addRule(rule0, css1.join(' '));
         sheet.addRule(rule1, css1.join(' '));
-        //qx.theme.manager.Decoration.getInstance().addCssClass("comboboxfield-focused");
         sheet.addRule(rule2, css2.join(' '));
       }
       
@@ -1673,7 +1655,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       }
 
       var cursor = "text";
-      var padding = [0, 8];
       var backgroundcolor = "NeutralBackground1";
       if (states.disabled) {
         decorator = "textfield-disabled";
@@ -1684,7 +1665,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       } 
       else if (states.focused) {
         decorator += "-focused";
-        //padding = [0, 7]
       }
 
       return {
@@ -1807,10 +1787,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          decorator: "ville-icon-arrow-down",
-          //width: 22,
-          //height: 24,
-          //padding : 2
+          decorator: "ville-icon-arrow-down"
         };
       }
     },
@@ -2082,7 +2059,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           backgroundColor : "Neutral" + styles.backgroundColor,
           center : true,
           padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
-          gap : 8
+          gap : ville.global.spacing.S
         };
       }
     },
@@ -2118,11 +2095,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
      /*
     ---------------------------------------------------------------------------     
-      DEFAULT ROUNDED BUTTON
+      ROUNDED BUTTON
     ---------------------------------------------------------------------------
     */
 
-    "default-rounded-button" :
+    "rounded-button" :
     {
       include : "button-frame",
       alias :"button-frame",
@@ -2134,7 +2111,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           backgroundColor : "Neutral" + styles.backgroundColor,
           center : true,
           padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
-          gap : 8
+          gap : ville.global.spacing.S
         };
       }
     },
@@ -2156,7 +2133,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           backgroundColor : "Brand" + styles.backgroundColor,
           center : true,
           padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
-          gap : 8
+          gap : ville.global.spacing.S
         };
       }
     },
@@ -2193,7 +2170,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           backgroundColor : "Brand" + styles.backgroundColor,
           center : true,
           padding : [ville.global.spacing.SNudge, ville.global.spacing.M],
-          gap : 8
+          gap : ville.global.spacing.S
         };
       }
     },
@@ -2208,100 +2185,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         };
       }
     },
-   
-    
-    /*
-    ---------------------------------------------------------------------------
-      SECONDARY BUTTON
-    ---------------------------------------------------------------------------
-    */
-   
-    "secondary-button-frame" :
-    {
-      include :"button-frame",
-
-      style : function(states)
-      {
-        var bgcolor = "secondary-button-box";
-
-        if (!states.disabled) {
-          if (states.hovered && !states.pressed && !states.checked) {
-            bgcolor = "secondary-button-box-hovered";
-          } else if (states.hovered && (states.pressed || states.checked)) {
-            bgcolor = "secondary-button-box-pressed";
-          } else if (states.pressed || states.checked) {
-            bgcolor = "secondary-button-box-pressed";
-          }
-        }
-
-        return {
-          backgroundColor : bgcolor
-        };
-      }
-    },
-    
-    "secondary-button" :
-    {
-      alias : "secondary-button-frame",
-      include : "secondary-button-frame",
-
-      style : function(states)
-      {
-        return {
-          center : true,
-          padding : [10, 18],
-          textColor : "secondary-button-text"
-        };
-      }
-    },
-    
-    
-    /*
-    ---------------------------------------------------------------------------
-      TERTIARY BUTTON
-    ---------------------------------------------------------------------------
-    */
-   
-    "tertiary-button-frame" :
-    {
-      include :"button-frame",
-
-      style : function(states)
-      {
-        var bgcolor = "tertiary-button-box";
-
-        if (!states.disabled) {
-          if (states.hovered && !states.pressed && !states.checked) {
-            bgcolor = "tertiary-button-box-hovered";
-          } else if (states.hovered && (states.pressed || states.checked)) {
-            bgcolor = "tertiary-button-box-pressed";
-          } else if (states.pressed || states.checked) {
-            bgcolor = "tertiary-button-box-pressed";
-          }
-        }
-
-        return {
-          backgroundColor : bgcolor
-        };
-      }
-    },
-    
-    "tertiary-button" :
-    {
-      alias : "tertiary-button-frame",
-      include : "tertiary-button-frame",
-
-      style : function(states)
-      {
-        return {
-          center : true,
-          padding : [10, 18],
-          textColor : "tertiary-button-text"
-        };
-      }
-    },
-    
-
+  
     /*
     ---------------------------------------------------------------------------
       SPLIT BUTTON

@@ -21,7 +21,6 @@
  */
 qx.Theme.define("ville.theme.fluent.Font",
 {
-  
   fonts :
   {
     "default" :
@@ -144,94 +143,91 @@ qx.Theme.define("ville.theme.fluent.Font",
     },
 
     // Fluent UI Typography Styles
-    "body1": 
-    {
+    "body1" : {
       include : "default",
-      family: ville.global.font.family.Base,
       size: ville.global.font.size.Base300,
       weight: ville.global.font.weight.Regular
     },
     
-    "body1Strong": 
-    {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base300,
+    "body1Strong" : {
+      include : "body1",
       weight: ville.global.font.weight.Semibold
     },
-    body1Stronger: {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base300,
+
+    "body1Stronger" : {
+      include : "body1",
       weight: ville.global.font.weight.Bold
     },
+
     "body2" : {
+      include : "body1",
+      size: ville.global.font.size.Base400
+    },
+
+    "caption1" : {
       include : "default",
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base400,
-      weight: ville.global.font.weight.Regular
+      size: ville.global.font.size.Base200
     },
-    caption1: {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base200,
-      weight: ville.global.font.weight.Regular
-    },
-    caption1Strong: {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base200,
+
+    "caption1Strong" : {
+      include : "caption1",
       weight: ville.global.font.weight.Semibold
     },
-    caption1Stronger: {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base200,
+
+    "caption1Stronger" : {
+      include : "caption1",
       weight: ville.global.font.weight.Bold
     },
-    caption2: {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base100,
-      weight: ville.global.font.weight.Regular
+
+    "caption2" : {
+      include : "caption1",
+      size: ville.global.font.size.Base100
     },
-    caption2Strong: {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base100,
+
+    "caption2Strong" : {
+      include : "caption2",
       weight: ville.global.font.weight.Semibold
     },
-    subtitle1: {
+
+    "subtitle1" : {
       include : "default",
       size: ville.global.font.size.Base500,
       weight: ville.global.font.weight.Semibold
     },
-    subtitle2: {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base400,
-      weight: ville.global.font.weight.Semibold
+
+    "subtitle2" : {
+      include : "subtitle1",
+      size: ville.global.font.size.Base400
     },
-    subtitle2Stronger: {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base400,
+
+    "subtitle2Stronger" : {
+      include : "subtitle2",
       weight: ville.global.font.weight.Bold
     },
-    title1: {
-      family: ville.global.font.family.Base,
+
+    "title1" : {
+      include : "default",
       size: ville.global.font.size.Hero800,
       weight: ville.global.font.weight.Semibold
     },
-    title2: {
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Hero700,
-      weight: ville.global.font.weight.Semibold
+
+    "title2" : {
+      include : "title1",
+      size: ville.global.font.size.Hero700
     },
     
-    "title3": {
-      include : "default",
-      family: ville.global.font.family.Base,
-      size: ville.global.font.size.Base600,
-      weight: ville.global.font.weight.Semibold
+    "title3" : {
+      include : "title1",
+      size: ville.global.font.size.Base600
     },
-    largeTitle: {
-      family: ville.global.font.family.Base,
+
+    "largeTitle" : {
+      include : "default",
       size: ville.global.font.size.Hero900,
       weight: ville.global.font.weight.Semibold
     },
-    display: {
+
+    "display" : {
       include : "default",
       size: ville.global.font.size.Hero1000,
       weight: ville.global.font.weight.Semibold,

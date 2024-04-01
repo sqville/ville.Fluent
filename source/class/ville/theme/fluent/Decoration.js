@@ -385,7 +385,10 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style : {
         radius : ville.global.border.radius.Medium,
-        width : ville.global.stroke.widths.Thin
+        width : ville.global.stroke.widths.Thin,
+        transitionProperty: ['background','border','color'],
+        transitionDuration: ville.global.duration.Faster,
+        transitionTimingFunction : ville.global.curve.EasyEase
       }
     },
     
@@ -394,23 +397,25 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       include : "button-box-common",
       style :
       {
-        color : "NeutralStroke1",
-        transitionProperty: ['background','border','color'],
-        transitionDuration: ville.global.duration.Faster,
-        transitionTimingFunction : ville.global.curve.EasyEase
+        color : "NeutralStroke1"
       }
     },
 
     "button-box-hovered" :
     {
       include : "button-box-common",
-      style : { color : "NeutralStroke1Hover" }
+      style : 
+      { 
+        color : "NeutralStroke1Hover"
+      }
     },
 
     "button-box-pressed" :
     {
       include : "button-box-common",
-      style : { color : "NeutralStroke1Pressed" }
+      style : { 
+        color : "NeutralStroke1Pressed" 
+      }
     },
 
     "button-box-blank" :
@@ -468,9 +473,6 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         color : "BrandBackground1"
-        //transitionProperty: ['background','border','color'],
-        //transitionDuration: ville.global.duration.Faster,
-        //transitionTimingFunction : ville.global.curve.EasyEase
       }
     },
 
