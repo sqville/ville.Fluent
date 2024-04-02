@@ -1850,8 +1850,11 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         width : [0, 0, 4, 0],
-        color : "BrandBackground1",
-        radius : 0
+        color : "CompoundBrandStroke",
+        radius : 0,
+        transitionProperty: ['background','color'],
+        transitionDuration: ville.global.duration.Faster,
+        transitionTimingFunction : ville.global.curve.EasyEase
       }
     },
 
@@ -2349,7 +2352,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     	style :
     	{
     		innerWidth : 0,
-        color : "CompoundBrandBackground"
+        color : "CompoundBrandStroke"
     	}
     },
 
@@ -2359,7 +2362,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       style :
       {
         innerWidth : [ville.global.spacing.XS, ville.global.spacing.XS],
-        innerColor: "CompoundBrandBackground"
+        innerColor: "CompoundBrandStroke"
       }
     },
 

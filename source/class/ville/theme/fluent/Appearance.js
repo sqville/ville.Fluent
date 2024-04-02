@@ -1608,7 +1608,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       var sheet = qx.ui.style.Stylesheet.getInstance();
       var prefix = qx.theme.manager.Decoration.CSS_CLASSNAME_PREFIX;
       var prefixdecbase = "." + prefix + decorator; 
-      sheet.addRule(":root", "--compoundbrandbackground:" + qx.theme.manager.Color.getInstance().resolve("CompoundBrandBackground"));
+      var cbbgcolor = qx.theme.manager.Color.getInstance().resolve("CompoundBrandBackground");
+      sheet.addRule(":root", "--compoundbrandbackground:" + cbbgcolor);
       if (!sheet.hasRule(prefixdecbase + "-focused:focus-within::after"))
       {
         var rule1 = prefixdecbase + "-focused::after";
