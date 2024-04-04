@@ -23,7 +23,6 @@ qx.Theme.define("ville.theme.fluent.Decoration",
   aliases : {
     decoration : "ville/theme/fluent/decoration"
   },
-   
 
   decorations :
   {   
