@@ -14,7 +14,7 @@
 ************************************************************************ */
 
 /**
- * NOTE: Instances of this class must be disposed of after use
+ * NOTE: None
  *
  */
  qx.Class.define("ville.icons.Abstract",

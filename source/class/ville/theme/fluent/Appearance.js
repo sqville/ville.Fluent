@@ -108,9 +108,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          backgroundColor : "tooltip",
-          textColor : "tooltip-text",
-          decorator : "tooltip",
+          textColor : "NeutralForeground1",
           padding : [ 1, 3, 2, 3 ],
           offset : [ 10, 5, 5, 5 ]
         };
@@ -126,12 +124,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          textColor: "text-selected",
           showTimeout: 100,
           hideTimeout: 10000,
-          decorator: "tooltip-error",
           font: "default",
-          backgroundColor: undefined
+          backgroundColor: "PaletteRedBackground3"
         };
       }
     },
@@ -850,7 +846,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           backgroundColor : states.selected ? "NeutralBackground1Hover" : undefined,
           decorator: "button-box-common",
           padding : [ 6, 6 ],
-          margin: [ 0, 6, 0, 8 ]
+          margin: [ 0, 6, 0, 6 ]
         };
       }
     },
@@ -876,7 +872,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           alignY : "middle",
-          marginLeft : 14,
+          //marginLeft : 14, used for menus with headers
           width: 20,
           height: 20
         };
@@ -1576,9 +1572,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style (states) {
         return {
           textColor : "blue",
-          source : ville.theme.fluent.Image.URLS["chevron-down"],
-          width: 22,
-          height : 22,
+          //source : ville.theme.fluent.Image.URLS["chevron-down"],
+          source : "",
+          //width: 22,
+          //height : 22,
+          decorator : "ville-icon-arrow-down",
           marginRight: ville.global.spacing.S
         };
       }
@@ -1686,11 +1684,13 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         //var imgcolor = qx.theme.manager.Color.getInstance().resolve("NeutralStrokeAccessible");
         return {
-          icon : ville.theme.fluent.Image.URLS["chevron-down"],
+          //icon : ville.theme.fluent.Image.URLS["chevron-down"],
+          icon : "",
           backgroundColor : "TransparentBackground",
           decorator : "button-box-right-borderless",
           padding : [2,8,0,6],
           width: 24,
+          height: 24,
           cursor : "pointer"
         };
       }
@@ -1702,10 +1702,40 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     	
     	style : function(states)
     	{
-    		return {
-          scale: true,
-          width : 22,
-          height : 22
+    		
+      /*
+        var decorator = "comboboxfield";
+      var sheet = qx.ui.style.Stylesheet.getInstance();
+      var prefix = qx.theme.manager.Decoration.CSS_CLASSNAME_PREFIX;
+      var prefixdecbase = "." + prefix + decorator; 
+      var cbbgcolor = qx.theme.manager.Color.getInstance().resolve("CompoundBrandBackground");
+      sheet.addRule(":root", "--compoundbrandbackground:" + cbbgcolor);
+      if (!sheet.hasRule(prefixdecbase + "-focused:focus-within::after"))
+      {
+        var rule1 = prefixdecbase + "-focused::after";
+        var css1 = [
+          "position: absolute;",
+          "clip-path: inset(calc(100% -2px) 0px 0px);",
+          "height: max(2px, 4px);",
+          "box-sizing: border-box;",
+          "border-radius: inherit;",
+          "transform: scaleX(0);",
+          "transition-property: transform;",
+          "transition-duration: " + ville.global.duration.Normal + ";",
+          "transition-delay: " + ville.global.curve.DecelerateMid + ";"
+        ];
+      }
+
+        var rule0 = prefixdecbase + "::after";
+        sheet.addRule(rule0, css1.join(' '));
+        */
+      
+        
+        return {
+          //scale: true,
+          //width : 22,
+          //height : 22
+          decorator: "ville-icon-arrow-down"
     		};
     	}
     },
@@ -1834,7 +1864,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
    	  style : function(states)
       {
         var decorator = "textfield";
-        var padding = ville.global.spacing.S;
+        var padding = [ville.global.spacing.XS, 0, ville.global.spacing.XS, ville.global.spacing.XS];
         var backgroundcolor = "NeutralBackground1";
         if (states.disabled) {
           //decorator = "inset";
@@ -1852,7 +1882,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator : decorator,
           padding   : padding,
           backgroundColor : backgroundcolor,
-          spacing : 2
+          spacing : ville.global.spacing.XXS
         };
       }
    },
@@ -1864,23 +1894,24 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         var padding = ville.global.spacing.S;
-        if (states.lead) {
+        /*if (states.lead) {
           padding = [9, 9, 9, 13];
-        }
-        if (states.dragover) {
+        }*/
+        /*if (states.dragover) {
           padding[2] -= 2;
-        }
+        }*/
 
         var backgroundColor = "NeutralBackground1";
         if (states.selected) {
           backgroundColor = "NeutralBackground1Selected";
         }
         return {
-          gap : 4,
+          gap : ville.global.spacing.XS,
           padding : padding,
           backgroundColor : backgroundColor,
           textColor : states.disabled ? "NeutralForegroundDisabled" : "NeutralForeground1",
-          decorator : states.lead ? "lead-item" : states.dragover ? "dragover" : undefined,
+          decorator : "list-item",
+          //decorator : states.lead ? "lead-item" : states.dragover ? "dragover" : undefined,
           opacity : states.drag ? 0.5 : undefined
         };
       }
@@ -1893,12 +1924,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         var padding = ville.global.spacing.S;
-        if (states.lead) {
+        /*if (states.lead) {
           padding = [9, 9, 9, 13];
         }
         if (states.dragover) {
           padding[2] -= 2;
-        }
+        }*/
 
         var icon;
         var backgroundColor;
@@ -1931,11 +1962,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         
         return {
           icon: icon,
-          gap : 4,
+          gap : ville.global.spacing.XS,
           padding : padding,
           backgroundColor : backgroundColor,
           textColor : states.disabled ? "NeutralForegroundDisabled" : "NeutralForeground1",
-          decorator : states.lead ? "lead-item" : states.dragover ? "dragover" : "combobox-listitem",
+          decorator : "combobox-listitem",
           opacity : states.drag ? 0.5 : undefined
         };
       }
@@ -2216,14 +2247,15 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states, styles)
       {
         return {
-          icon : ville.theme.fluent.Image.URLS["chevron-down"],
+          //icon : ville.theme.fluent.Image.URLS["chevron-down"],
+          icon : "",
           decorator : "split" + styles.decorator + "-arrow",
           padding : [ville.global.spacing.SNudge, ville.global.spacing.XS],
         };
       }
     },
     
-    "splitbutton/arrow/icon" : {
+    /*"splitbutton/arrow/icon" : {
       
       include : "combobox/button/icon",
 
@@ -2233,7 +2265,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           height: 12
         }
       }
-    },
+    },*/
+    "splitbutton/arrow/icon" : "combobox/button/icon",
+
     
     "splitbutton-menu" :
     {
@@ -2923,7 +2957,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       }
     },
 
-    "toolbar-menubutton/arrow" : 
+    "toolbar-menubutton/arrow" : "splitbutton/arrow/icon",
+
+    /*"toolbar-menubutton/arrow" : 
     {
       include : "splitbutton/arrow/icon",
 
@@ -2933,7 +2969,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           source : ville.theme.fluent.Image.URLS["chevron-down"]
         };
       }
-    },
+    },*/
 
     /*"toolbar-menubutton/arrow" :
     {

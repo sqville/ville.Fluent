@@ -1630,8 +1630,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     	
     	style :
     	{
-    	  width : [0,0,0,0],
-        color : "border-super-light"
+    	  width : 0
     	}
     },
 
@@ -1641,6 +1640,15 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       LIST ITEM
     ---------------------------------------------------------------------------
     */
+
+    "list-item" :
+    {
+      style :
+      {
+        width : 0,
+        radius : ville.global.border.radius.Medium
+      }
+    },
 
     "lead-item" :
     {
@@ -1663,22 +1671,20 @@ qx.Theme.define("ville.theme.fluent.Decoration",
 
     "tooltip" :
     {
+      include : "shadow8",
       style :
       {
-        width : 1,
-        color : "tooltip-text",
-        shadowLength : 1,
-        shadowBlurRadius : 2,
-        shadowColor : "shadow"
+        width : 0,
+        radius : ville.global.border.radius.Medium
       }
     },
 
 
     "tooltip-error" :
     {
+      incklude : "tooltip",
       style : {
-        radius: 5,
-        backgroundColor: "invalid"
+        backgroundColor: "PaletteRedBackground3"
       }
     },
 
