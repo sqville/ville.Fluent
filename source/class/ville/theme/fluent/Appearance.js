@@ -20,10 +20,18 @@
 
 /**
  * The fluent appearance theme.
+ * @require(ville.theme.MImage)
+ * @require(ville.theme.MEmbed)
  * @asset(qx/icon/${qx.icontheme}/22/apps/office-calendar.png)
  */
 qx.Theme.define("ville.theme.fluent.Appearance",
 {
+  
+  boot : function(){
+    qx.Class.include(qx.ui.basic.Image, ville.theme.MImage);
+    qx.Class.include(qx.ui.basic.Atom, ville.theme.MEmbed);
+  },
+  
   appearances :
   {    
     /*
@@ -56,7 +64,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     "image" :
     {
       style : function(states)
-      {
+      {      
         return {
           opacity : !states.replacement && states.disabled ? 0.3 : undefined
         };
@@ -222,10 +230,32 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
       style : function(states)
       {
+        var iconhtml;
+        if (states.vertical)
+          iconhtml = ville.theme.fluent.Image.SVG.ChevronDownRegular;
+        else
+          iconhtml = ville.theme.fluent.Image.SVG.ChevronRightRegular;
+        
         return {
-          icon : ville.theme.fluent.Image.URLS["arrow-" + (states.vertical ? "down" : "right")],
-          padding : [10, 12] 
+          //icon : ville.theme.fluent.Image.URLS["arrow-" + (states.vertical ? "down" : "right")],
+          icon : "",
+          iconProps : {html: iconhtml},
+          padding : [4, 2 ] 
         };
+      }
+    },
+
+    "slidebar/button-forward/icon" :
+    {
+      include : "image",
+
+      style : function(states)
+      {
+        return {
+          color: "NeutralForeground1", 
+          width: 20, 
+          height: 20
+        }
       }
     },
 
@@ -236,12 +266,22 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
       style : function(states)
       {
+        var iconhtml;
+        if (states.vertical)
+          iconhtml = ville.theme.fluent.Image.SVG.ChevronUpRegular;
+        else
+          iconhtml = ville.theme.fluent.Image.SVG.ChevronLeftRegular;
+        
         return {
-          icon : ville.theme.fluent.Image.URLS["arrow-" + (states.vertical ? "up" : "left")],
-          padding : [10, 12] 
+          //icon : ville.theme.fluent.Image.URLS["arrow-" + (states.vertical ? "down" : "right")],
+          icon : "",
+          iconProps : {html: iconhtml},
+          padding : [4, 2 ] 
         };
       }
     },
+
+    "slidebar/button-backward/icon" : "slidebar/button-forward/icon",
 
     /*
     ---------------------------------------------------------------------------
@@ -276,7 +316,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "table/column-button" :
     {
-      alias : "button",
+      include : "button",
 
       style : function(states)
       {
@@ -284,21 +324,26 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator : "table-header-column-button",
           padding : 6,
           backgroundColor : "NeutralBackground1",
-          icon : ville.theme.fluent.Image.URLS["table-column-settings"]
+          icon : ""
+          //width : 20,
+          //height : 20
+          //icon : ville.theme.fluent.Image.URLS["table-column-settings"]
         };
       }
     },
     
     "table/column-button/icon" :
     {
-      alias : "image",
+      include : "image",
 
       style : function(states)
       {
         return {
-          width: 14,
-          height : 14
-          //backgroundColor : states.hovered ? "black" : "gray",
+          html : ville.theme.fluent.Image.SVG.TableSettingsRegular,
+          width: 16,
+          height : 16,
+          color : "NeutralForeground1"
+          //ckgroundColor : states.hovered ? "black" : "gray",
           //decorator : states.hovered ? "select-column-order-hovered-vert" : "select-column-order-vert"
         };
       }
@@ -944,8 +989,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          source : ville.theme.fluent.Image.URLS["chevron-right-regular"],
+          //source : ville.theme.fluent.Image.URLS["chevron-right-regular"],
           //decorator : "ville-icon-arrow-right",
+          clipPath: ville.theme.fluent.Image.ClipPath.ChevronRightRegular,
+          backgroundColor: "NeutralForeground2",
           alignY : "middle",
           marginRight: 10,
           paddingRight: 20,
@@ -963,7 +1010,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          icon : states.checked ? ville.theme.fluent.Image.URLS["checkbox-checked"] : ville.theme.fluent.Image.URLS["blank"]
+          //icon : states.checked ? ville.theme.fluent.Image.URLS["checkbox-checked"] : ville.theme.fluent.Image.URLS["blank"]
+          icon : ville.theme.fluent.Image.URLS["blank"]
         };
       }
     },
@@ -976,7 +1024,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         
         return {
-          decorator : "menu-checkbox-checked",
+          //decorator : "menu-checkbox-checked",
+          html : ville.theme.fluent.Image.SVG.CheckMarkRegular,
+          color : "NeutralForeground1",
           width: 17,
           height: 17,
           marginLeft : 14,
@@ -1167,10 +1217,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         var icon = "";
         if (states.left) {
-          icon = "left";
+          icon = "left-small";
           styles.marginRight = 2;
         } else if (states.right) {
-          icon += "right";
+          icon += "right-small";
           styles.marginLeft = 2;
         } else if (states.up) {
           icon += "up-small";
@@ -1183,6 +1233,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         }
 
         styles.icon = ville.theme.fluent.Image.URLS["arrow-" + icon];
+        /*styles.icon = "",
+        styles.iconProps = {
+          decorator : "ville-icon-arrow-" + icon,
+          width : 0,
+          height : 0
+        };*/
         styles.cursor = "pointer";
         styles.decorator = "button-box";
         return styles;
@@ -1569,14 +1625,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     "selectbox/list" : "combobox/list",
 
     "selectbox/arrow" : {
+      include: "combobox/button/icon",
       style (states) {
         return {
-          textColor : "blue",
-          //source : ville.theme.fluent.Image.URLS["chevron-down"],
-          source : "",
-          //width: 22,
-          //height : 22,
-          decorator : "ville-icon-arrow-down",
           marginRight: ville.global.spacing.S
         };
       }
@@ -1702,40 +1753,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     	
     	style : function(states)
     	{
-    		
-      /*
-        var decorator = "comboboxfield";
-      var sheet = qx.ui.style.Stylesheet.getInstance();
-      var prefix = qx.theme.manager.Decoration.CSS_CLASSNAME_PREFIX;
-      var prefixdecbase = "." + prefix + decorator; 
-      var cbbgcolor = qx.theme.manager.Color.getInstance().resolve("CompoundBrandBackground");
-      sheet.addRule(":root", "--compoundbrandbackground:" + cbbgcolor);
-      if (!sheet.hasRule(prefixdecbase + "-focused:focus-within::after"))
-      {
-        var rule1 = prefixdecbase + "-focused::after";
-        var css1 = [
-          "position: absolute;",
-          "clip-path: inset(calc(100% -2px) 0px 0px);",
-          "height: max(2px, 4px);",
-          "box-sizing: border-box;",
-          "border-radius: inherit;",
-          "transform: scaleX(0);",
-          "transition-property: transform;",
-          "transition-duration: " + ville.global.duration.Normal + ";",
-          "transition-delay: " + ville.global.curve.DecelerateMid + ";"
-        ];
-      }
-
-        var rule0 = prefixdecbase + "::after";
-        sheet.addRule(rule0, css1.join(' '));
-        */
-      
-        
         return {
-          //scale: true,
-          //width : 22,
-          //height : 22
-          decorator: "ville-icon-arrow-down"
+          clipPath : ville.theme.fluent.Image.ClipPath.ChevronDownRegular,
+          backgroundColor : "NeutralForeground2",
+          width : 22,
+          height : 22
+          //decorator: "ville-icon-arrow-down"
     		};
     	}
     },
@@ -1803,9 +1826,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           icon : "",
-          padding : [0,0,0,10],
+          padding : [0,8,0,8],
           cursor : "pointer",
-          width : 30
+          width : 24
           //backgroundColor : undefined
         };
       }
@@ -1813,12 +1836,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     
     "datefield/button/icon" :
     {
-      include : "image",
+      include : "combobox/button/icon",
 
       style : function(states)
       {
         return {
-          decorator: "ville-icon-arrow-down"
+          //marginRight: ville.global.spacing.SNudge
         };
       }
     },
@@ -1881,8 +1904,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           decorator : decorator,
           padding   : padding,
-          backgroundColor : backgroundcolor,
-          spacing : ville.global.spacing.XXS
+          backgroundColor : backgroundcolor
+          //spacing : ville.global.spacing.XXS
         };
       }
    },
@@ -2250,23 +2273,24 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           //icon : ville.theme.fluent.Image.URLS["chevron-down"],
           icon : "",
           decorator : "split" + styles.decorator + "-arrow",
-          padding : [ville.global.spacing.SNudge, ville.global.spacing.XS],
+          padding : [ville.global.spacing.SNudge, ville.global.spacing.XXS],
         };
       }
     },
     
-    /*"splitbutton/arrow/icon" : {
+    "splitbutton/arrow/icon" : {
       
       include : "combobox/button/icon",
 
       style : function() {
         return {
-          width: 12,
-          height: 12
+          width: 16,  
+          height: 16,
+          clipPath : ville.theme.fluent.Image.ClipPath.ChevronDown16Regular
         }
       }
-    },*/
-    "splitbutton/arrow/icon" : "combobox/button/icon",
+    },
+    //"splitbutton/arrow/icon" : "combobox/button/icon",
 
     
     "splitbutton-menu" :
@@ -2388,12 +2412,16 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           source : "",
-          decorator : states.opened ? "ville-icon-triangle-bottom-right" : "ville-icon-arrow-right",
-          margin : states.opened ? [4,0,0,0] : [0,0,0,0],
-          padding : states.opened ? [4,0,0,0] : [0,0,0,0],
+          //decorator : states.opened ? "ville-icon-triangle-bottom-right" : "ville-icon-arrow-right",
+          html: states.opened ? ville.theme.fluent.Image.SVG.ChevronDownRegular : ville.theme.fluent.Image.SVG.ChevronRightRegular,
+          //margin : states.opened ? [4,0,0,0] : [0,0,0,0],
+          //padding : states.opened ? [4,0,0,0] : [0,0,0,0],
+          color : "NeutralForeground1",
+          margin : 0,
+          padding : 0,
           alignX: "left",
-          width : 0,
-          height : 0
+          width : 14,
+          height : 14
         };
       }
     },
@@ -2405,8 +2433,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           padding : [3, 8, 3, 5],
-          icon : states.opened ? ville.theme.fluent.Image.URLS["tree-folder-open"] : ville.theme.fluent.Image.URLS["tree-folder"],
-          iconOpened : ville.theme.fluent.Image.URLS["tree-folder-open"],
+          //icon : states.opened ? ville.theme.fluent.Image.URLS["tree-folder-open"] : ville.theme.fluent.Image.URLS["tree-folder"],
+          //iconOpened : ville.theme.fluent.Image.URLS["tree-folder-open"],
           backgroundColor : states.selected ? "NeutralBackground1Selected" : undefined,
           opacity : states.drag ? 0.5 : undefined,
           cursor : "pointer"
@@ -2420,7 +2448,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
+          html: states.opened ? ville.theme.fluent.Image.SVG["folderOpenRegular"] : ville.theme.fluent.Image.SVG["folderRegular"],
           marginLeft: 6,
+          color : "NeutralForeground1",
           width : 18,
           height : 18
         };
@@ -2447,7 +2477,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          icon : ville.theme.fluent.Image.URLS["tree-file"],
+          //icon : ville.theme.fluent.Image.URLS["tree-file"],
           opacity : states.drag ? 0.5 : undefined,
           cursor : "pointer"
         };
@@ -2460,10 +2490,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          //padding : [0, 4, 0, 0],
+          html: ville.theme.fluent.Image.SVG["documentTextRegular"],
+          color: "NeutralForeground1",
           width : 18,
-          height : 18,
-          scale : true
+          height : 18
         };
       }
     },
@@ -2627,7 +2657,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          icon : ville.theme.fluent.Image.URLS["window-dismiss"],
+          //icon : ville.theme.fluent.Image.URLS["window-dismiss"],
+          icon : "",
           width : 24,
           height : 24,
           //paddingBottom : 4,
@@ -2637,7 +2668,20 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       }
     },
     
-    "window/close-button/icon" : "image",
+    "window/close-button/icon" : {
+      
+      include : "image",
+
+      style : function(states)
+      {
+        return {
+          width: 24,
+          height: 24,
+          backgroundColor : "NeutralForeground1",
+          clipPath : ville.theme.fluent.Image.ClipPath.Dismiss
+        };
+      }
+    },
 
     "window/statusbar" :
     {
@@ -3588,6 +3632,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
+          font : "headline",
+          textColor : "NeutralForeground1",
           backgroundColor: "BrandForeground1",
           padding : [8, 12]
         };
