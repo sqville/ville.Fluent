@@ -30,6 +30,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
   boot : function(){
     qx.Class.include(qx.ui.basic.Image, ville.theme.MImage);
     qx.Class.include(qx.ui.basic.Atom, ville.theme.MEmbed);
+    qx.Class.include(qx.ui.menu.AbstractButton, ville.theme.MEmbed);
   },
   
   appearances :
@@ -1011,7 +1012,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           //icon : states.checked ? ville.theme.fluent.Image.URLS["checkbox-checked"] : ville.theme.fluent.Image.URLS["blank"]
-          icon : ville.theme.fluent.Image.URLS["blank"]
+          icon : ville.theme.fluent.Image.URLS["blank"],
+          iconProps : states.checked ? {html : ville.theme.fluent.Image.SVG.CheckMarkRegular} : {html : ""}
         };
       }
     },
@@ -1025,7 +1027,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         
         return {
           //decorator : "menu-checkbox-checked",
-          html : ville.theme.fluent.Image.SVG.CheckMarkRegular,
           color : "NeutralForeground1",
           width: 17,
           height: 17,
@@ -2448,7 +2449,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          html: states.opened ? ville.theme.fluent.Image.SVG["folderOpenRegular"] : ville.theme.fluent.Image.SVG["folderRegular"],
+          html: states.opened ? ville.theme.fluent.Image.SVG.FolderOpenRegular : ville.theme.fluent.Image.SVG.FolderRegular,
           marginLeft: 6,
           color : "NeutralForeground1",
           width : 18,
@@ -2490,7 +2491,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          html: ville.theme.fluent.Image.SVG["documentTextRegular"],
+          html: ville.theme.fluent.Image.SVG.DocumentTextRegular,
           color: "NeutralForeground1",
           width : 18,
           height : 18

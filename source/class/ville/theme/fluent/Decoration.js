@@ -82,7 +82,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     {
       style : {
         width: [2,2,2,2],
-        color : "black",
+        color : "NeutralForeground1",
         style : "dotted"
       }
     },
@@ -1425,7 +1425,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       include : "textfield-common",
       style :
       {
-        color : "NeutralStrokeDisabled"
+        color : "PaletteRedBorder2"
       }
     },
 
