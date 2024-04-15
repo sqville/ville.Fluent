@@ -22,16 +22,16 @@
  * Mapping class for all images used in the fluent theme.
  *
  * @asset(qx/static/blank.png)
- * @asset(decoration/checkbox/*)
- * @asset(decoration/arrows/*)
- * @asset(decoration/slider/*)
- * @asset(decoration/tree/*)
- * @asset(decoration/table/*)
- * @asset(decoration/tabview/*)
- * @asset(decoration/colorselector/*)
- * @asset(decoration/treevirtual/*)
- * @asset(decoration/cursor/*)
- * @asset(decoration/close-24px.svg)
+ * @asset(ville/theme/fluent/decoration/checkbox/*)
+ * @asset(ville/theme/fluent/decoration/arrows/*)
+ * @asset(ville/theme/fluent/decoration/slider/*)
+ * @asset(ville/theme/fluent/decoration/tree/*)
+ * @asset(ville/theme/fluent/decoration/table/*)
+ * @asset(ville/theme/fluent/decoration/tabview/*)
+ * @asset(ville/theme/fluent/decoration/colorselector/*)
+ * @asset(ville/theme/fluent/decoration/treevirtual/*)
+ * @asset(ville/theme/fluent/decoration/cursor/*)
+ * @asset(ville/theme/fluent/decoration/close-24px.svg)
  */
 qx.Class.define("ville.theme.fluent.Image",
 {
@@ -70,64 +70,64 @@ qx.Class.define("ville.theme.fluent.Image",
       "blank" : "qx/static/blank.png",
 
       // checkbox
-      "checkbox-checked" : "decoration/checkbox/checkbox-check.svg",
-      "checkbox-brand-checked" : "decoration/checkbox/checkbox-brand-check.svg",
-      "checkbox-undetermined" : "decoration/checkbox/undetermined.png",  //Replaced with -- pure Qx -- Decoration entry:: checkbox-undetermined
-      "checkbox-checked-disabled" : "decoration/checkbox/checkbox-check-disabled.svg",
+      "checkbox-checked" : "ville/theme/fluent/decoration/checkbox/checkbox-check.svg",
+      "checkbox-brand-checked" : "ville/theme/fluent/decoration/checkbox/checkbox-brand-check.svg",
+      "checkbox-undetermined" : "ville/theme/fluent/decoration/checkbox/undetermined.png",  //Replaced with -- pure Qx -- Decoration entry:: checkbox-undetermined
+      "checkbox-checked-disabled" : "ville/theme/fluent/decoration/checkbox/checkbox-check-disabled.svg",
 
       // window
-      "window-dismiss" : "decoration/close-24px.svg",
+      "window-dismiss" : "ville/theme/fluent/decoration/close-24px.svg",
 
       // cursor
-      "cursor-copy" : "decoration/cursor/circle-add.svg",
-      "cursor-alias" : "decoration/cursor/alias.svg",
-      "cursor-nodrop" : "decoration/cursor/nodrop.svg",
+      "cursor-copy" : "ville/theme/fluent/decoration/cursor/circle-add.svg",
+      "cursor-alias" : "ville/theme/fluent/decoration/cursor/alias.svg",
+      "cursor-nodrop" : "ville/theme/fluent/decoration/cursor/nodrop.svg",
 
       // arrows
-      "arrow-right" : "decoration/arrows/right.gif", //Replaced with -- pure Qx -- Decoration entry:: sqv-css-icon-arrow-right
-      "arrow-left" : "decoration/arrows/left.gif", //Replaced with -- pure Qx -- Decoration entry:: sqv-css-icon-arrow-left
-      "arrow-up" : "decoration/arrows/up.gif",
-      "arrow-down" : "decoration/arrows/down.gif",
-      "chevron-down" : "decoration/arrows/chevrondown.svg",
-      "chevron-right-regular" : "decoration/arrows/ChevronRightRegular.svg",
-      "arrow-reset" : "decoration/arrows/ArrowResetRegular.svg",
-      "arrow-down-small" : "decoration/arrows/down-small.gif", //Embed option - Decoration entry:: sqv-css-icon-arrow-down-small
-      "arrow-up-small" : "decoration/arrows/up-small.gif",  //Replaced by Decoration entry:: sqv-css-icon-arrow-up-small
-      "arrow-up-invert" : "decoration/arrows/up-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-up-invert
-      "arrow-down-invert" : "decoration/arrows/down-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-down-invert
-      "arrow-right-invert" : "decoration/arrows/right-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-right-invert
+      "arrow-right" : "ville/theme/fluent/decoration/arrows/right.gif", //Replaced with -- pure Qx -- Decoration entry:: sqv-css-icon-arrow-right
+      "arrow-left" : "ville/theme/fluent/decoration/arrows/left.gif", //Replaced with -- pure Qx -- Decoration entry:: sqv-css-icon-arrow-left
+      "arrow-up" : "ville/theme/fluent/decoration/arrows/up.gif",
+      "arrow-down" : "ville/theme/fluent/decoration/arrows/down.gif",
+      "chevron-down" : "ville/theme/fluent/decoration/arrows/chevrondown.svg",
+      "chevron-right-regular" : "ville/theme/fluent/decoration/arrows/ChevronRightRegular.svg",
+      "arrow-reset" : "ville/theme/fluent/decoration/arrows/ArrowResetRegular.svg",
+      "arrow-down-small" : "ville/theme/fluent/decoration/arrows/down-small.gif", //Embed option - Decoration entry:: sqv-css-icon-arrow-down-small
+      "arrow-up-small" : "ville/theme/fluent/decoration/arrows/up-small.gif",  //Replaced by Decoration entry:: sqv-css-icon-arrow-up-small
+      "arrow-up-invert" : "ville/theme/fluent/decoration/arrows/up-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-up-invert
+      "arrow-down-invert" : "ville/theme/fluent/decoration/arrows/down-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-down-invert
+      "arrow-right-invert" : "ville/theme/fluent/decoration/arrows/right-invert.gif", //Replaced by Decoration entry:: sqv-css-icon-arrow-right-invert
 
       // slider
-      "line" : "decoration/slider/line.png",
-      "line-selected" : "decoration/slider/line-selected.png",
-      "line-invalid" : "decoration/slider/line-invalid.png",
+      "line" : "ville/theme/fluent/decoration/slider/line.png",
+      "line-selected" : "ville/theme/fluent/decoration/slider/line-selected.png",
+      "line-invalid" : "ville/theme/fluent/decoration/slider/line-invalid.png",
 
       // tree
-      "tree-folder" : "decoration/tree/folder.svg",
-      "tree-folder-open" : "decoration/tree/folder-open.svg",
-      "tree-file" : "decoration/tree/file.svg",
+      "tree-folder" : "ville/theme/fluent/decoration/tree/folder.svg",
+      "tree-folder-open" : "ville/theme/fluent/decoration/tree/folder-open.svg",
+      "tree-file" : "ville/theme/fluent/decoration/tree/file.svg",
 
       // table
-      "table-column-settings" : "decoration/table/TableSettingsRegular.svg",
+      "table-column-settings" : "ville/theme/fluent/decoration/table/TableSettingsRegular.svg",
 
 	    // tree virtual
-	    "tree-minus" : "decoration/treevirtual/minus.gif",
-      "tree-plus" : "decoration/treevirtual/plus.gif",
-      "treevirtual-line" : "decoration/treevirtual/line.gif",
-      "treevirtual-minus-only" : "decoration/treevirtual/only_minus.gif",
-      "treevirtual-plus-only" : "decoration/treevirtual/only_plus.gif",
-      "treevirtual-minus-start" : "decoration/treevirtual/start_minus.gif",
-      "treevirtual-plus-start" : "decoration/treevirtual/start_plus.gif",
-      "treevirtual-minus-end" : "decoration/treevirtual/end_minus.gif",
-      "treevirtual-plus-end" : "decoration/treevirtual/end_plus.gif",
-      "treevirtual-minus-cross" : "decoration/treevirtual/cross_minus.gif",
-      "treevirtual-plus-cross" : "decoration/treevirtual/cross_plus.gif",
-      "treevirtual-end" : "decoration/treevirtual/end.gif",
-      "treevirtual-cross" : "decoration/treevirtual/cross.gif",
+	    "tree-minus" : "ville/theme/fluent/decoration/treevirtual/minus.gif",
+      "tree-plus" : "ville/theme/fluent/decoration/treevirtual/plus.gif",
+      "treevirtual-line" : "ville/theme/fluent/decoration/treevirtual/line.gif",
+      "treevirtual-minus-only" : "ville/theme/fluent/decoration/treevirtual/only_minus.gif",
+      "treevirtual-plus-only" : "ville/theme/fluent/decoration/treevirtual/only_plus.gif",
+      "treevirtual-minus-start" : "ville/theme/fluent/decoration/treevirtual/start_minus.gif",
+      "treevirtual-plus-start" : "ville/theme/fluent/decoration/treevirtual/start_plus.gif",
+      "treevirtual-minus-end" : "ville/theme/fluent/decoration/treevirtual/end_minus.gif",
+      "treevirtual-plus-end" : "ville/theme/fluent/decoration/treevirtual/end_plus.gif",
+      "treevirtual-minus-cross" : "ville/theme/fluent/decoration/treevirtual/cross_minus.gif",
+      "treevirtual-plus-cross" : "ville/theme/fluent/decoration/treevirtual/cross_plus.gif",
+      "treevirtual-end" : "ville/theme/fluent/decoration/treevirtual/end.gif",
+      "treevirtual-cross" : "ville/theme/fluent/decoration/treevirtual/cross.gif",
 
       // tabview
-      "tabview-close" : "decoration/tabview/close.svg",
-      "tabview-close-hovered" : "decoration/tabview/close-hovered.svg"
+      "tabview-close" : "ville/theme/fluent/decoration/tabview/close.svg",
+      "tabview-close-hovered" : "ville/theme/fluent/decoration/tabview/close-hovered.svg"
     }
   }
 });
