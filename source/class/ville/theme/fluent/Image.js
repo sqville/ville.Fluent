@@ -31,6 +31,7 @@
  * @asset(decoration/colorselector/*)
  * @asset(decoration/treevirtual/*)
  * @asset(decoration/cursor/*)
+ * @asset(decoration/menu/*)
  * @asset(decoration/close-24px.svg)
  */
 qx.Class.define("ville.theme.fluent.Image",
@@ -109,6 +110,8 @@ qx.Class.define("ville.theme.fluent.Image",
 
       // table
       "table-column-settings" : "decoration/table/TableSettingsRegular.svg",
+      "table-ascending" : "decoration/table/ascending.png",  // Retained for theme switching since names are created dynamically
+      "table-descending" : "decoration/table/descending.png", // Retained for theme switching since names are created dynamically
 
 	    // tree virtual
 	    "tree-minus" : "decoration/treevirtual/minus.gif",
@@ -124,6 +127,12 @@ qx.Class.define("ville.theme.fluent.Image",
       "treevirtual-plus-cross" : "decoration/treevirtual/cross_plus.gif",
       "treevirtual-end" : "decoration/treevirtual/end.gif",
       "treevirtual-cross" : "decoration/treevirtual/cross.gif",
+
+      // menu
+      "menu-checkbox" : "decoration/menu/checkbox.gif", // Retained for theme switching since names are created dynamically
+      //"menu-checkbox-invert" : "decoration/menu/checkbox-invert.gif", //Replaced with Qx + CSS
+      //"menu-radiobutton-invert" : "decoration/menu/radiobutton-invert.gif", //Replaced with Qx + CSS
+      "menu-radiobutton" : "decoration/menu/radiobutton.gif", // Retained for theme switching since names are created dynamically
 
       // tabview
       "tabview-close" : "decoration/tabview/close.svg",

@@ -67,7 +67,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {      
         return {
-          opacity : !states.replacement && states.disabled ? 0.3 : undefined
+          opacity : !states.replacement && states.disabled ? 0.3 : undefined,
+          textColor : states.disabled ? "NeutralForegroundDisabled" : "NeutralForeground1"
         };
       }
     },
@@ -918,9 +919,9 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         return {
           alignY : "middle",
-          //marginLeft : 14, used for menus with headers
-          width: 20,
-          height: 20
+          marginLeft : 14
+          //width: 20,
+          //height: 20
         };
       }
     },
