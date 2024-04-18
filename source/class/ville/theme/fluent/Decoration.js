@@ -2323,6 +2323,15 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       }
     },
 
+    "radiobutton-invalid-checked" :
+    {
+      include : "radiobutton-checked",
+      style :
+      {
+        color : "PaletteRedBorder2"
+      }
+    },
+
 
     /*
     ---------------------------------------------------------------------------
@@ -2416,7 +2425,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       include : "checkbox",
       style :
       {
-        color : "invalid"
+        color : "PaletteRedBorder2"
       }
     },
 
@@ -2425,7 +2434,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       include : "checkbox-checked",
       style :
       {
-        color : "invalid"
+        color : "PaletteRedBorder2"
       }
     },
 
@@ -2442,9 +2451,10 @@ qx.Theme.define("ville.theme.fluent.Decoration",
     "checkbox-undetermined-invalid" :
     {
       include : "checkbox-undetermined",
-      style :
+      style : 
       {
-        color : "invalid"
+        color : "PaletteRedBorder2",
+        innerColor: "NeutralBackground2"
       }
     }
   }

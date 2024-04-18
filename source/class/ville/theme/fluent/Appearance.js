@@ -1212,6 +1212,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
     "scrollbar/button" :
     {      
+      include : "button",
       style : function(states)
       {
         var styles = {};
@@ -1219,17 +1220,17 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         var icon = "";
         if (states.left) {
-          icon = "left-small";
+          icon = "left";
           styles.marginRight = 2;
         } else if (states.right) {
-          icon += "right-small";
+          icon += "right";
           styles.marginLeft = 2;
         } else if (states.up) {
-          icon += "up-small";
+          icon += "up";
           //icon += "up";
           styles.marginBottom = 2;
         } else {
-          icon += "down-small";
+          icon += "down";
           //icon += "down";
           styles.marginTop = 2;
         }
@@ -1382,7 +1383,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       {
         var decorator = "radiobutton";
 
-        //decorator += states.invalid && !states.disabled ? "-invalid" : "";
+        decorator += states.invalid && !states.disabled ? "-invalid" : "";
 
         var backgroundColor = "TransparentBackground";
         if (states.disabled && states.checked) {
@@ -1391,9 +1392,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         } else if (states.disabled) {
           decorator += "-disabled";
         } else if (states.checked) {
-          backgroundColor = "CompoundBrandForeground1";
+          backgroundColor = states.invalid ? "PaletteRedBorder2" : "CompoundBrandForeground1";
           decorator += "-checked";
         }
+        
 
         return {
           decorator : decorator,
@@ -1479,6 +1481,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           }
           if (states.invalid) {
             decorator = "checkbox-checked-invalid"; 
+            bckgrdcolr = "PaletteRedBorder2";
           } 
           if (states.disabled) {
             bckgrdcolr = "TransparentBackground";
@@ -1492,7 +1495,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
             decorator = "checkbox-undetermined-focused";
           }
           if (states.invalid) {
-            decorator = "checkbox-undetermined-invalid"; 
+            decorator = "checkbox-undetermined-invalid";
+            bckgrdcolr = "PaletteRedBorder2";
           }
           if (states.disabled) {
             decorator = "checkbox-undetermined-disabled";
@@ -1895,8 +1899,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           //decorator = "inset";
           backgroundcolor = "NeutralBackgroundDisabled";
         } else if (states.invalid) {
-          //decorator = "border-invalid";
-          backgroundcolor = "background-invalid";
+          decorator += "-invalid";
+          //backgroundcolor = "background-invalid";
         } else if (states.focused) {
           decorator += "-focused";
         } else {
