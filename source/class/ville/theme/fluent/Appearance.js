@@ -23,6 +23,7 @@
  * @require(ville.theme.MImage)
  * @require(ville.theme.MEmbed)
  * @asset(qx/icon/${qx.icontheme}/22/apps/office-calendar.png)
+ * @asset(decoration/arrows/*)
  */
 qx.Theme.define("ville.theme.fluent.Appearance",
 {
