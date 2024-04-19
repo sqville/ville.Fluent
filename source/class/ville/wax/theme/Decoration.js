@@ -404,7 +404,7 @@ qx.Theme.define("ville.wax.theme.Decoration",
     
     style :
      {
-       clipPath : ville.theme.fluent.Image.SVG["dismiss-path"]
+       clipPath : ville.theme.fluent.Image.ClipPath.Dismiss
      }
    },
 
@@ -413,7 +413,7 @@ qx.Theme.define("ville.wax.theme.Decoration",
     
     style :
      {
-       clipPath : ville.theme.fluent.Image.SVG["chevronDownRegular-path"]
+       clipPath : ville.theme.fluent.Image.ClipPath.ChevronDownRegular
      }
    },
 

@@ -107,7 +107,7 @@ qx.Class.define("ville.wax.demo.Application",
       qx.Class.include(qx.ui.core.Widget, ville.wax.MWidget);
       qx.Class.include(qx.ui.basic.Atom, ville.wax.MEmbed);  
       qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MMenuButtonEmbed);
-      qx.Class.include(qx.ui.basic.Image, ville.theme.MImage);
+      //qx.Class.include(qx.ui.basic.Image, ville.theme.MImage);
       qx.Class.include(qx.ui.decoration.Decorator, ville.decoration.MClipPath); 
       qx.Class.include(qx.ui.tabview.TabView, ville.wax.MTabView);
 

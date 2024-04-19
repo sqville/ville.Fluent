@@ -743,7 +743,7 @@ qx.Theme.define("ville.wax.theme.Appearance",
       style : function(states)
       {
         return {
-          html: states.selected ? ville.theme.fluent.Image.SVG["checkMarkRegular"] : "",
+          html: states.selected ? ville.theme.fluent.Image.SVG.CheckMarkRegular : "",
           width : 20,
           height : 20
         };
@@ -841,7 +841,7 @@ qx.Theme.define("ville.wax.theme.Appearance",
       style : function(states)
       {
         return {
-          html: ville.theme.fluent.Image.SVG["tableSettingsRegular"],
+          html: ville.theme.fluent.Image.SVG.TableSettingsRegular,
           color : "NeutralForeground1",
           width: 14,
           height : 14
@@ -914,7 +914,7 @@ qx.Theme.define("ville.wax.theme.Appearance",
       style : function(states)
       {
         return {
-          html: states.opened ? ville.theme.fluent.Image.SVG["folderOpenRegular"] : ville.theme.fluent.Image.SVG["folderRegular"],
+          html: states.opened ? ville.theme.fluent.Image.SVG.FolderOpenRegular : ville.theme.fluent.Image.SVG.FolderRegular,
           marginLeft: 6,
           color : "NeutralForeground1",
           //clipPath: states.opened ? ville.theme.fluent.Image.SVG["folderOpenRegular-path"] : ville.theme.fluent.Image.SVG["folderRegular-path"],
@@ -932,7 +932,7 @@ qx.Theme.define("ville.wax.theme.Appearance",
       {
         return {
           source : "",
-          html : states.opened ? ville.theme.fluent.Image.SVG["chevronDownRegular"] : ville.theme.fluent.Image.SVG["chevronRightRegular"], 
+          html : states.opened ? ville.theme.fluent.Image.SVG.ChevronDownRegular : ville.theme.fluent.Image.SVG.ChevronRightRegular, 
           color : "NeutralForeground1",
           alignX: "left",
           width : 14,
@@ -962,7 +962,7 @@ qx.Theme.define("ville.wax.theme.Appearance",
       style : function(states)
       {
         return {
-          html: ville.theme.fluent.Image.SVG["documentTextRegular"],
+          html: ville.theme.fluent.Image.SVG.DocumentTextRegular,
           color: "NeutralForeground1",
           width : 18,
           height : 18

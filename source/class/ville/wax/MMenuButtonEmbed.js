@@ -11,15 +11,6 @@ qx.Mixin.define("ville.wax.MMenuButtonEmbed",
 {
   properties :
   {
-  	/** Control the text alignment */
-    iconProps :
-    {
-      check : "Map",
-      nullable : true,
-      themeable : true,
-      apply : "_applyIconProps"
-    },
-
     /** Control the text alignment */
     embed :
     {
@@ -41,13 +32,6 @@ qx.Mixin.define("ville.wax.MMenuButtonEmbed",
   
   members :
   {
-  	
-  	// property apply
-    _applyIconProps (value, old) 
-    {
-      this.getChildControl("icon").set(value);
-    },
-
     // property apply
     _applyEmbedProps (value, old) 
     {
