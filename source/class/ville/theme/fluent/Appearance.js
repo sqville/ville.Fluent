@@ -22,6 +22,7 @@
  * The fluent appearance theme.
  * @require(ville.theme.MImage)
  * @require(ville.theme.MEmbed)
+ * @require(ville.theme.MMenu)
  * @asset(qx/icon/${qx.icontheme}/22/apps/office-calendar.png)
  * @asset(decoration/arrows/*)
  */
@@ -32,6 +33,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     qx.Class.include(qx.ui.basic.Image, ville.theme.MImage);
     qx.Class.include(qx.ui.basic.Atom, ville.theme.MEmbed);
     qx.Class.include(qx.ui.menu.AbstractButton, ville.theme.MEmbed);
+    qx.Class.include(qx.ui.menu.Menu, ville.theme.MMenu);
   },
   
   appearances :

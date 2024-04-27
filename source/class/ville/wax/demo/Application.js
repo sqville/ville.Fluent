@@ -495,6 +495,7 @@ qx.Class.define("ville.wax.demo.Application",
       // view panes check buttons
       menu1.add(panesButton);
 
+      /*
       menu1.addListener("appear", function() {
         var menubounds = this.getBounds(); 
         var ptopstart = menubounds.top;
@@ -563,6 +564,7 @@ qx.Class.define("ville.wax.demo.Application",
         };
         qx.bom.element.AnimationCss.animate(this.getContentElement().getDomElement(), popupup);
       });
+      */
       
 
       var menubutton1 = new qx.ui.form.MenuButton(
