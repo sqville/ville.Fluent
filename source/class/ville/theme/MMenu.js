@@ -7,11 +7,7 @@ qx.Mixin.define("ville.theme.MMenu",
       var ptopstart = menubounds.top;
       var plftstart = menubounds.left;
 
-      var popupup = {
-        duration: parseInt(ville.global.duration.Slower.slice(0,-2)), 
-        timing: ville.global.curve.DecelerateMid,
-        keep : 100
-      };
+      var popupup = this.getOpenAnimation();
 
       if (this.hasState("submenu")) {
         var rtlftoffset = this.getHorizontalAnimationOffset();
@@ -24,37 +20,42 @@ qx.Mixin.define("ville.theme.MMenu",
           0: {left: plftstart + "px", opacity: 0},
           100: {left: menubounds.left + "px", opacity: 1}
         };
-
+        qx.bom.element.AnimationCss.animate(this.getContentElement().getDomElement(), popupup);
       } else {
-        var updnoffset = this.getVerticalAnimationOffset();
-        if (ptopstart < this.getOpener().getContentLocation().top)
-          ptopstart += updnoffset;
-        else
-          ptopstart -= updnoffset;
-          
-        popupup.keyFrames = {
-            0: {top: ptopstart + "px", opacity: 0},
-            100: {top: menubounds.top + "px", opacity: 1}
+        if (this.getOpener()) {
+          var updnoffset = this.getVerticalAnimationOffset();
+          if (ptopstart < this.getOpener().getContentLocation().top)
+            ptopstart += updnoffset;
+          else
+            ptopstart -= updnoffset;
+            
+          popupup.keyFrames = {
+              0: {top: ptopstart + "px", opacity: 0},
+              100: {top: menubounds.top + "px", opacity: 1}
           };
+          qx.bom.element.AnimationCss.animate(this.getContentElement().getDomElement(), popupup);
+        }
       }
-      
-      qx.bom.element.AnimationCss.animate(this.getContentElement().getDomElement(), popupup);
     });
   },
 
   properties :
   {
+    openAnimation :
+    {
+      check : "Map",
+      themeable: true
+    },
+
     verticalAnimationOffset :
     {
       check : "Integer",
-      init : 16,
       themeable: true
     },
 
     horizontalAnimationOffset :
     {
       check : "Integer",
-      init : 16,
       themeable: true
     }
   }

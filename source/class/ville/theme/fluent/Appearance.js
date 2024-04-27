@@ -783,7 +783,14 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           arrowColumnWidth : 8,
           padding : 0,
           placementModeY : states.submenu || states.contextmenu ? "best-fit" : "keep-align",
-          offset : [0,0,0,0]
+          offset : [0,0,0,0],
+          openAnimation : {
+            duration: parseInt(ville.global.duration.Slower.slice(0,-2)), 
+            timing: ville.global.curve.DecelerateMid,
+            keep : 100
+          },
+          verticalAnimationOffset : ville.global.spacing.L,
+          horizontalAnimationOffset : ville.global.spacing.L
         };
 
         if (states.submenu)

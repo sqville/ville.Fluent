@@ -1717,7 +1717,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       include : "popup",
       style :
       {
-        transitionProperty: ['visibility'],
+        transitionProperty: ['display', 'top', 'left'],
         transitionDuration: ville.global.duration.Slower,
         transitionTimingFunction : ville.global.curve.DecelerateMid
       }
