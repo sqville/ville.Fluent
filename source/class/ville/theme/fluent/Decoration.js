@@ -1848,7 +1848,14 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       TAB VIEW
     ---------------------------------------------------------------------------
     */
-   
+
+    "tabview-dynamic-widget" : 
+    {
+      style :
+      {
+        radius : 2
+      }
+    },
 
     "tabview-page-button-top" :
     {
@@ -1856,10 +1863,10 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       {
         width : [0, 0, 4, 0],
         color : "CompoundBrandStroke",
-        radius : 0,
-        transitionProperty: ['background','color'],
-        transitionDuration: ville.global.duration.Faster,
-        transitionTimingFunction : ville.global.curve.EasyEase
+        radius : 0
+        //transitionProperty: ['border-color'],
+        //transitionDuration: ville.global.duration.Slower,
+        //transitionTimingFunction : ville.global.curve.Linear
       }
     },
 
@@ -1896,7 +1903,7 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       
       style :
       {
-        color : "NeutralStroke1Hover",
+        color : "NeutralStroke1Hover"
       }
     },
 

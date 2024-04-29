@@ -23,6 +23,7 @@
  * @require(ville.theme.MImage)
  * @require(ville.theme.MEmbed)
  * @require(ville.theme.MMenu)
+ * @require(ville.theme.MTabView)
  * @asset(qx/icon/${qx.icontheme}/22/apps/office-calendar.png)
  * @asset(decoration/arrows/*)
  */
@@ -34,6 +35,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     qx.Class.include(qx.ui.basic.Atom, ville.theme.MEmbed);
     qx.Class.include(qx.ui.menu.AbstractButton, ville.theme.MEmbed);
     qx.Class.include(qx.ui.menu.Menu, ville.theme.MMenu);
+    qx.Class.include(qx.ui.tabview.TabView, ville.theme.MTabView);
   },
   
   appearances :
@@ -3062,7 +3064,34 @@ qx.Theme.define("ville.theme.fluent.Appearance",
     ---------------------------------------------------------------------------
     */
 
-    "tabview" : {},
+    //"tabview" : {},
+
+   "tabview" : 
+    {
+      style : function(states)
+      {
+        return {
+          dynamicMarkEnabled : true,
+          dynamicMarkAnimationDuration : 300,
+          dynamicMarkAnimationTiming : "ease"
+        };
+      }
+    },
+
+    "tabview-dynamic-widget" : 
+    {
+      include : "widget",
+
+      style : function(states)
+      {
+        return {
+          height: 4, 
+          backgroundColor: "CompoundBrandStroke", 
+          zIndex: 10, 
+          decorator : "tabview-dynamic-widget"
+        };
+      }
+    },
 
     "tabview/bar" :
     {
@@ -3160,18 +3189,18 @@ qx.Theme.define("ville.theme.fluent.Appearance",
 
         // default padding
         if (states.barTop ) {
-          padding = [10, 1, 10, 1];//[12, 18, 12, 15];
+          padding = [10, 3, 10, 3];//[12, 18, 12, 15];
           margin = states.firstTab ? [0, 26, 0, 0] : [0, 26];
         } else if (states.barBottom) {
-          padding = [10, 1, 10, 1];//[12, 8, 12, 8];
+          padding = [10, 3, 10, 3];//[12, 8, 12, 8];
           margin = states.firstTab ? [0, 26, 0, 0] : [0, 26];
         }
         else if (states.barLeft) {
-          padding = [1, 16, 1, 10];//[12, 8, 12, 8];
+          padding = [3, 16, 3, 10];//[12, 8, 12, 8];
           margin = [16, 0];
         }
         else {
-          padding = [1, 10, 1, 16];
+          padding = [3, 10, 3, 16];
           margin = [16, 0];
         }
 
@@ -3194,7 +3223,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           }
           else if (states.checked) {
             if (states.barTop) {
-              decorator = "tabview-page-button-top";
+              decorator = states.dynamicMark ? "tabview-page-button-top-hovered" : "tabview-page-button-top";
               padding[2] -= 4;
             } else if (states.barBottom) {
               decorator = "tabview-page-button-bottom";
