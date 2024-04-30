@@ -1857,6 +1857,19 @@ qx.Theme.define("ville.theme.fluent.Decoration",
       }
     },
 
+    "tabview-page-button-top-test" :
+    {
+      style :
+      {
+        width : [0, 0, 4, 0],
+        color : "transparent",
+        radius : 0,
+        transitionProperty: ['border-color'],
+        transitionDuration: ville.global.duration.Slower,
+        transitionTimingFunction : ville.global.curve.Linear
+      }
+    },
+
     "tabview-page-button-top" :
     {
       style :

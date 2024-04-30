@@ -3085,7 +3085,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          height: 4, 
+          height: 4,
+          width : 0, 
           backgroundColor: "CompoundBrandStroke", 
           zIndex: 10, 
           decorator : "tabview-dynamic-widget"
@@ -3223,7 +3224,8 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           }
           else if (states.checked) {
             if (states.barTop) {
-              decorator = states.dynamicMark ? "tabview-page-button-top-hovered" : "tabview-page-button-top";
+              //decorator = states.dynamicMark ? "tabview-page-button-top-hovered" : "tabview-page-button-top";
+              decorator = states.dynamicMark ? "tabview-page-button-top-test" : "tabview-page-button-top";
               padding[2] -= 4;
             } else if (states.barBottom) {
               decorator = "tabview-page-button-bottom";
