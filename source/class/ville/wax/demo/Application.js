@@ -109,7 +109,7 @@ qx.Class.define("ville.wax.demo.Application",
       qx.Class.include(qx.ui.menu.AbstractButton, ville.wax.MMenuButtonEmbed);
       //qx.Class.include(qx.ui.basic.Image, ville.theme.MImage);
       qx.Class.include(qx.ui.decoration.Decorator, ville.decoration.MClipPath); 
-      qx.Class.include(qx.ui.tabview.TabView, ville.wax.MTabView);
+      //qx.Class.include(qx.ui.tabview.TabView, ville.wax.MTabView);
 
       // App's Root
       var approot = this.getRoot();
@@ -812,7 +812,7 @@ qx.Class.define("ville.wax.demo.Application",
       var tabviewbarline = new qx.ui.core.Widget().set({height: 4, backgroundColor: "BrandBackground1", zIndex: 5, decorator : "tabview-page-button-line"});
       wtabView2.setDynamicMarkAnimationDuration(parseInt(ville.global.duration.Slower.slice(0,-2))); 
       wtabView2.setDynamicMarkAnimationTiming(ville.global.curve.DecelerateMid);
-      wtabView2.setDynamicMark(tabviewbarline);
+      //wtabView2.setDynamicMark(tabviewbarline);
 
       // **SQ**MIXIN** START
       var tabviewoverflowmenubutton1 = new qx.ui.form.MenuButton("...", null, tvbarmenu).set({decorator : null});

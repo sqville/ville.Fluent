@@ -3,3 +3,4 @@
 /qx_packages
 /source/class/widgetbrowser
 .package-cache.json
+node_modules

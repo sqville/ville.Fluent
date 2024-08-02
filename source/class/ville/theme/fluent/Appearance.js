@@ -779,17 +779,17 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         {
           backgroundColor : "NeutralBackground1",
           decorator : "popup",
-          spacingX : 12,
-          spacingY : 0,
-          iconColumnWidth : 12,
-          arrowColumnWidth : 8,
-          padding : 0,
+          spacingX : ville.global.spacing.M,
+          spacingY : ville.global.spacing.None,
+          iconColumnWidth : ville.global.spacing.M,
+          arrowColumnWidth : ville.global.spacing.S,
+          padding : ville.global.spacing.None,
           placementModeY : states.submenu || states.contextmenu ? "best-fit" : "keep-align",
-          offset : [0,0,0,0],
+          offset : ville.global.spacing.None,
           openAnimation : {
             duration: parseInt(ville.global.duration.Slower.slice(0,-2)), 
             timing: ville.global.curve.DecelerateMid,
-            keep : 100
+            keep: 100
           },
           verticalAnimationOffset : ville.global.spacing.L,
           horizontalAnimationOffset : ville.global.spacing.L
@@ -798,11 +798,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         if (states.submenu)
         {
           result.position = "right-top";
-          result.offset = [-2, -3];
+          //result.offset = [-2, -3];
         }
 
         if (states.contextmenu) {
-          result.offset = 4;
+          result.offset = ville.global.spacing.XS;
         }
 
         return result;
@@ -932,8 +932,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           alignY : "middle",
           marginLeft : 14
-          //width: 20,
-          //height: 20
         };
       }
     },
@@ -1144,12 +1142,10 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function(states)
       {
         return {
-          //backgroundColor: states.selected ? "table-row-background-selected" : "table-row-background-even",
           backgroundColor: states.selected ?
             "BrandBackground2" :
             "NeutralBackground1",
-          //textColor: states.selected ? "text-selected" : "text",
-          padding: [6, 6]
+          padding: ville.global.spacing.SNudge
         };
      }   
     },
@@ -1364,7 +1360,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         return {
           icon : "",
           gap : 10,
-          cursor: "pointer "
+          cursor: "pointer"
         };
       }
     },
@@ -1472,17 +1468,11 @@ qx.Theme.define("ville.theme.fluent.Appearance",
         
         var decorator = "checkbox";
 
-        /*if (states.focused && !states.invalid) {
-          decorator = "checkbox-focused";
-        }*/
-
         decorator += states.invalid && !states.disabled ? "-invalid" : "";
 
-        var padding;
         var bckgrdcolr = "TransparentBackground";
         // Checked
         if (states.checked) {
-          padding = [0,0,0,0];
           decorator = "checkbox-checked";
           bckgrdcolr = "CompoundBrandBackground";
           if (states.hovered) {
@@ -1501,7 +1491,6 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           }
           // Undetermined
         } else if (states.undetermined) {
-          padding = [0,0,0,0];
           decorator = "checkbox-undetermined";
           if (states.focused) {
             decorator = "checkbox-undetermined-focused";
@@ -1522,7 +1511,7 @@ qx.Theme.define("ville.theme.fluent.Appearance",
           decorator: decorator,
           width: 17,
           height: 17,
-          padding: padding,
+          padding: ville.global.spacing.None,
           backgroundColor : bckgrdcolr
         };
       }
@@ -1905,7 +1894,12 @@ qx.Theme.define("ville.theme.fluent.Appearance",
    	  style : function(states)
       {
         var decorator = "textfield";
-        var padding = [ville.global.spacing.XS, 0, ville.global.spacing.XS, ville.global.spacing.XS];
+        var padding = [
+          ville.global.spacing.XS, 
+          0, 
+          ville.global.spacing.XS, 
+          ville.global.spacing.XS
+        ];
         var backgroundcolor = "NeutralBackground1";
         if (states.disabled) {
           //decorator = "inset";
