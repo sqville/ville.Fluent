@@ -107,6 +107,13 @@ qx.Theme.define("ville.theme.fluent.Dark",
     NeutralStroke1Pressed : ville.global.color.Grey[42],
     NeutralStroke1Selected : ville.global.color.Grey[44],
     NeutralStroke2 : ville.global.color.Grey[32],
+
+    // "white-box-border" is defined in Common, so without an override here it
+    // stays #D8D8D8 in the dark theme — a light-grey frame on a dark surface.
+    // Matches NeutralStroke2 above, which is the equivalent stroke for this
+    // theme. ("border-main" has the same shape: Common-only, so it cannot vary
+    // by theme either — left alone in case its blue is intentional.)
+    "white-box-border" : ville.global.color.Grey[32],
     NeutralStroke3 : ville.global.color.Grey[24],
     NeutralStrokeOnBrand : ville.global.color.Grey[16],
     NeutralStrokeOnBrand2 : ville.global.color.White,

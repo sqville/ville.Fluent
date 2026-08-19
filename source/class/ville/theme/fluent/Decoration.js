@@ -1347,7 +1347,11 @@ qx.Theme.define("ville.theme.fluent.Decoration",
         width: 1,
         color: "white-box-border",
         radius: 3,
-        backgroundColor : "white",
+        // Was a hardcoded "white". A decorator's background wins over the
+        // consuming widget's, so any dark-theme appearance that included
+        // white-box got a white panel it could not override. NeutralBackground1
+        // is White in the light theme, so light rendering is unchanged.
+        backgroundColor : "NeutralBackground1",
         shadowLength: 0,
         shadowBlurRadius : 0,
         shadowColor : "#999999"
