@@ -364,7 +364,22 @@ qx.Theme.define("ville.theme.fluent.Appearance",
       style : function()
       {
         return {
-          icon : ville.theme.fluent.Image.URLS["arrow-reset"]
+          icon : ""
+        };
+      }
+    },
+
+    "table-column-reset-button/icon" :
+    {
+      include : "image",
+
+      style : function()
+      {
+        return {
+          html : ville.theme.fluent.Image.SVG.arrowResetRegular,
+          width : 16,
+          height : 16,
+          color : "NeutralForeground1"
         };
       }
     },
